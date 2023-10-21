@@ -18,7 +18,7 @@ public class Coin : MonoBehaviour
     [SerializeField] private int coinsForNewObstacle;
     
     private int coinsCollected;
-
+    
     private void Awake()
     {
         Instance = this;
@@ -34,6 +34,7 @@ public class Coin : MonoBehaviour
             ComboBar.Instance.ResetDelay();
             ComboBar.Instance.Increment();
             AudioManager.Instance.PlaySound(AudioManager.AudioType.Collect);
+            PlayerMovement.Instance.IncreaseIncrement();
 
             if (coinsCollected % coinsForNewObstacle == 0)
             {

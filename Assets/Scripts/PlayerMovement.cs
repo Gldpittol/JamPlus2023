@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float baseAngle;
     [SerializeField] private float currentAngle;
     [SerializeField] private float incrementStrength;
-
     [SerializeField] private float minValue, maxValue;
+    [SerializeField] private float increasePerCoin = 1;
+    [SerializeField] private float maxSpeed;
+
     [SerializeField] private GameObject lineObject;
     [SerializeField] private LayerMask raycastMask;
 
@@ -230,6 +232,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 lineObjectRenderer.color = Color.white;
             }
+        }
+    }
+
+    public void IncreaseIncrement()
+    {
+        incrementStrength += increasePerCoin;
+        if (incrementStrength > maxSpeed)
+        {
+            incrementStrength = maxSpeed;
         }
     }
 }
