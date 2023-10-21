@@ -187,6 +187,8 @@ public class PlayerMovement : MonoBehaviour
         currentDashTimer = dashCooldown;
 
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
+        
+        AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
     }
 
     public bool IsGrounded()

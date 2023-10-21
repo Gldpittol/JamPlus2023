@@ -33,6 +33,8 @@ public class Coin : MonoBehaviour
             GameManager.Instance.UpdateScore();
             ComboBar.Instance.ResetDelay();
             ComboBar.Instance.Increment();
+            AudioManager.Instance.PlaySound(AudioManager.AudioType.Collect);
+
             if (coinsCollected % coinsForNewObstacle == 0)
             {
                 PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
