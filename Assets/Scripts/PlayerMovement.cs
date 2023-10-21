@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject lineObject;
     [SerializeField] private LayerMask raycastMask;
     [SerializeField] private GameObject raycastSource;
+    [SerializeField] private SpriteRenderer playerRenderer;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
@@ -27,6 +28,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool followCoin = true;
     [SerializeField] private float dashBufferTime = 0.2f;
   
+    [Header("Player Visual Offset")]
+    [SerializeField] private Vector2 offsetBottom;
+    [SerializeField] private Vector2 offsetTop;
+    [SerializeField] private Vector2 offsetRight;
+    [SerializeField] private Vector2 offsetLeft;
+
+    
     private Animator animator;
     private Vector2 currentValues; 
     private bool isIncreasing = true;
@@ -70,49 +78,79 @@ public class PlayerMovement : MonoBehaviour
             currentAngle = 0;
             foreach (ContactPoint2D contact in other.contacts)
             {
+                playerRenderer.flipX = false;
                 if (contact.normal.y > 0)
                 {
-                 //   Debug.Log("Bottom hit");
+                    //   Debug.Log("Bottom hit");
+                    if (lineObject.transform.right.x < 0)
+                    {
+                        playerRenderer.flipX = true;
+                    }
                     baseAngle = 90;
+                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
                     if (followCoin)
                     {
                         float angleToCoin = Vector2.Angle(Vector2.right, Coin.Instance.transform.position - transform.position);
                         if (angleToCoin > 90) isIncreasing = true;
                         else isIncreasing = false;   
                     }
+
+                    playerRenderer.gameObject.transform.localPosition = offsetBottom;
                 }
                 else if (contact.normal.y < 0)
                 {
 //                    Debug.Log("Top hit");
+                    if (lineObject.transform.right.x > 0)
+                    {
+                        playerRenderer.flipX = true;
+                    }
                     baseAngle = 270;
+                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
                     if (followCoin)
                     {
                         float angleToCoin = Vector2.Angle(Vector2.right, Coin.Instance.transform.position - transform.position);
                         if (angleToCoin > 90) isIncreasing = false;
                         else isIncreasing = true;
                     }
+                    playerRenderer.gameObject.transform.localPosition = offsetTop;
+
                 }
                 else if (contact.normal.x > 0)
                 {
-                 //   Debug.Log("Left hit");
+                    //   Debug.Log("Left hit");
+                    if (lineObject.transform.right.y > 0)
+                    {
+                        playerRenderer.flipX = true;
+                    }
+                   
                     baseAngle = 0;
+                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
                     if (followCoin)
                     {
                         float angleToCoin = Vector2.Angle(Vector2.up, Coin.Instance.transform.position - transform.position);
                         if (angleToCoin > 90) isIncreasing = false;
                         else isIncreasing = true;
                     }
+                    playerRenderer.gameObject.transform.localPosition = offsetLeft;
+
                 }
                 else if (contact.normal.x < 0)
                 {
-                  //  Debug.Log("Right hit");
+                    //  Debug.Log("Right hit");
+                    if (lineObject.transform.right.y < 0)
+                    {
+                        playerRenderer.flipX = true;
+                    }
                     baseAngle = 180;
+                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
                     if (followCoin)
                     {
                         float angleToCoin = Vector2.Angle(Vector2.up, Coin.Instance.transform.position - transform.position);
                         if (angleToCoin > 90) isIncreasing = true;
                         else isIncreasing = false;
                     }
+                    playerRenderer.gameObject.transform.localPosition = offsetRight;
+
                 }
             }
         }
@@ -208,6 +246,21 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
         
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
+        SetCharacterOrientation();
+    }
+
+    public void SetCharacterOrientation()
+    {
+        playerRenderer.gameObject.transform.eulerAngles = Vector3.zero;
+
+        if (lineObject.transform.right.x < 0)
+        {
+            playerRenderer.flipX = true;
+        }
+        else
+        {
+            playerRenderer.flipX = false;
+        }
     }
 
     public bool IsGrounded()

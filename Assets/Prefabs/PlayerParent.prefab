@@ -125,6 +125,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 115
   raycastSource: {fileID: 8939609104224541265}
+  playerRenderer: {fileID: 872948909287872563}
   dashStrength: 100
   dashCooldown: 0.3
   followCoin: 1
