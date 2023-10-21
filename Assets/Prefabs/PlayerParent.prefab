@@ -130,6 +130,10 @@ MonoBehaviour:
   dashCooldown: 0.3
   followCoin: 1
   dashBufferTime: 0.15
+  offsetBottom: {x: 0, y: 0}
+  offsetTop: {x: 0, y: -0.392}
+  offsetRight: {x: -0.176, y: -0.29}
+  offsetLeft: {x: 0.176, y: -0.28}
 --- !u!210 &6920748403529499454
 SortingGroup:
   m_ObjectHideFlags: 0

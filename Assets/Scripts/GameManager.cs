@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float scoreRequiredSilver = 200f;
     [SerializeField] private float scoreRequiredGold = 300f;
     [SerializeField] private float delayBeforeGoingToNextLevel = 1f;
-    [SerializeField] private float playerDeathAddAngle = 10f;
+    [SerializeField] private float playerDeathAngle = 10f;
     [SerializeField] private Vector2 playerDeathAddPosition;
 
     [SerializeField] private string nextSceneName;
@@ -108,12 +109,13 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator SpinPlayerCoroutine()
     {
+        PlayerMovement.Instance.Die(playerDeathAngle, delayBeforeGoingToNextLevel);
         float i = 0;
+
         while (i < 1)
         {
-            PlayerMovement.Instance.transform.eulerAngles = new Vector3(0,0,PlayerMovement.Instance.transform.eulerAngles.z + playerDeathAddAngle)* Time.deltaTime;
             PlayerMovement.Instance.transform.position += (Vector3)playerDeathAddPosition * Time.deltaTime;
-            i += Time.deltaTime;
+            i += Time.deltaTime / delayBeforeGoingToNextLevel;
             yield return null;
         }
     }

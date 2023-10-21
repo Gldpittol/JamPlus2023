@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -309,5 +310,14 @@ public class PlayerMovement : MonoBehaviour
         {
             incrementStrength = maxSpeed;
         }
+    }
+
+    public void Die(float playerDeathAngle, float delayBeforeGoingToNextLevel)
+    {
+        rb.velocity = Vector2.zero;
+        rb.constraints = RigidbodyConstraints2D.None;
+        lineObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        transform.DOLocalRotate(new Vector3(0,0,playerDeathAngle), delayBeforeGoingToNextLevel, RotateMode.FastBeyond360).SetEase(Ease.Linear);
     }
 }
