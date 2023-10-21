@@ -9,6 +9,7 @@ public class HUDManager : MonoBehaviour
     public static HUDManager Instance;
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI timeText;
 
     private void Awake()
     {
@@ -19,5 +20,10 @@ public class HUDManager : MonoBehaviour
     public void UpdateScoreText(float score)
     {
         scoreText.text = "Score: " + score.ToString("F0");
+    }
+    
+    public void UpdateTimeText(float time)
+    {
+        timeText.text = "Time Left: " + time.ToString("F0") + "s";
     }
 }
