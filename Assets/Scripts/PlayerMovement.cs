@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
     [SerializeField] private float dashCooldown = 0.3f;
+    [SerializeField] private bool followCoin = true;
 
     private Vector2 currentValues; 
     private bool isIncreasing = true;
@@ -44,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            isIncreasing = !isIncreasing;
             isGrounded = true;
             rb.velocity = Vector2.zero;
             currentAngle = 0;
@@ -52,30 +52,49 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (contact.normal.y > 0)
                 {
-                    Debug.Log("Bottom hit");
+                 //   Debug.Log("Bottom hit");
                     baseAngle = 90;
+                    if (followCoin)
+                    {
+                        float angleToCoin = Vector2.Angle(Vector2.right, Coin.Instance.transform.position - transform.position);
+                        if (angleToCoin > 90) isIncreasing = true;
+                        else isIncreasing = false;   
+                    }
                 }
                 else if (contact.normal.y < 0)
                 {
-                    Debug.Log("Top hit");
-                    currentValues.y = -1;
+//                    Debug.Log("Top hit");
                     baseAngle = 270;
+                    if (followCoin)
+                    {
+                        float angleToCoin = Vector2.Angle(Vector2.right, Coin.Instance.transform.position - transform.position);
+                        if (angleToCoin > 90) isIncreasing = false;
+                        else isIncreasing = true;
+                    }
                 }
                 else if (contact.normal.x > 0)
                 {
-                    Debug.Log("Left hit");
+                 //   Debug.Log("Left hit");
                     baseAngle = 0;
+                    if (followCoin)
+                    {
+                        float angleToCoin = Vector2.Angle(Vector2.up, Coin.Instance.transform.position - transform.position);
+                        if (angleToCoin > 90) isIncreasing = false;
+                        else isIncreasing = true;
+                    }
                 }
                 else if (contact.normal.x < 0)
                 {
-                    Debug.Log("Right hit");
+                  //  Debug.Log("Right hit");
                     baseAngle = 180;
+                    if (followCoin)
+                    {
+                        float angleToCoin = Vector2.Angle(Vector2.up, Coin.Instance.transform.position - transform.position);
+                        if (angleToCoin > 90) isIncreasing = true;
+                        else isIncreasing = false;
+                    }
                 }
             }
-            /*lineObject.transform.localScale = new Vector3(lineObject.transform.localScale.x * -1, lineObject.transform.localScale.y, lineObject.transform.localScale.z);
-            xValue *= -1;
-            yValue *= -1;
-            isIncreasing = !isIncreasing;*/
         }
     }
 

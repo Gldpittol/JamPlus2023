@@ -8,10 +8,17 @@ using Random = UnityEngine.Random;
 
 public class Coin : MonoBehaviour
 {
+    public static Coin Instance;
+    
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
