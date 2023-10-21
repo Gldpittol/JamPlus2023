@@ -15,6 +15,10 @@ public class Coin : MonoBehaviour
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
 
+    [SerializeField] private int coinsForNewObstacle;
+    
+    private int coinsCollected;
+
     private void Awake()
     {
         Instance = this;
@@ -28,7 +32,7 @@ public class Coin : MonoBehaviour
             GameManager.Instance.UpdateScore();
             ComboBar.Instance.ResetDelay();
             ComboBar.Instance.Increment();
-            PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
+            if(coinsCollected % coinsForNewObstacle == 0) PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
         }
     }
 }
