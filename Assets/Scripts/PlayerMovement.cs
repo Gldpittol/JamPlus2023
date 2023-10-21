@@ -33,10 +33,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool dashBuffered = false;
     private Coroutine dashCoroutine;
+    private SpriteRenderer lineObjectRenderer;
     private void Awake()
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
+        lineObjectRenderer = lineObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -215,11 +217,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void DrawRayCasts()
     {
-        Vector2 direction = lineObject.transform.position - Coin.Instance.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(lineObject.transform.position, direction, 10000,raycastMask);
+        RaycastHit2D hit = Physics2D.BoxCast(lineObject.transform.position, 
+            Vector2.one,0,lineObject.transform.right, 
+            10000,raycastMask);
         if (hit)
         {
-            print(hit.transform.gameObject.name);
+            if (hit.transform.CompareTag("Coin"))
+            {
+                lineObjectRenderer.color = Color.green;
+            }
+            else
+            {
+                lineObjectRenderer.color = Color.white;
+            }
         }
     }
 }
