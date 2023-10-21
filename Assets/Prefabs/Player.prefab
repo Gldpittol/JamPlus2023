@@ -179,6 +179,9 @@ MonoBehaviour:
   minValue: -45
   maxValue: 45
   lineObject: {fileID: 4367150643026790012}
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 64
   dashStrength: 100
   dashCooldown: 0.3
   followCoin: 1

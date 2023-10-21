@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float minValue, maxValue;
     [SerializeField] private GameObject lineObject;
+    [SerializeField] private LayerMask raycastMask;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateTimers();        
         CalculateAngle();
         CheckInput();
+        DrawRayCasts();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -209,5 +211,15 @@ public class PlayerMovement : MonoBehaviour
         }
         
         GameManager.Instance.SpawnObstacle();
+    }
+
+    public void DrawRayCasts()
+    {
+        Vector2 direction = lineObject.transform.position - Coin.Instance.transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(lineObject.transform.position, direction, 10000,raycastMask);
+        if (hit)
+        {
+            print(hit.transform.gameObject.name);
+        }
     }
 }
