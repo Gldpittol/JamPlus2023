@@ -60,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void CalculateAngle()
     {
+        if (!IsGrounded()) return;
+        
         if (isIncreasing)
         {
             yValue += yIncrement * Time.deltaTime;
