@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,17 @@ public class AudioManager : MonoBehaviour
         public bool adaptativePitch;
         public float defaultPitch;
         public float maxPitch;
+        public float startPoint;
     }
     
     public static AudioManager Instance;
 
     public List<AudioStruct> audioList = new List<AudioStruct>();
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void PlaySound(AudioType type)
     {
@@ -38,6 +45,7 @@ public class AudioManager : MonoBehaviour
         
         tempSource.clip = clip;
         tempSource.pitch = audioStr.defaultPitch + ((audioStr.maxPitch - audioStr.defaultPitch) * ComboBar.Instance.GetPercentage());
+        tempSource.time = audioStr.startPoint;
         tempSource.Play();
         Destroy(tempSource, clip.length);
     }

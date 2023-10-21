@@ -1949,11 +1949,13 @@ MonoBehaviour:
     adaptativePitch: 1
     defaultPitch: 1
     maxPitch: 1.5
+    startPoint: 0.48
   - type: 1
     clip: {fileID: 8300000, guid: ca4ac4cc07add284ca14a47dd2a8a39f, type: 3}
     adaptativePitch: 1
     defaultPitch: 1
     maxPitch: 1.5
+    startPoint: 0.3
 --- !u!1 &1442255394
 GameObject:
   m_ObjectHideFlags: 0
