@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float scoreRequiredPass = 100f;
     [SerializeField] private float scoreRequiredSilver = 200f;
     [SerializeField] private float scoreRequiredGold = 300f;
+    [SerializeField] private float delayBeforeGoingToNextLevel = 1f;
+    [SerializeField] private float playerDeathAddAngle = 10f;
+    [SerializeField] private Vector2 playerDeathAddPosition;
 
     [SerializeField] private string nextSceneName;
 
@@ -54,12 +57,23 @@ public class GameManager : MonoBehaviour
     public void FinishLevel(bool died)
     {
         levelEnded = true;
+        StartCoroutine(FinishLevelCoroutine(died));
+    }
+
+    public IEnumerator FinishLevelCoroutine(bool died)
+    {
+        if (died)
+        {
+            SpinPlayer();
+        }
+        yield return new WaitForSeconds(delayBeforeGoingToNextLevel);
+
         if (died)
         {
             print("Died,Retrying!");
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-            return;
+            yield break;
         }
         
         if (score >= scoreRequiredGold)
@@ -84,6 +98,23 @@ public class GameManager : MonoBehaviour
             print("Failed Level, Retrying!");
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        }
+    }
+
+    public void SpinPlayer()
+    {
+        StartCoroutine(SpinPlayerCoroutine());
+    }
+
+    public IEnumerator SpinPlayerCoroutine()
+    {
+        float i = 0;
+        while (i < 1)
+        {
+            PlayerMovement.Instance.transform.eulerAngles = new Vector3(0,0,PlayerMovement.Instance.transform.eulerAngles.z + playerDeathAddAngle)* Time.deltaTime;
+            PlayerMovement.Instance.transform.position += (Vector3)playerDeathAddPosition * Time.deltaTime;
+            i += Time.deltaTime;
+            yield return null;
         }
     }
 

@@ -17,23 +17,31 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float increasePerCoin = 1;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float radius = 0.45f;
-
     [SerializeField] private GameObject lineObject;
     [SerializeField] private LayerMask raycastMask;
+    [SerializeField] private GameObject raycastSource;
+    [SerializeField] private SpriteRenderer playerRenderer;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
     [SerializeField] private float dashCooldown = 0.3f;
     [SerializeField] private bool followCoin = true;
     [SerializeField] private float dashBufferTime = 0.2f;
+  
+    [Header("Player Visual Offset")]
+    [SerializeField] private Vector2 offsetBottom;
+    [SerializeField] private Vector2 offsetTop;
+    [SerializeField] private Vector2 offsetRight;
+    [SerializeField] private Vector2 offsetLeft;
 
+    
+    private Animator animator;
     private Vector2 currentValues; 
     private bool isIncreasing = true;
     private Rigidbody2D rb;
     private Vector2 lineVector;
     private float currentDashTimer;
     private bool isGrounded = true;
-
     private bool dashBuffered = false;
     private Coroutine dashCoroutine;
     private SpriteRenderer lineObjectRenderer;
@@ -41,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
         lineObjectRenderer = lineObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
@@ -50,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
         UpdateTimers();        
         CalculateAngle();
         CheckInput();
+    }
+
+    private void FixedUpdate()
+    {
         DrawRayCasts();
     }
 
@@ -57,54 +70,87 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
+            if(!isGrounded)animator.Play("IdleAnim");
+
             isGrounded = true;
+
             rb.velocity = Vector2.zero;
             currentAngle = 0;
             foreach (ContactPoint2D contact in other.contacts)
             {
+                playerRenderer.flipX = false;
                 if (contact.normal.y > 0)
                 {
-                 //   Debug.Log("Bottom hit");
+                    //   Debug.Log("Bottom hit");
+                    if (lineObject.transform.right.x < 0)
+                    {
+                        playerRenderer.flipX = true;
+                    }
                     baseAngle = 90;
+                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
                     if (followCoin)
                     {
                         float angleToCoin = Vector2.Angle(Vector2.right, Coin.Instance.transform.position - transform.position);
                         if (angleToCoin > 90) isIncreasing = true;
                         else isIncreasing = false;   
                     }
+
+                    playerRenderer.gameObject.transform.localPosition = offsetBottom;
                 }
                 else if (contact.normal.y < 0)
                 {
 //                    Debug.Log("Top hit");
+                    if (lineObject.transform.right.x > 0)
+                    {
+                        playerRenderer.flipX = true;
+                    }
                     baseAngle = 270;
+                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
                     if (followCoin)
                     {
                         float angleToCoin = Vector2.Angle(Vector2.right, Coin.Instance.transform.position - transform.position);
                         if (angleToCoin > 90) isIncreasing = false;
                         else isIncreasing = true;
                     }
+                    playerRenderer.gameObject.transform.localPosition = offsetTop;
+
                 }
                 else if (contact.normal.x > 0)
                 {
-                 //   Debug.Log("Left hit");
+                    //   Debug.Log("Left hit");
+                    if (lineObject.transform.right.y > 0)
+                    {
+                        playerRenderer.flipX = true;
+                    }
+                   
                     baseAngle = 0;
+                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
                     if (followCoin)
                     {
                         float angleToCoin = Vector2.Angle(Vector2.up, Coin.Instance.transform.position - transform.position);
                         if (angleToCoin > 90) isIncreasing = false;
                         else isIncreasing = true;
                     }
+                    playerRenderer.gameObject.transform.localPosition = offsetLeft;
+
                 }
                 else if (contact.normal.x < 0)
                 {
-                  //  Debug.Log("Right hit");
+                    //  Debug.Log("Right hit");
+                    if (lineObject.transform.right.y < 0)
+                    {
+                        playerRenderer.flipX = true;
+                    }
                     baseAngle = 180;
+                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
                     if (followCoin)
                     {
                         float angleToCoin = Vector2.Angle(Vector2.up, Coin.Instance.transform.position - transform.position);
                         if (angleToCoin > 90) isIncreasing = true;
                         else isIncreasing = false;
                     }
+                    playerRenderer.gameObject.transform.localPosition = offsetRight;
+
                 }
             }
         }
@@ -124,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
             GameManager.Instance.FinishLevel(true);
+            animator.Play("Dead");
         }
     }
 
@@ -193,11 +240,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (currentDashTimer > 0) return;
         
+        animator.Play("JumpPrep");
         currentDashTimer = dashCooldown;
 
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
         
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
+        SetCharacterOrientation();
+    }
+
+    public void SetCharacterOrientation()
+    {
+        playerRenderer.gameObject.transform.eulerAngles = Vector3.zero;
+
+        if (lineObject.transform.right.x < 0)
+        {
+            playerRenderer.flipX = true;
+        }
+        else
+        {
+            playerRenderer.flipX = false;
+        }
     }
 
     public bool IsGrounded()
@@ -222,12 +285,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void DrawRayCasts()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(lineObject.transform.position, 
+        RaycastHit2D hit = Physics2D.CircleCast(raycastSource.transform.position, 
             radius,lineObject.transform.right, 
             10000,raycastMask);
         if (hit)
         {
-            //print(hit.transform.gameObject.name);
+           // print(hit.transform.gameObject.name);
             if (hit.transform.CompareTag("Coin"))
             {
                 lineObjectRenderer.color = Color.green;
