@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.LevelEnded) return;
         UpdateTimers();        
         CalculateAngle();
         CheckInput();
@@ -121,7 +122,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("KillTrigger"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            GameManager.Instance.FinishLevel();
         }
     }
 

@@ -2,11 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [SerializeField] private float countdownTime = 30f;
+    [SerializeField] private float scoreRequiredPass = 100f;
+    [SerializeField] private float scoreRequiredSilver = 200f;
+    [SerializeField] private float scoreRequiredGold = 300f;
+
+    [SerializeField] private string nextSceneName;
 
     [SerializeField] private float minAcceptableObstacleDistanceFromPlayer = 2f;
     [SerializeField] private GameObject obstaclesParent;
@@ -18,11 +26,57 @@ public class GameManager : MonoBehaviour
     [Header("Debug")] 
     [SerializeField] private bool useObstacle;
 
+    private bool levelEnded = false;
+
+    public bool LevelEnded => levelEnded;
+
     private void Awake()
     {
         Instance = this;
         
         InitializeObstacleList();
+    }
+
+    private void Update()
+    {
+        if (levelEnded) return;
+        countdownTime -= Time.deltaTime;
+        HUDManager.Instance.UpdateTimeText(countdownTime);
+
+        if (countdownTime <= 0)
+        {
+            countdownTime = 0;
+            HUDManager.Instance.UpdateTimeText(0);
+            FinishLevel();
+        }
+    }
+
+    public void FinishLevel()
+    {
+        levelEnded = true;
+        if (score >= scoreRequiredGold)
+        {
+            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+            print("Got Gold!");
+        }
+        else if (score >= scoreRequiredSilver)
+        {
+            print("Got Silver!");
+
+            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+        }
+        else if (score >= scoreRequiredPass)
+        {
+            print("Got Bronze!");
+
+            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+        }
+        else 
+        {
+            print("Failed Level, Retrying!");
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        }
     }
 
     public void InitializeObstacleList()
