@@ -1418,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2843152347888068920, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.85
+      value: 5.92
       objectReference: {fileID: 0}
     - target: {fileID: 2843152347888068920, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1617,7 +1617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2843152347888068920, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.23
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 2843152347888068920, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2077,6 +2077,70 @@ PrefabInstance:
     - target: {fileID: 2434813366975107463, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
       propertyPath: m_Name
       value: ComboBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: incrementOnJump
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: decrementPerFrame
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: delayBeforeDecreasing
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[0].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[0].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[0].r
+      value: 0.5849056
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[2].b
+      value: 0.04705882
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[2].g
+      value: 0.19813167
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[2].r
+      value: 0.94509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[4].b
+      value: 0.09803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[4].g
+      value: 0.2443401
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: colorList.Array.data[4].r
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: thresholdList.Array.data[0]
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: thresholdList.Array.data[1]
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: thresholdList.Array.data[2]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: thresholdList.Array.data[3]
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3570966093761153433, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
       propertyPath: m_LocalPosition.x
