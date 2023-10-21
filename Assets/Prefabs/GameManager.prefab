@@ -44,6 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e91f39e2065b6e48acd452562966c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownTime: 30
+  scoreRequiredPass: 100
+  scoreRequiredSilver: 200
+  scoreRequiredGold: 300
+  delayBeforeGoingToNextLevel: 1
+  playerDeathAddAngle: 10
+  playerDeathAddPosition: {x: 1, y: 0.1}
+  nextSceneName: 
   minAcceptableObstacleDistanceFromPlayer: 2
   obstaclesParent: {fileID: 0}
   possibleObstacleTags:

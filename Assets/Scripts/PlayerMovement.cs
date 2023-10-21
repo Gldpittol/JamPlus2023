@@ -17,23 +17,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float increasePerCoin = 1;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float radius = 0.45f;
-
     [SerializeField] private GameObject lineObject;
     [SerializeField] private LayerMask raycastMask;
+    [SerializeField] private GameObject raycastSource;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
     [SerializeField] private float dashCooldown = 0.3f;
     [SerializeField] private bool followCoin = true;
     [SerializeField] private float dashBufferTime = 0.2f;
-
+  
+    private Animator animator;
     private Vector2 currentValues; 
     private bool isIncreasing = true;
     private Rigidbody2D rb;
     private Vector2 lineVector;
     private float currentDashTimer;
     private bool isGrounded = true;
-
     private bool dashBuffered = false;
     private Coroutine dashCoroutine;
     private SpriteRenderer lineObjectRenderer;
@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         lineObjectRenderer = lineObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
@@ -50,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
         UpdateTimers();        
         CalculateAngle();
         CheckInput();
+    }
+
+    private void FixedUpdate()
+    {
         DrawRayCasts();
     }
 
@@ -58,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             isGrounded = true;
+            animator.Play("IdleAnim");
+
             rb.velocity = Vector2.zero;
             currentAngle = 0;
             foreach (ContactPoint2D contact in other.contacts)
@@ -124,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
             GameManager.Instance.FinishLevel(true);
+            animator.Play("Dead");
         }
     }
 
@@ -193,6 +201,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (currentDashTimer > 0) return;
         
+        animator.Play("JumpPrep");
+        print("Aqui");
         currentDashTimer = dashCooldown;
 
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
@@ -222,12 +232,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void DrawRayCasts()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(lineObject.transform.position, 
+        RaycastHit2D hit = Physics2D.CircleCast(raycastSource.transform.position, 
             radius,lineObject.transform.right, 
             10000,raycastMask);
         if (hit)
         {
-            //print(hit.transform.gameObject.name);
+           // print(hit.transform.gameObject.name);
             if (hit.transform.CompareTag("Coin"))
             {
                 lineObjectRenderer.color = Color.green;
