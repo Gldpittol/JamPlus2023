@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float minValue, maxValue;
     [SerializeField] private float increasePerCoin = 1;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float radius = 0.45f;
 
     [SerializeField] private GameObject lineObject;
     [SerializeField] private LayerMask raycastMask;
@@ -219,11 +220,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void DrawRayCasts()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(lineObject.transform.position, 
-            Vector2.one,0,lineObject.transform.right, 
+        RaycastHit2D hit = Physics2D.CircleCast(lineObject.transform.position, 
+            radius,lineObject.transform.right, 
             10000,raycastMask);
         if (hit)
         {
+            //print(hit.transform.gameObject.name);
             if (hit.transform.CompareTag("Coin"))
             {
                 lineObjectRenderer.color = Color.green;
