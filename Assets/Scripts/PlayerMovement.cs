@@ -169,4 +169,19 @@ public class PlayerMovement : MonoBehaviour
     {
         return isGrounded;
     }
+
+    public void WaitForGroundedAndSpawnObstacle()
+    {
+        StartCoroutine(WaitForGroundedAndSpawnObstacleCoroutine());
+    }
+
+    public IEnumerator WaitForGroundedAndSpawnObstacleCoroutine()
+    {
+        while (!IsGrounded())
+        {
+            yield return null;
+        }
+        
+        GameManager.Instance.SpawnObstacle();
+    }
 }

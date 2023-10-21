@@ -25,6 +25,8 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
+            GameManager.Instance.UpdateScore();
+            PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
         }
     }
 }

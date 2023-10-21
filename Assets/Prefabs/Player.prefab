@@ -173,12 +173,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23af3cc36033536429b9875fb45e9ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yIncrement: 100
-  minY: -45
-  maxY: 45
+  baseAngle: 0
+  currentAngle: 0
+  incrementStrength: 120
+  minValue: -45
+  maxValue: 45
   lineObject: {fileID: 4367150643026790012}
   dashStrength: 100
   dashCooldown: 0.3
+  followCoin: 1
 --- !u!210 &6920748403529499454
 SortingGroup:
   m_ObjectHideFlags: 0
