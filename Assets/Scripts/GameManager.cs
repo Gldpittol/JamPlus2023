@@ -47,13 +47,21 @@ public class GameManager : MonoBehaviour
         {
             countdownTime = 0;
             HUDManager.Instance.UpdateTimeText(0);
-            FinishLevel();
+            FinishLevel(false);
         }
     }
 
-    public void FinishLevel()
+    public void FinishLevel(bool died)
     {
         levelEnded = true;
+        if (died)
+        {
+            print("Died,Retrying!");
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            return;
+        }
+        
         if (score >= scoreRequiredGold)
         {
             SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
