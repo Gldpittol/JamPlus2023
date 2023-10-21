@@ -49,8 +49,8 @@ MonoBehaviour:
   scoreRequiredSilver: 200
   scoreRequiredGold: 300
   delayBeforeGoingToNextLevel: 1
-  playerDeathAddAngle: 10
-  playerDeathAddPosition: {x: 1, y: 0.1}
+  playerDeathAngle: 720
+  playerDeathAddPosition: {x: 10, y: -5}
   nextSceneName: 
   minAcceptableObstacleDistanceFromPlayer: 2
   obstaclesParent: {fileID: 0}
