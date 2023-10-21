@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
         
         InitializeObstacleList();
+
+        QualitySettings.vSyncCount = 1;
     }
 
     private void Update()
