@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3930151789635916300}
   - component: {fileID: 4155464915739688759}
   - component: {fileID: 6920748403529499454}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -178,7 +178,12 @@ MonoBehaviour:
   incrementStrength: 120
   minValue: -45
   maxValue: 45
+  increasePerCoin: 1
+  maxSpeed: 180
   lineObject: {fileID: 4367150643026790012}
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 115
   dashStrength: 100
   dashCooldown: 0.3
   followCoin: 1
@@ -205,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129061066857407230}
   - component: {fileID: 8555375848609033548}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LinePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5397697040281438848}
   - component: {fileID: 3997840127262624500}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LineSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

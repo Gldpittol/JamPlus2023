@@ -13,9 +13,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float baseAngle;
     [SerializeField] private float currentAngle;
     [SerializeField] private float incrementStrength;
-
     [SerializeField] private float minValue, maxValue;
+    [SerializeField] private float increasePerCoin = 1;
+    [SerializeField] private float maxSpeed;
+
     [SerializeField] private GameObject lineObject;
+    [SerializeField] private LayerMask raycastMask;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
@@ -32,10 +35,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool dashBuffered = false;
     private Coroutine dashCoroutine;
+    private SpriteRenderer lineObjectRenderer;
     private void Awake()
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
+        lineObjectRenderer = lineObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -43,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateTimers();        
         CalculateAngle();
         CheckInput();
+        DrawRayCasts();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -209,5 +215,32 @@ public class PlayerMovement : MonoBehaviour
         }
         
         GameManager.Instance.SpawnObstacle();
+    }
+
+    public void DrawRayCasts()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(lineObject.transform.position, 
+            Vector2.one,0,lineObject.transform.right, 
+            10000,raycastMask);
+        if (hit)
+        {
+            if (hit.transform.CompareTag("Coin"))
+            {
+                lineObjectRenderer.color = Color.green;
+            }
+            else
+            {
+                lineObjectRenderer.color = Color.white;
+            }
+        }
+    }
+
+    public void IncreaseIncrement()
+    {
+        incrementStrength += increasePerCoin;
+        if (incrementStrength > maxSpeed)
+        {
+            incrementStrength = maxSpeed;
+        }
     }
 }

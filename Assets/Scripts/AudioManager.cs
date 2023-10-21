@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,11 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public List<AudioStruct> audioList = new List<AudioStruct>();
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void PlaySound(AudioType type)
     {
