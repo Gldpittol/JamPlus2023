@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     private List<GameObject> obstaclesList = new List<GameObject>();
     private float score;
 
+    [Header("Debug")] 
+    [SerializeField] private bool useObstacle;
+
     private void Awake()
     {
         Instance = this;
@@ -24,6 +27,10 @@ public class GameManager : MonoBehaviour
 
     public void InitializeObstacleList()
     {
+        if (useObstacle)
+        {
+            obstaclesParent.transform.position = Vector2.zero;
+        }
         foreach (Transform child in obstaclesParent.GetComponentsInChildren<Transform>(true))
         {
             if (possibleObstacleTags.Contains(child.tag))
@@ -35,16 +42,17 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore()
     {
-        score++;
+        score += ComboBar.Instance.GetComboMultiplier();
         HUDManager.Instance.UpdateScoreText(score);
     }
 
     public void SpawnObstacle(int iter = 0)
     {
+        if (obstaclesList.Count == 0) return;
         if (iter > 50) return;
         int rngIndex = Random.Range(0, obstaclesList.Count);
         if (Vector2.Distance(obstaclesList[rngIndex].transform.position,
-                PlayerMovement.Instance.transform.position) > 2f)
+                PlayerMovement.Instance.transform.position) > minAcceptableObstacleDistanceFromPlayer)
         {
             obstaclesList[rngIndex].SetActive(true);
             obstaclesList.RemoveAt(rngIndex);

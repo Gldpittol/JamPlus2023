@@ -26,6 +26,8 @@ public class Coin : MonoBehaviour
         {
             transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
             GameManager.Instance.UpdateScore();
+            ComboBar.Instance.ResetDelay();
+            ComboBar.Instance.Increment();
             PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
         }
     }
