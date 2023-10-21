@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
         public bool adaptativePitch;
         public float defaultPitch;
         public float maxPitch;
+        public float startPoint;
     }
     
     public static AudioManager Instance;
@@ -40,6 +41,7 @@ public class AudioManager : MonoBehaviour
         tempSource.clip = clip;
         if(audioStr.adaptativePitch) tempSource.pitch = audioStr.defaultPitch + ((audioStr.maxPitch - audioStr.defaultPitch) * ComboBar.Instance.GetPercentage());
         tempSource.volume = audioStr.volume;
+        tempSource.time = audioStr.startPoint;
         tempSource.Play();
         Destroy(tempSource, clip.length);
     }

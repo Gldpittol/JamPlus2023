@@ -46,12 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioList:
   - type: 0
-    clip: {fileID: 0}
-    adaptativePitch: 0
-    defaultPitch: 0
-    maxPitch: 0
+    clip: {fileID: 8300000, guid: 7e0263afe93950d40b617437e31a27e3, type: 3}
+    volume: 0.6
+    adaptativePitch: 1
+    defaultPitch: 1
+    maxPitch: 1.5
+    startPoint: 0.45
   - type: 1
-    clip: {fileID: 0}
-    adaptativePitch: 0
-    defaultPitch: 0
-    maxPitch: 0
+    clip: {fileID: 8300000, guid: ca4ac4cc07add284ca14a47dd2a8a39f, type: 3}
+    volume: 1
+    adaptativePitch: 1
+    defaultPitch: 1
+    maxPitch: 1.5
+    startPoint: 0.24
