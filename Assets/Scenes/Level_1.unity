@@ -1761,6 +1761,10 @@ PrefabInstance:
       propertyPath: scoreRequiredSilver
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: minAcceptableObstacleDistanceFromPlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7252512586678225693, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6406958
@@ -1986,7 +1990,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
       propertyPath: coinsForNewObstacle
-      value: 3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4999434513105551499, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
       propertyPath: m_LocalPosition.x

@@ -57,5 +57,5 @@ MonoBehaviour:
     volume: 1
     adaptativePitch: 1
     defaultPitch: 1
-    maxPitch: 1.5
+    maxPitch: 1.3
     startPoint: 0.24
