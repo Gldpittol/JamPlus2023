@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         lineObjectRenderer = lineObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
@@ -62,8 +62,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
+            if(!isGrounded)animator.Play("IdleAnim");
+
             isGrounded = true;
-            animator.Play("IdleAnim");
 
             rb.velocity = Vector2.zero;
             currentAngle = 0;
@@ -202,7 +203,6 @@ public class PlayerMovement : MonoBehaviour
         if (currentDashTimer > 0) return;
         
         animator.Play("JumpPrep");
-        print("Aqui");
         currentDashTimer = dashCooldown;
 
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
