@@ -28,11 +28,15 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            coinsCollected++;
             transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
             GameManager.Instance.UpdateScore();
             ComboBar.Instance.ResetDelay();
             ComboBar.Instance.Increment();
-            if(coinsCollected % coinsForNewObstacle == 0) PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
+            if (coinsCollected % coinsForNewObstacle == 0)
+            {
+                PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
+            }
         }
     }
 }
