@@ -132,7 +132,7 @@ MonoBehaviour:
   dashBufferTime: 0.15
   offsetBottom: {x: 0, y: 0}
   offsetTop: {x: 0, y: -0.392}
-  offsetRight: {x: -0.176, y: -0.29}
+  offsetRight: {x: -0.176, y: -0.291}
   offsetLeft: {x: 0.176, y: -0.28}
 --- !u!210 &6920748403529499454
 SortingGroup:
