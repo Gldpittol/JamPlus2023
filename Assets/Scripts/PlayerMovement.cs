@@ -10,19 +10,23 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement Instance;
     
     [Header("Line Parameters")]
-    [SerializeField] private float yIncrement;
-    [SerializeField] private float minY, maxY;
+    [SerializeField] private float baseAngle;
+    [SerializeField] private float currentAngle;
+    [SerializeField] private float incrementStrength;
+
+    [SerializeField] private float minValue, maxValue;
     [SerializeField] private GameObject lineObject;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
     [SerializeField] private float dashCooldown = 0.3f;
 
-    private float xValue = 1, yValue;
+    private Vector2 currentValues; 
     private bool isIncreasing = true;
     private Rigidbody2D rb;
     private Vector2 lineVector;
     private float currentDashTimer;
+    private bool isGrounded = true;
     private void Awake()
     {
         Instance = this;
@@ -40,8 +44,46 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            //transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            isIncreasing = !isIncreasing;
+            isGrounded = true;
+            rb.velocity = Vector2.zero;
+            currentAngle = 0;
+            foreach (ContactPoint2D contact in other.contacts)
+            {
+                if (contact.normal.y > 0)
+                {
+                    Debug.Log("Bottom hit");
+                    baseAngle = 90;
+                }
+                else if (contact.normal.y < 0)
+                {
+                    Debug.Log("Top hit");
+                    currentValues.y = -1;
+                    baseAngle = 270;
+                }
+                else if (contact.normal.x > 0)
+                {
+                    Debug.Log("Left hit");
+                    baseAngle = 0;
+                }
+                else if (contact.normal.x < 0)
+                {
+                    Debug.Log("Right hit");
+                    baseAngle = 180;
+                }
+            }
+            /*lineObject.transform.localScale = new Vector3(lineObject.transform.localScale.x * -1, lineObject.transform.localScale.y, lineObject.transform.localScale.z);
             xValue *= -1;
+            yValue *= -1;
+            isIncreasing = !isIncreasing;*/
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            isGrounded = false;
         }
     }
 
@@ -64,27 +106,25 @@ public class PlayerMovement : MonoBehaviour
         
         if (isIncreasing)
         {
-            yValue += yIncrement * Time.deltaTime;
+            currentAngle += incrementStrength * Time.deltaTime;
         }
         else
         {
-            yValue -= yIncrement * Time.deltaTime;
+            currentAngle -= incrementStrength * Time.deltaTime;
         }
 
-        if (yValue >= maxY)
+        if (currentAngle >= maxValue)
         {
-            yValue = maxY;
+            currentAngle = maxValue;
             isIncreasing = false;
         }
-        if (yValue <= minY)
+        if (currentAngle <= minValue)
         {
-            yValue = minY;
+            currentAngle = minValue;
             isIncreasing = true;
         }
-
-        lineVector = new Vector2(xValue, yValue).normalized;
-
-        lineObject.transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(transform.right, lineVector));
+      
+        lineObject.transform.eulerAngles = new Vector3(0, 0, currentAngle + baseAngle);
         
         //Debug.DrawRay(transform.position, lineVector.normalized, Color.green, Time.deltaTime);
     }
@@ -102,11 +142,12 @@ public class PlayerMovement : MonoBehaviour
         if (currentDashTimer > 0) return;
         
         currentDashTimer = dashCooldown;
-        rb.AddForce(lineVector * dashStrength);
+
+        rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
     }
 
     public bool IsGrounded()
     {
-        return rb.velocity.x < 0.01f;
+        return isGrounded;
     }
 }
