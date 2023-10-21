@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashStrength;
     [SerializeField] private float dashCooldown = 0.3f;
     [SerializeField] private bool followCoin = true;
+    [SerializeField] private float dashBufferTime = 0.2f;
 
     private Vector2 currentValues; 
     private bool isIncreasing = true;
@@ -28,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lineVector;
     private float currentDashTimer;
     private bool isGrounded = true;
+
+    private bool dashBuffered = false;
+    private Coroutine dashCoroutine;
     private void Awake()
     {
         Instance = this;
@@ -148,9 +152,29 @@ public class PlayerMovement : MonoBehaviour
         //Debug.DrawRay(transform.position, lineVector.normalized, Color.green, Time.deltaTime);
     }
 
+    public IEnumerator DashBufferCoroutine()
+    {
+        dashBuffered = true;
+        yield return new WaitForSeconds(dashBufferTime);
+        dashBuffered = false;
+    }
+
     public void CheckInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if(IsGrounded())
+            {
+                AngledDash();
+            }
+            else
+            {
+                if(dashCoroutine != null)StopCoroutine(dashCoroutine);
+                dashCoroutine = StartCoroutine(DashBufferCoroutine());
+            }
+        }
+        
+        if(dashBuffered && IsGrounded())
         {
             AngledDash();
         }
@@ -163,6 +187,8 @@ public class PlayerMovement : MonoBehaviour
         currentDashTimer = dashCooldown;
 
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
+        
+        AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
     }
 
     public bool IsGrounded()

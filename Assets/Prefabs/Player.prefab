@@ -182,6 +182,7 @@ MonoBehaviour:
   dashStrength: 100
   dashCooldown: 0.3
   followCoin: 1
+  dashBufferTime: 0.15
 --- !u!210 &6920748403529499454
 SortingGroup:
   m_ObjectHideFlags: 0

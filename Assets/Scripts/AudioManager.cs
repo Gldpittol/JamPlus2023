@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
         }
         
         tempSource.clip = clip;
-        tempSource.pitch = 1 + ((audioStr.maxPitch - audioStr.defaultPitch) * ComboBar.Instance.GetPercentage());
+        tempSource.pitch = audioStr.defaultPitch + ((audioStr.maxPitch - audioStr.defaultPitch) * ComboBar.Instance.GetPercentage());
         tempSource.Play();
         Destroy(tempSource, clip.length);
     }
