@@ -140,6 +140,11 @@ MonoBehaviour:
   offsetTop: {x: 0, y: -0.392}
   offsetRight: {x: -0.176, y: -0.291}
   offsetLeft: {x: 0.176, y: -0.28}
+  timeOnSlowMotion: 0.5
+  slowMotionTimeScale: 0.1
+  maxCameraZoomInDuration: 0.05
+  maxCameraZoomIn: 3
+  cameraZoomOutDuration: 0.2
 --- !u!210 &6920748403529499454
 SortingGroup:
   m_ObjectHideFlags: 0

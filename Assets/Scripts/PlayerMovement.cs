@@ -41,7 +41,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector2 offsetRight;
     [SerializeField] private Vector2 offsetLeft;
 
-    
+    [Header("Death Juiceness")]
+    [SerializeField] private float timeOnSlowMotion;
+    [SerializeField] private float slowMotionTimeScale;
+    [SerializeField] private float maxCameraZoomInDuration;
+    [SerializeField] private float maxCameraZoomIn;
+    [SerializeField] private float cameraZoomOutDuration;
+
     private Animator animator;
     private Vector2 currentValues; 
     private bool isIncreasing = true;
@@ -328,7 +334,27 @@ public class PlayerMovement : MonoBehaviour
         DisableArrow();
         GetComponent<Collider2D>().enabled = false;
         transform.DOLocalRotate(new Vector3(0,0,playerDeathAngle), delayBeforeGoingToNextLevel, RotateMode.FastBeyond360).SetEase(Ease.Linear);
+        DeathJuiceness();
     }
+
+    public void DeathJuiceness()
+    {
+        StartCoroutine(DeathJuicenessCoroutine());
+    }
+
+    public IEnumerator DeathJuicenessCoroutine()
+    {
+        yield return null;
+        Time.timeScale = slowMotionTimeScale;
+        Camera.main.DOOrthoSize(maxCameraZoomIn, maxCameraZoomInDuration).OnComplete(()=>
+            Camera.main.DOOrthoSize(5, cameraZoomOutDuration));
+        Camera.main.transform.DOMove(new Vector3(transform.position.x, transform.position.y, -10), maxCameraZoomInDuration).OnComplete(()=>
+            Camera.main.transform.DOMove(new Vector3(0,0, -10), cameraZoomOutDuration));
+        yield return new WaitForSecondsRealtime(timeOnSlowMotion);
+        Time.timeScale = 1;
+    }
+
+   
 
     public void SetArrowCountdown(Color startColor, Color endColor, float duration)
     {
