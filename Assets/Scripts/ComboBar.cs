@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ComboBar : MonoBehaviour
 {
@@ -12,14 +13,25 @@ public class ComboBar : MonoBehaviour
     [SerializeField] private float incrementOnJump;
     [SerializeField] private float decrementPerFrame;
     [SerializeField] private float tweenDuration = 0.3f;
+    [SerializeField] private float comboTextYIncrease = 1f;
+    [SerializeField] private float comboTextTweenDuration = 1f;
+
     [SerializeField] private Ease tweenEase;
 
     [SerializeField] private SpriteRenderer barFill;
     [SerializeField] private TextMeshPro comboText;
-    [SerializeField] private List<float> thresholdList = new List<float>();
+    [FormerlySerializedAs("thresholdList")] [SerializeField] private List<float> tresholdList = new List<float>();
     [SerializeField] private List<float> multiplierList = new List<float>();
     [SerializeField] private List<Color> colorList = new List<Color>();
     [SerializeField] private Color defaultColor;
+    [SerializeField] private GameObject comboTextPrefab;
+
+    
+    [Header("VFX")]
+    [SerializeField] private List<GameObject> vfxList = new List<GameObject>();
+
+    [SerializeField] private GameObject vfxDefault;
+
 
     private float originalY;
     private float currentDelay;
@@ -34,8 +46,10 @@ public class ComboBar : MonoBehaviour
 
     private void Start()
     {
-        comboText.transform.parent = Coin.Instance.transform;
-        comboText.transform.localPosition = Vector2.zero;
+        //comboText.transform.parent = Coin.Instance.transform;
+        //comboText.transform.localPosition = Vector2.zero;
+        comboText.transform.parent = null;
+        comboText.DOFade(0, 0);
     }
     
     private void Update()
@@ -76,17 +90,17 @@ public class ComboBar : MonoBehaviour
     public float GetComboMultiplier()
     {
         if (multiplierList.Count < 0) return 1;
-        if (thresholdList.Count < 0) return 1;
-        if (multiplierList.Count != thresholdList.Count)
+        if (tresholdList.Count < 0) return 1;
+        if (multiplierList.Count != tresholdList.Count)
         {
             print("Different sized lists");
             return 1;
         }
 
-        for (int i = 0; i < thresholdList.Count; i++)
+        for (int i = 0; i < tresholdList.Count; i++)
         {
             float currentPercentage = barFill.transform.localScale.y / originalY * 100;
-            if (currentPercentage > thresholdList[i])
+            if (currentPercentage > tresholdList[i])
             {
                 return multiplierList[i];
             }
@@ -97,26 +111,53 @@ public class ComboBar : MonoBehaviour
 
     public void UpdateColor()
     {
-        for (int i = 0; i < thresholdList.Count; i++)
+        for (int i = 0; i < tresholdList.Count; i++)
         {
             float currentPercentage = barFill.transform.localScale.y / originalY * 100;
-            if (currentPercentage > thresholdList[i])
+            if (currentPercentage > tresholdList[i])
             {
-                barFill.color = colorList[i];
-                comboText.color = colorList[i];
+                barFill.color = new Color(colorList[i].r, colorList[i].g, colorList[i].b, barFill.color.a);
+                comboText.color = new Color(colorList[i].r, colorList[i].g, colorList[i].b, comboText.color.a);
 
                 comboText.text = GetComboMultiplier().ToString("F0") + "X";
                 return;
             }
         }
 
-        barFill.color = defaultColor;
-        comboText.color = defaultColor;
+        barFill.color = new Color(defaultColor.r, defaultColor.g, defaultColor.b, barFill.color.a);
+        comboText.color = new Color(defaultColor.r, defaultColor.g, defaultColor.b, comboText.color.a);
         comboText.text = GetComboMultiplier().ToString("F0") + "X";
     }
 
     public float GetPercentage()
     {
         return barFill.transform.localScale.y / originalY;
+    }
+
+    public void DoComboText()
+    {
+        for (int i = 0; i < tresholdList.Count; i++)
+        {
+            float currentPercentage = barFill.transform.localScale.y / originalY * 100;
+            if (currentPercentage > tresholdList[i])
+            {
+                GameObject tempVFX = Instantiate(vfxList[i], Coin.Instance.transform.position, Quaternion.identity);
+                tempVFX.transform.eulerAngles = vfxList[i].transform.eulerAngles;
+                Destroy(tempVFX, 1f);
+                return;
+            }
+        }        
+        GameObject tempVFX2 = Instantiate(vfxDefault, Coin.Instance.transform.position, Quaternion.identity);
+        tempVFX2.transform.eulerAngles = vfxDefault.transform.eulerAngles;
+        Destroy(tempVFX2, 1f);
+
+        /*TextMeshPro tempComboText = Instantiate(comboTextPrefab).GetComponent<TextMeshPro>();
+        tempComboText.color = new Color(comboText.color.r, comboText.color.g, comboText.color.b, 1);
+        tempComboText.text = comboText.text;
+        tempComboText.DOFade(0, comboTextTweenDuration).OnComplete(()=>
+            tempComboText.color = new Color(tempComboText.color.r, tempComboText.color.g, tempComboText.color.b, 0));
+
+        tempComboText.transform.position = Coin.Instance.transform.position;
+        tempComboText.transform.DOMoveY(tempComboText.transform.position.y + comboTextYIncrease,comboTextTweenDuration);*/
     }
 }

@@ -20,12 +20,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color arrowStartColor;
     [SerializeField] private Color arrowEndColor;
     [SerializeField] private float flashThreshold = 8f;
+    [SerializeField] private float minShake = 1f;
+    [SerializeField] private float maxShake = 3f;
 
     [SerializeField] private string nextSceneName;
 
     [SerializeField] private float minAcceptableObstacleDistanceFromPlayer = 2f;
     [SerializeField] private GameObject obstaclesParent;
     [SerializeField] private List<string> possibleObstacleTags = new List<string>();
+    [SerializeField] private GameObject loadingCanvas;
 
     private List<GameObject> obstaclesList = new List<GameObject>();
     private float score;
@@ -37,7 +40,8 @@ public class GameManager : MonoBehaviour
     private bool isFlashing = false;
 
     public bool LevelEnded => levelEnded;
-
+    public float Score => score;
+    
     private void Awake()
     {
         Instance = this;
@@ -45,6 +49,8 @@ public class GameManager : MonoBehaviour
         InitializeObstacleList();
 
         QualitySettings.vSyncCount = 1;
+
+        Instantiate(loadingCanvas, Vector3.zero, Quaternion.identity);
     }
 
     private void Start()
@@ -87,36 +93,36 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayBeforeGoingToNextLevel);
 
-        if (died)
+        /*if (died)
         {
             print("Died,Retrying!");
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(false, 0);
             yield break;
-        }
+        }*/
         
         if (score >= scoreRequiredGold)
         {
-            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(true, 3);
             print("Got Gold!");
         }
         else if (score >= scoreRequiredSilver)
         {
             print("Got Silver!");
 
-            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(true, 2);
         }
         else if (score >= scoreRequiredPass)
         {
             print("Got Bronze!");
 
-            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(true, 1);
         }
         else 
         {
             print("Failed Level, Retrying!");
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(false, 0);
         }
     }
 
@@ -175,5 +181,39 @@ public class GameManager : MonoBehaviour
             print(iter);
             SpawnObstacle(iter+1);
         }
+    }
+
+    public void LoadNextScene(bool next)
+    {
+        if (!next)
+        {
+            LoadingCanvas.Instance.GoToScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            LoadingCanvas.Instance.GoToScene(nextSceneName);
+        }
+    }
+
+    public float GetTime()
+    {
+        return countdownTime;
+    }
+
+    public void DoScreenShake()
+    {
+        StartCoroutine(DoScreenShakeCoroutine());
+    }
+
+    public IEnumerator DoScreenShakeCoroutine()
+    {
+        float shakeFactor = minShake + (ComboBar.Instance.GetPercentage() * (maxShake - minShake));
+        Camera.main.transform.eulerAngles = new Vector3 (0,0, shakeFactor);
+        yield return null;
+        Camera.main.transform.eulerAngles = Vector3.zero;
+        yield return null;
+        Camera.main.transform.eulerAngles = new Vector3 (0,0, -shakeFactor);
+        yield return null;
+        Camera.main.transform.eulerAngles = Vector3.zero;
     }
 }

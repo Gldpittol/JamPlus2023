@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownTime: 30
-  scoreRequiredPass: 100
+  scoreRequiredPass: 10
   scoreRequiredSilver: 200
   scoreRequiredGold: 300
   delayBeforeGoingToNextLevel: 1
@@ -53,9 +53,13 @@ MonoBehaviour:
   playerDeathAddPosition: {x: 10, y: -5}
   arrowStartColor: {r: 0, g: 1, b: 0, a: 1}
   arrowEndColor: {r: 1, g: 0, b: 0, a: 1}
+  flashThreshold: 8
+  minShake: 0.5
+  maxShake: 1.2
   nextSceneName: 
   minAcceptableObstacleDistanceFromPlayer: 2
   obstaclesParent: {fileID: 0}
   possibleObstacleTags:
   - KillTrigger
+  loadingCanvas: {fileID: 7187226742752445299, guid: 20492e34c05cd3546841efe4e3b271dc, type: 3}
   useObstacle: 1

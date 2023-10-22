@@ -36,6 +36,16 @@ public class Shuriken : MonoBehaviour
         DoMove(furthestId);
     }
 
+    private void Update()
+    {
+        if (GameManager.Instance.GetTime() <= 0)
+        {
+            transform.DOKill();
+            StopAllCoroutines();
+            enabled = false;
+        }
+    }
+
     public void DoRotate()
     {
         transform.DOLocalRotate(new Vector3(0,0,angle), duration, RotateMode.FastBeyond360).

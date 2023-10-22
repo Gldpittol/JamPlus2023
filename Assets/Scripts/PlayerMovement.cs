@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float outlineTweenDuration = 0.1f;
     [SerializeField] private Color colorAimed;
     [SerializeField] private Color colorNotAimed;
+    [SerializeField] private ParticleSystem dustVFX;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
@@ -41,7 +42,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector2 offsetRight;
     [SerializeField] private Vector2 offsetLeft;
 
-    
+    [Header("Death Juiceness")]
+    [SerializeField] private float timeOnSlowMotion;
+    [SerializeField] private float slowMotionTimeScale;
+    [SerializeField] private float maxCameraZoomInDuration;
+    [SerializeField] private float maxCameraZoomIn;
+    [SerializeField] private float cameraZoomOutDuration;
+
     private Animator animator;
     private Vector2 currentValues; 
     private bool isIncreasing = true;
@@ -52,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
     private bool dashBuffered = false;
     private Coroutine dashCoroutine;
     private SpriteRenderer lineObjectRenderer;
+    private bool isFirst = true;
+    private bool isDead = false;
     private void Awake()
     {
         Instance = this;
@@ -62,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(isDead) dustVFX.gameObject.SetActive(false);
+
         if (GameManager.Instance.LevelEnded) return;
         UpdateTimers();        
         CalculateAngle();
@@ -85,6 +96,19 @@ public class PlayerMovement : MonoBehaviour
 
             rb.velocity = Vector2.zero;
             currentAngle = 0;
+            
+            if (isFirst)
+            {
+                isFirst = !isFirst;
+            }
+            else
+            {
+                dustVFX.gameObject.SetActive(true);
+                dustVFX.Play();
+                playerRenderer.gameObject.GetComponent<ScalePop>().PopOutAnimation();
+                GameManager.Instance.DoScreenShake();
+            }
+           
             foreach (ContactPoint2D contact in other.contacts)
             {
                 playerRenderer.flipX = false;
@@ -256,6 +280,8 @@ public class PlayerMovement : MonoBehaviour
         
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
         SetCharacterOrientation();
+        dustVFX.Stop();
+        dustVFX.gameObject.SetActive(false);
     }
 
     public void SetCharacterOrientation()
@@ -323,12 +349,35 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die(float playerDeathAngle, float delayBeforeGoingToNextLevel)
     {
+        isDead = true;
+        AudioManager.Instance.PlaySound(AudioManager.AudioType.Death);
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.None;
         DisableArrow();
         GetComponent<Collider2D>().enabled = false;
         transform.DOLocalRotate(new Vector3(0,0,playerDeathAngle), delayBeforeGoingToNextLevel, RotateMode.FastBeyond360).SetEase(Ease.Linear);
+        DeathJuiceness();
+        dustVFX.gameObject.SetActive(false);
     }
+
+    public void DeathJuiceness()
+    {
+        StartCoroutine(DeathJuicenessCoroutine());
+    }
+
+    public IEnumerator DeathJuicenessCoroutine()
+    {
+        yield return null;
+        Time.timeScale = slowMotionTimeScale;
+        Camera.main.DOOrthoSize(maxCameraZoomIn, maxCameraZoomInDuration).OnComplete(()=>
+            Camera.main.DOOrthoSize(5, cameraZoomOutDuration));
+        Camera.main.transform.DOMove(new Vector3(transform.position.x, transform.position.y, -10), maxCameraZoomInDuration).OnComplete(()=>
+            Camera.main.transform.DOMove(new Vector3(0,0, -10), cameraZoomOutDuration));
+        yield return new WaitForSecondsRealtime(timeOnSlowMotion);
+        Time.timeScale = 1;
+    }
+
+   
 
     public void SetArrowCountdown(Color startColor, Color endColor, float duration)
     {
