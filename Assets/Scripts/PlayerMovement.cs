@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float outlineTweenDuration = 0.1f;
     [SerializeField] private Color colorAimed;
     [SerializeField] private Color colorNotAimed;
+    [SerializeField] private ParticleSystem dustVFX;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dashBuffered = false;
     private Coroutine dashCoroutine;
     private SpriteRenderer lineObjectRenderer;
+    private bool isFirst = true;
     private void Awake()
     {
         Instance = this;
@@ -91,6 +93,17 @@ public class PlayerMovement : MonoBehaviour
 
             rb.velocity = Vector2.zero;
             currentAngle = 0;
+            
+            if (isFirst)
+            {
+                isFirst = !isFirst;
+            }
+            else
+            {
+                dustVFX.gameObject.SetActive(true);
+                dustVFX.Play();
+            }
+           
             foreach (ContactPoint2D contact in other.contacts)
             {
                 playerRenderer.flipX = false;
@@ -262,6 +275,8 @@ public class PlayerMovement : MonoBehaviour
         
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
         SetCharacterOrientation();
+        dustVFX.Stop();
+        dustVFX.gameObject.SetActive(false);
     }
 
     public void SetCharacterOrientation()
