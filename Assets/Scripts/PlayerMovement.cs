@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     private Coroutine dashCoroutine;
     private SpriteRenderer lineObjectRenderer;
     private bool isFirst = true;
+    private bool isDead = false;
     private void Awake()
     {
         Instance = this;
@@ -70,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(isDead) dustVFX.gameObject.SetActive(false);
+
         if (GameManager.Instance.LevelEnded) return;
         UpdateTimers();        
         CalculateAngle();
@@ -344,6 +347,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die(float playerDeathAngle, float delayBeforeGoingToNextLevel)
     {
+        isDead = true;
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Death);
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.None;
@@ -351,6 +355,7 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         transform.DOLocalRotate(new Vector3(0,0,playerDeathAngle), delayBeforeGoingToNextLevel, RotateMode.FastBeyond360).SetEase(Ease.Linear);
         DeathJuiceness();
+        dustVFX.gameObject.SetActive(false);
     }
 
     public void DeathJuiceness()
