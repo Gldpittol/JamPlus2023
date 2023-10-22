@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,17 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject firstPart;
     [SerializeField] private GameObject secondPart;
     [SerializeField] private GameObject creditsPanel;
+
+    private void Update()
+    {
+        if (creditsPanel.activeInHierarchy)
+        {
+            if (Input.anyKeyDown)
+            {
+                creditsPanel.SetActive(false);
+            }
+        }
+    }
 
     public void StartGame()
     {
