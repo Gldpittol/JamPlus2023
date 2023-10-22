@@ -3251,9 +3251,33 @@ PrefabInstance:
       value: Level_2
       objectReference: {fileID: 0}
     - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: arrowEndColor.b
+      value: 0.06190812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: arrowEndColor.g
+      value: 0.06190812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: arrowEndColor.r
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: obstaclesParent
       value: 
       objectReference: {fileID: 1391356616}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: arrowStartColor.b
+      value: 0.15363523
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: arrowStartColor.g
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: arrowStartColor.r
+      value: 0.0658597
+      objectReference: {fileID: 0}
     - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: scoreRequiredGold
       value: 60
