@@ -109,6 +109,11 @@ public class ComboBar : MonoBehaviour
         return 1;
     }
 
+    public int GetListID(float multiplier)
+    {
+        return multiplierList.IndexOf(multiplier);
+    }
+
     public void UpdateColor()
     {
         for (int i = 0; i < tresholdList.Count; i++)

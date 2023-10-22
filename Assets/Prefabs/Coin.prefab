@@ -105,9 +105,20 @@ MonoBehaviour:
   minY: -3.47
   maxY: 3.51
   coinsForNewObstacle: 100
-  minRotationSpeed: 30
-  maxRotationSPeed: 70
+  minRotationSpeedT1: 30
+  maxRotationSPeedT1: 70
+  minRotationSpeedT2: 90
+  maxRotationSPeedT2: 130
+  minRotationSpeedT3: 150
+  maxRotationSPeedT3: 190
+  multiplierSpeedT2: 1.5
+  multiplierSpeedT3: 2
+  glowColorT1: {r: 0.37740025, g: 0.9433962, b: 0.32395867, a: 1}
+  glowColorT2: {r: 0.26165894, g: 0.8309096, b: 0.9433962, a: 1}
+  glowColorT3: {r: 0.977832, g: 1, b: 0.19245279, a: 1}
   collectVFX: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
+  permanentVFX: {fileID: 6949543332482889265}
+  glowVFX: {fileID: 7111701901086420183}
 --- !u!58 &2166071879538915281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -227,13 +238,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198277011295707460, guid: 1fc71432c1bd537489e1be6246b56973, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.2588235
+      objectReference: {fileID: 0}
+    - target: {fileID: 198277011295707460, guid: 1fc71432c1bd537489e1be6246b56973, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198277011295707460, guid: 1fc71432c1bd537489e1be6246b56973, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.37361076
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc71432c1bd537489e1be6246b56973, type: 3}
+--- !u!1 &6949543332482889265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 162722, guid: 1fc71432c1bd537489e1be6246b56973, type: 3}
+  m_PrefabInstance: {fileID: 6949543332482764179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6949543332483082715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484424, guid: 1fc71432c1bd537489e1be6246b56973, type: 3}
+  m_PrefabInstance: {fileID: 6949543332482764179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7111701901086420183 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198277011295707460, guid: 1fc71432c1bd537489e1be6246b56973, type: 3}
   m_PrefabInstance: {fileID: 6949543332482764179}
   m_PrefabAsset: {fileID: 0}

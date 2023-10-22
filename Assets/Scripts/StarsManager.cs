@@ -25,7 +25,6 @@ public class StarsManager : MonoBehaviour
 
     public void UpdateStars(float score, float scorePass, float scoreSilver, float scoreGold)
     {
-        print(score);
         float scoreDiff = score - lastScore;
         if (score >= scoreGold)
         {

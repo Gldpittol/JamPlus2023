@@ -17,8 +17,18 @@ public class Coin : MonoBehaviour
     [SerializeField] private float maxY;
 
     [SerializeField] private int coinsForNewObstacle;
-    [SerializeField] private float minRotationSpeed, maxRotationSPeed;
+    [SerializeField] private float minRotationSpeedT1, maxRotationSPeedT1;
+    [SerializeField] private float minRotationSpeedT2, maxRotationSPeedT2;
+    [SerializeField] private float minRotationSpeedT3, maxRotationSPeedT3;
+    [SerializeField] private float multiplierSpeedT2;
+    [SerializeField] private float multiplierSpeedT3;
+    [SerializeField] private Color glowColorT1;
+    [SerializeField] private Color glowColorT2;
+    [SerializeField] private Color glowColorT3;
+
     [SerializeField] private GameObject collectVFX;
+    [SerializeField] private GameObject permanentVFX;
+    [SerializeField] private ParticleSystem glowVFX;
 
     private int coinsCollected;
     private ScalePop scalePop;
@@ -71,7 +81,38 @@ public class Coin : MonoBehaviour
 
     public void RandomizeRotation()
     {
-        rotationSpeed = Random.Range(minRotationSpeed, maxRotationSPeed);
+        int id = ComboBar.Instance.GetListID(ComboBar.Instance.GetComboMultiplier());
+        if (id == -1) id = 2;
+        if (id == 0)
+        {
+            rotationSpeed = Random.Range(minRotationSpeedT3, maxRotationSPeedT3);
+            foreach (ParticleSystem ps in permanentVFX.GetComponentsInChildren<ParticleSystem>())
+            {
+                var mainModule = ps.main;
+                mainModule.simulationSpeed = multiplierSpeedT3;
+            }
+
+            var glowVFXMain = glowVFX.main;
+            glowVFXMain.startColor = glowColorT3;
+        }
+        else if (id == 1)
+        {
+            rotationSpeed = Random.Range(minRotationSpeedT2, maxRotationSPeedT2);
+            foreach (ParticleSystem ps in permanentVFX.GetComponentsInChildren<ParticleSystem>())
+            {
+                var mainModule = ps.main;
+                mainModule.simulationSpeed = multiplierSpeedT2;
+            }
+            var glowVFXMain = glowVFX.main;
+            glowVFXMain.startColor = glowColorT2;
+        }
+        else if (id == 2)
+        {
+            rotationSpeed = Random.Range(minRotationSpeedT1, maxRotationSPeedT1);
+            var glowVFXMain = glowVFX.main;
+            glowVFXMain.startColor = glowColorT1;
+        }
+        
         if (Random.value < 0.5f) extraFactor *= -1;
     }
 
