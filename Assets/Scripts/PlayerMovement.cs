@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask raycastMask;
     [SerializeField] private GameObject raycastSource;
     [SerializeField] private SpriteRenderer playerRenderer;
+    [SerializeField] private SpriteRenderer lineColor;
+    [SerializeField] private GameObject lineMask;
+    [SerializeField] private float flashDuration = 0.3f;
+    [SerializeField] private float outlineTweenDuration = 0.1f;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
@@ -288,6 +292,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void DrawRayCasts()
     {
+        //return;
         RaycastHit2D hit = Physics2D.CircleCast(raycastSource.transform.position, 
             radius,lineObject.transform.right, 
             10000,raycastMask);
@@ -296,11 +301,11 @@ public class PlayerMovement : MonoBehaviour
            // print(hit.transform.gameObject.name);
             if (hit.transform.CompareTag("Coin"))
             {
-                lineObjectRenderer.color = Color.green;
+                lineObjectRenderer.DOColor(Color.white, outlineTweenDuration);
             }
             else
             {
-                lineObjectRenderer.color = Color.white;
+                lineObjectRenderer.DOColor(Color.black, outlineTweenDuration);
             }
         }
     }
@@ -318,8 +323,29 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.None;
-        lineObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        DisableArrow();
         GetComponent<Collider2D>().enabled = false;
         transform.DOLocalRotate(new Vector3(0,0,playerDeathAngle), delayBeforeGoingToNextLevel, RotateMode.FastBeyond360).SetEase(Ease.Linear);
+    }
+
+    public void SetArrowCountdown(Color startColor, Color endColor, float duration)
+    {
+        lineColor.color = startColor;
+        lineColor.DOColor(endColor, duration* 2);
+        lineMask.transform.DOScaleX(0, duration * 2);
+    }
+
+    public void SetArrowFlash()
+    {
+        lineColor.DOFade(0, flashDuration)
+            .OnComplete(() => lineColor.DOFade(1, flashDuration).OnComplete(() => SetArrowFlash()));
+    }
+
+    public void DisableArrow()
+    {
+        foreach (SpriteRenderer sr in lineObject.GetComponentsInChildren<SpriteRenderer>(true))
+        {
+            sr.enabled = false;
+        }
     }
 }

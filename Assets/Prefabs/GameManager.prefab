@@ -51,6 +51,8 @@ MonoBehaviour:
   delayBeforeGoingToNextLevel: 1
   playerDeathAngle: 720
   playerDeathAddPosition: {x: 10, y: -5}
+  arrowStartColor: {r: 0, g: 1, b: 0, a: 1}
+  arrowEndColor: {r: 1, g: 0, b: 0, a: 1}
   nextSceneName: 
   minAcceptableObstacleDistanceFromPlayer: 2
   obstaclesParent: {fileID: 0}
