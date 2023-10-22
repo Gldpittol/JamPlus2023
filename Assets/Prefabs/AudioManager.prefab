@@ -85,4 +85,20 @@ MonoBehaviour:
     defaultPitch: 1
     maxPitch: 1
     startPoint: 0
+  - type: 5
+    clip:
+    - {fileID: 8300000, guid: 9f0f3c08e58863d48bfe3be4945a0af3, type: 3}
+    volume: 0.6
+    adaptativePitch: 0
+    defaultPitch: 1
+    maxPitch: 1
+    startPoint: 0.25
+  - type: 6
+    clip:
+    - {fileID: 8300000, guid: c080084a856e4e341bc9400a20670f55, type: 3}
+    volume: 0.6
+    adaptativePitch: 0
+    defaultPitch: 1
+    maxPitch: 1
+    startPoint: 0.25
   musicManager: {fileID: 6079124378174031762, guid: 1fd2ca16eac531a4abf18c3dc02a6b00, type: 3}

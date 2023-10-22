@@ -28,6 +28,8 @@ public class LoadingCanvas : MonoBehaviour
 
     public void GoToScene(string sceneName)
     {
+        if (isFading) return;
+        isFading = true;
         fadePanel.DOFade(1, fadeInDuration).OnComplete(()=>LoadScene(sceneName));
     }
 

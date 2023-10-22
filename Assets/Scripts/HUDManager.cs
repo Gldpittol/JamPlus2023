@@ -143,8 +143,10 @@ public class HUDManager : MonoBehaviour
             if (Time.timeScale == 1)
             {
                 stampLose.GetComponent<ScalePop>().PopOutAnimation();
-                AudioManager.Instance.PlaySound(AudioManager.AudioType.Stamp);
+                AudioManager.Instance.PlaySound(AudioManager.AudioType.CatStamp);
             }
+            AudioManager.Instance.PlaySound(AudioManager.AudioType.Stamp);
+
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
             pressSpaceTextLose.SetActive(true);
@@ -160,8 +162,8 @@ public class HUDManager : MonoBehaviour
                 if (Time.timeScale == 1)
                 {
                     starGold1.GetComponent<ScalePop>().PopOutAnimation();
+                    AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
                 }
-                AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
 
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
@@ -189,6 +191,7 @@ public class HUDManager : MonoBehaviour
             if (Time.timeScale == 1)
             {
                 stampWin.GetComponent<ScalePop>().PopOutAnimation();
+                AudioManager.Instance.PlaySound(AudioManager.AudioType.CatStamp);
             }
             AudioManager.Instance.PlaySound(AudioManager.AudioType.Stamp);
 
