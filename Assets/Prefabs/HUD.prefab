@@ -1121,7 +1121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -79, y: 0.00011444092}
+  m_AnchoredPosition: {x: -36, y: 0.00011444092}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8950217730019871522
@@ -1861,7 +1861,7 @@ MonoBehaviour:
   textWin: {fileID: 474678901700889536}
   textLost: {fileID: 2757792813095811617}
   score: {fileID: 8419372268182975763}
-  pressSpaceText: {fileID: 0}
+  pressSpaceText: {fileID: 8051209448741011615}
   delayBetweenStamps: 0.5
 --- !u!1 &6686216728187748818
 GameObject:
@@ -2271,7 +2271,7 @@ GameObject:
   - component: {fileID: 9076638250327354303}
   - component: {fileID: 3601068542494258156}
   m_Layer: 5
-  m_Name: PressSpaceText
+  m_Name: PressSpaceTextLose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

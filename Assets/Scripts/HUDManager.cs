@@ -130,16 +130,15 @@ public class HUDManager : MonoBehaviour
 
         else
         {
-            if (stars == 1)
+            if (stars >= 1)
             {
                 starGold1.SetActive(true);
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
-            if (stars == 2)
+            if (stars >= 2)
             {
                 starGold2.SetActive(true);
                 yield return new WaitForSeconds(delayBetweenStamps);
-
             }
             if (stars == 3)
             {
