@@ -61,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer lineObjectRenderer;
     private bool isFirst = true;
     private bool isDead = false;
+
+    private float initialDelay = 0.1f;
     private void Awake()
     {
         Instance = this;
@@ -71,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        initialDelay -= Time.deltaTime;
+        if (initialDelay > 0) return;
         if(isDead) dustVFX.gameObject.SetActive(false);
 
         if (GameManager.Instance.LevelEnded) return;
@@ -90,11 +94,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            if(!isGrounded)animator.Play("IdleAnim");
+            if (!isGrounded)
+            {
+                animator.Play("IdleAnim");
+                isGrounded = true;
+                rb.velocity = Vector2.zero;
+            }
 
-            isGrounded = true;
 
-            rb.velocity = Vector2.zero;
+            print("Aqui");
+            ;
             currentAngle = 0;
             
             if (isFirst)
