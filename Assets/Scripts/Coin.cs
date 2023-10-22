@@ -21,11 +21,14 @@ public class Coin : MonoBehaviour
     [SerializeField] private GameObject collectVFX;
 
     private int coinsCollected;
+    private ScalePop scalePop;
     
     private void Awake()
     {
         Instance = this;
         SlowRotate();
+        scalePop = GetComponent<ScalePop>();
+        scalePop.PopOutAnimation();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -41,6 +44,7 @@ public class Coin : MonoBehaviour
             ComboBar.Instance.Increment();
             ComboBar.Instance.DoComboText();
             transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
+            scalePop.PopOutAnimation();
             AudioManager.Instance.PlaySound(AudioManager.AudioType.Collect);
             PlayerMovement.Instance.IncreaseIncrement();
 
