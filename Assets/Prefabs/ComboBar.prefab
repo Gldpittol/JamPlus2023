@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4d902ead6335d4fb8eb0b9fc1bc366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeDecreasing: 0.3
-  incrementOnJump: 8
-  decrementPerFrame: 3
+  delayBeforeDecreasing: 1.5
+  incrementOnJump: 20
+  decrementPerFrame: 8
   tweenDuration: 0.3
   comboTextYIncrease: 1
   comboTextTweenDuration: 1
@@ -154,14 +154,14 @@ MonoBehaviour:
   barFill: {fileID: 5344838374351321503}
   comboText: {fileID: 4956871473234319704}
   tresholdList:
-  - 70
-  - 18
+  - 85
+  - 30
   multiplierList:
   - 5
   - 3
   colorList:
-  - {r: 0.78431374, g: 0.65116984, b: 0.08235296, a: 1}
-  - {r: 0.7843138, g: 0.08235294, b: 0.08235294, a: 1}
+  - {r: 0.9150943, g: 0.06474723, b: 0.14026126, a: 1}
+  - {r: 0.9339623, g: 0.85737693, b: 0.022027409, a: 1}
   defaultColor: {r: 0, g: 0, b: 0, a: 1}
   comboTextPrefab: {fileID: 2059626091396744808, guid: 07675563db789574998df36e5c0aef25, type: 3}
   vfxList:
@@ -291,7 +291,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9215641560037531688}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -351,6 +351,14 @@ PrefabInstance:
     - target: {fileID: 2059626091396744808, guid: 07675563db789574998df36e5c0aef25, type: 3}
       propertyPath: m_Name
       value: ComboText
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918324578947618546, guid: 07675563db789574998df36e5c0aef25, type: 3}
+      propertyPath: m_fontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918324578947618546, guid: 07675563db789574998df36e5c0aef25, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 8592571472640123282, guid: 07675563db789574998df36e5c0aef25, type: 3}
       propertyPath: m_Pivot.x
