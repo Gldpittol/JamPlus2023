@@ -24,7 +24,23 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private float sheetTweenDuration1;
     [SerializeField] private float sheetTweenDuration2;
 
+    [Header("Stars")] 
+    [SerializeField] private GameObject starGray1;
+    [SerializeField] private GameObject starGray2;
+    [SerializeField] private GameObject starGray3;
+    [SerializeField] private GameObject starGold1;
+    [SerializeField] private GameObject starGold2;
+    [SerializeField] private GameObject starGold3;
+    [SerializeField] private GameObject stampWin;
+    [SerializeField] private GameObject stampLose;
+    [SerializeField] private GameObject textWin;
+    [SerializeField] private GameObject textLost;
+    [SerializeField] private TextMeshProUGUI score;
+    [SerializeField] private GameObject pressSpaceText;
+    [SerializeField] private float delayBetweenStamps = 0.5f;
+
     private bool isAnimating = false;
+    private bool canGoToNextLevel;
     private void Awake()
     {
         Instance = this;
@@ -35,27 +51,12 @@ public class HUDManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            EnableFinalText(true);
-        }
-        
-        if (winText.gameObject.activeInHierarchy)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GameManager.Instance.LoadNextScene(true);
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                GameManager.Instance.LoadNextScene(false);
-            }
+            EnableFinalText(true, 3);
         }
 
-        if (loseText.gameObject.activeInHierarchy)
+        if (canGoToNextLevel && Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                GameManager.Instance.LoadNextScene(false);
-            }
+            GameManager.Instance.LoadNextScene(stampWin.activeInHierarchy? true : false);
         }
 
     }
@@ -70,11 +71,11 @@ public class HUDManager : MonoBehaviour
         timeText.text = "Time Left: " + time.ToString("F0") + "s";
     }
 
-    public void EnableFinalText(bool isWin)
+    public void EnableFinalText(bool isWin, int stars)
     {
         if (isAnimating) return;
         isAnimating = true;
-        StartCoroutine(SummonScrollCoroutine(isWin));
+        StartCoroutine(SummonScrollCoroutine(isWin, stars));
         
         /*if (finalPanel.enabled) return;
         if (isWin)
@@ -89,19 +90,66 @@ public class HUDManager : MonoBehaviour
         finalPanel.enabled = true;*/
     }
 
-    public IEnumerator SummonScrollCoroutine(bool isWin)
+    public IEnumerator SummonScrollCoroutine(bool isWin, int stars)
     {
+        score.text = "Final Score: " + GameManager.Instance.Score;
+        if (isWin)
+        {
+            textWin.SetActive(true);
+        }
+        else
+        {
+            textLost.SetActive(true);
+        }
         scrollParent.GetComponent<RectTransform>().DOLocalMoveY(68,upTweenDuration);
         yield return new WaitForSeconds(upTweenDuration);
         sheet.GetComponent<RectTransform>().DOLocalMoveX(-50,sheetTweenDuration1);
         yield return new WaitForSeconds(sheetTweenDuration1);
         sheet.GetComponent<RectTransform>().DOLocalMoveX(-60,sheetTweenDuration2);
         yield return new WaitForSeconds(sheetTweenDuration1);
-        GiveStars();
+        GiveStars(isWin, stars);
     }
 
-    public void GiveStars()
+    public void GiveStars(bool isWin, int stars)
     {
-        
+        StartCoroutine(GiveStarsCoroutine(isWin, stars));
+    }
+
+    public IEnumerator GiveStarsCoroutine(bool isWin, int stars)
+    {
+        yield return new WaitForSeconds(delayBetweenStamps);
+
+        if (!isWin)
+        {
+            stampLose.SetActive(true);
+            yield return new WaitForSeconds(delayBetweenStamps);
+            canGoToNextLevel = true;
+            pressSpaceText.SetActive(true);
+            yield break;
+        }
+
+        else
+        {
+            if (stars == 1)
+            {
+                starGold1.SetActive(true);
+                yield return new WaitForSeconds(delayBetweenStamps);
+            }
+            if (stars == 2)
+            {
+                starGold2.SetActive(true);
+                yield return new WaitForSeconds(delayBetweenStamps);
+
+            }
+            if (stars == 3)
+            {
+                starGold3.SetActive(true);
+                yield return new WaitForSeconds(delayBetweenStamps);
+            }
+            stampWin.SetActive(true);
+            yield return new WaitForSeconds(delayBetweenStamps);
+            canGoToNextLevel = true;
+            pressSpaceText.SetActive(true);
+        }
     }
 }
