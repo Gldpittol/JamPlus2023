@@ -351,6 +351,8 @@ public class PlayerMovement : MonoBehaviour
     {
         isDead = true;
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Death);
+        AudioManager.Instance.PlaySound(AudioManager.AudioType.CatDeath);
+
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.None;
         DisableArrow();

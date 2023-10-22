@@ -12,7 +12,9 @@ public class AudioManager : MonoBehaviour
         Collect,
         Death,
         Star,
-        Stamp
+        Stamp,
+        CatDeath,
+        CatStamp
     }
     
     [System.Serializable]
