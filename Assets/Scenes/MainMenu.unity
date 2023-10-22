@@ -615,7 +615,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 1948535062698485053, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1960591422136930473, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
       propertyPath: button0
@@ -643,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2052723069341283783, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3230455324741245302, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
       propertyPath: m_AnchorMax.y

@@ -119,7 +119,7 @@ MonoBehaviour:
     startPoint: 0.2
   - type: 9
     clip:
-    - {fileID: 8300000, guid: c080084a856e4e341bc9400a20670f55, type: 3}
+    - {fileID: 8300000, guid: 9730c58954dfcfe479a1f1bc62ddf80c, type: 3}
     volume: 0.8
     adaptativePitch: 0
     defaultPitch: 1
