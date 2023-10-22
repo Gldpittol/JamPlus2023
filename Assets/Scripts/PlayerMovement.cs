@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject lineMask;
     [SerializeField] private float flashDuration = 0.3f;
     [SerializeField] private float outlineTweenDuration = 0.1f;
+    [SerializeField] private Color colorAimed;
+    [SerializeField] private Color colorNotAimed;
 
     [Header("Dash Parameters")]
     [SerializeField] private float dashStrength;
@@ -301,11 +303,11 @@ public class PlayerMovement : MonoBehaviour
            // print(hit.transform.gameObject.name);
             if (hit.transform.CompareTag("Coin"))
             {
-                lineObjectRenderer.DOColor(Color.white, outlineTweenDuration);
+                lineObjectRenderer.DOColor(colorAimed, outlineTweenDuration);
             }
             else
             {
-                lineObjectRenderer.DOColor(Color.black, outlineTweenDuration);
+                lineObjectRenderer.DOColor(colorNotAimed, outlineTweenDuration);
             }
         }
     }
