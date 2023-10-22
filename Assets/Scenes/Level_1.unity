@@ -944,7 +944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1391356617
 Transform:
   m_ObjectHideFlags: 0
@@ -1674,9 +1674,17 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: countdownTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: obstaclesParent
       value: 
       objectReference: {fileID: 1391356616}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: scoreRequiredPass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7252512586678225693, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6406958
@@ -1883,6 +1891,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5150368056283844353, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58.03299
+      objectReference: {fileID: 0}
     - target: {fileID: 6472839091196336097, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -2088,9 +2100,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 512385145031098411, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157721412187012875, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2434813366975107463, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
       propertyPath: m_Name
       value: ComboBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751601855397538663, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3570966093761153433, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2130,6 +2154,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3570966093761153433, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215641560037531688, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

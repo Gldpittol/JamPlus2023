@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     private bool isFlashing = false;
 
     public bool LevelEnded => levelEnded;
-
+    
     private void Awake()
     {
         Instance = this;
@@ -91,32 +91,32 @@ public class GameManager : MonoBehaviour
         {
             print("Died,Retrying!");
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(false);
             yield break;
         }
         
         if (score >= scoreRequiredGold)
         {
-            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(true);
             print("Got Gold!");
         }
         else if (score >= scoreRequiredSilver)
         {
             print("Got Silver!");
 
-            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(true);
         }
         else if (score >= scoreRequiredPass)
         {
             print("Got Bronze!");
 
-            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(true);
         }
         else 
         {
             print("Failed Level, Retrying!");
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            HUDManager.Instance.EnableFinalText(false);
         }
     }
 
@@ -175,5 +175,22 @@ public class GameManager : MonoBehaviour
             print(iter);
             SpawnObstacle(iter+1);
         }
+    }
+
+    public void LoadNextScene(bool next)
+    {
+        if (!next)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+        }
+    }
+
+    public float GetTime()
+    {
+        return countdownTime;
     }
 }
