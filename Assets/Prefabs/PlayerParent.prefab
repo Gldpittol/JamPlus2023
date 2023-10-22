@@ -137,7 +137,7 @@ MonoBehaviour:
   dashCooldown: 0.3
   followCoin: 1
   dashBufferTime: 0.15
-  offsetBottom: {x: 0, y: 0}
+  offsetBottom: {x: 0, y: -0.029}
   offsetTop: {x: 0, y: -0.392}
   offsetRight: {x: -0.176, y: -0.291}
   offsetLeft: {x: 0.176, y: -0.28}

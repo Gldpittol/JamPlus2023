@@ -16,6 +16,8 @@ public class StarsManager : MonoBehaviour
     [SerializeField] private float maskSize = 2;
     [SerializeField] private float tweenDuration = 0.3f;
 
+    [SerializeField] private GameObject starsVFX;
+
     private void Awake()
     {
         Instance = this;
@@ -23,6 +25,7 @@ public class StarsManager : MonoBehaviour
 
     public void UpdateStars(float score, float scorePass, float scoreSilver, float scoreGold)
     {
+        print(score);
         float scoreDiff = score - lastScore;
         if (score >= scoreGold)
         {
@@ -54,16 +57,26 @@ public class StarsManager : MonoBehaviour
         {
             star1.GetComponent<ScalePop>().PopOutAnimation();
             popped1 = true;
+            GameObject temp = Instantiate(starsVFX, star1.transform.position, Quaternion.identity);
+            temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
+            Destroy(temp, 2f);
         }
         if (!popped2)
         {
             star2.GetComponent<ScalePop>().PopOutAnimation();
             popped2 = true;
+            GameObject temp = Instantiate(starsVFX, star2.transform.position, Quaternion.identity);
+            temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
+            Destroy(temp, 2f);
         }
         if (!popped3)
         {
             star3.GetComponent<ScalePop>().PopOutAnimation();
             popped3 = true;
+            GameObject temp = Instantiate(starsVFX, star3.transform.position, Quaternion.identity);
+            temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
+            Destroy(temp, 2f);
+            AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
         }
     }
     public void UpdateGold(float scorePercentage)
@@ -75,17 +88,24 @@ public class StarsManager : MonoBehaviour
         {
             star1.GetComponent<ScalePop>().PopOutAnimation();
             popped1 = true;
+            GameObject temp = Instantiate(starsVFX, star1.transform.position, Quaternion.identity);
+            temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
+            Destroy(temp, 2f);
         }
         if (!popped2)
         {
             star2.GetComponent<ScalePop>().PopOutAnimation();
             popped2 = true;
+            GameObject temp = Instantiate(starsVFX, star2.transform.position, Quaternion.identity);
+            temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
+            Destroy(temp, 2f);
+            AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
         }
         
         starMask1.transform.DOKill();
         starMask2.transform.DOKill();
         starMask3.transform.DOKill();
-        starMask3.transform.DOMoveY(-maskSize * scorePercentage, tweenDuration);
+        starMask3.transform.DOMoveY(starMask3.transform.position.y - (maskSize * scorePercentage), tweenDuration);
     }
     public void UpdateSilver(float scorePercentage)
     {
@@ -95,16 +115,20 @@ public class StarsManager : MonoBehaviour
         {
             star1.GetComponent<ScalePop>().PopOutAnimation();
             popped1 = true;
+            GameObject temp = Instantiate(starsVFX, star1.transform.position, Quaternion.identity);
+            temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
+            Destroy(temp, 2f);
+            AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
         }
         
         starMask1.transform.DOKill();
         starMask2.transform.DOKill();
-        starMask2.transform.DOMoveY(-maskSize * scorePercentage, tweenDuration);
+        starMask2.transform.DOMoveY(starMask2.transform.position.y - (maskSize * scorePercentage), tweenDuration);
     }
     public void UpdatePass(float scorePercentage)
     {
         starMask1.transform.DOKill();
-        starMask1.transform.DOMoveY(-maskSize * scorePercentage, tweenDuration);
+        starMask1.transform.DOMoveY(starMask1.transform.position.y - (maskSize * scorePercentage), tweenDuration);
     }
     
 }
