@@ -2,20 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
     public enum AudioType
     {
         Jump,
-        Collect
+        Collect,
+        Death
     }
     
     [System.Serializable]
     public struct AudioStruct
     {
         public AudioType type;
-        public AudioClip clip;
+        public AudioClip[] clip;
         public float volume;
         public bool adaptativePitch;
         public float defaultPitch;
@@ -36,7 +38,8 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource tempSource = gameObject.AddComponent<AudioSource>();
         AudioStruct audioStr = GetAudioStruct(type);
-        AudioClip clip = audioStr.clip;
+        int rnd = Random.Range(0, audioStr.clip.Length);
+        AudioClip clip = audioStr.clip[rnd];
         
         if (clip == null)
         {

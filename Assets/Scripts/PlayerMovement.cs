@@ -344,6 +344,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die(float playerDeathAngle, float delayBeforeGoingToNextLevel)
     {
+        AudioManager.Instance.PlaySound(AudioManager.AudioType.Death);
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.None;
         DisableArrow();
