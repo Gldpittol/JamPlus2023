@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,14 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winText;
     [SerializeField] private TextMeshProUGUI loseText;
 
+    [Header("Scroll")] 
+    [SerializeField] private GameObject scrollParent;
+    [SerializeField] private GameObject sheet;
+    [SerializeField] private float upTweenDuration;
+    [SerializeField] private float sheetTweenDuration1;
+    [SerializeField] private float sheetTweenDuration2;
+
+    private bool isAnimating = false;
     private void Awake()
     {
         Instance = this;
@@ -24,6 +33,11 @@ public class HUDManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            EnableFinalText(true);
+        }
+        
         if (winText.gameObject.activeInHierarchy)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -58,7 +72,11 @@ public class HUDManager : MonoBehaviour
 
     public void EnableFinalText(bool isWin)
     {
-        if (finalPanel.enabled) return;
+        if (isAnimating) return;
+        isAnimating = true;
+        StartCoroutine(SummonScrollCoroutine(isWin));
+        
+        /*if (finalPanel.enabled) return;
         if (isWin)
         {
             winText.gameObject.SetActive(true);
@@ -68,6 +86,22 @@ public class HUDManager : MonoBehaviour
             loseText.gameObject.SetActive(true);
         }
 
-        finalPanel.enabled = true;
+        finalPanel.enabled = true;*/
+    }
+
+    public IEnumerator SummonScrollCoroutine(bool isWin)
+    {
+        scrollParent.GetComponent<RectTransform>().DOLocalMoveY(68,upTweenDuration);
+        yield return new WaitForSeconds(upTweenDuration);
+        sheet.GetComponent<RectTransform>().DOLocalMoveX(-50,sheetTweenDuration1);
+        yield return new WaitForSeconds(sheetTweenDuration1);
+        sheet.GetComponent<RectTransform>().DOLocalMoveX(-60,sheetTweenDuration2);
+        yield return new WaitForSeconds(sheetTweenDuration1);
+        GiveStars();
+    }
+
+    public void GiveStars()
+    {
+        
     }
 }
