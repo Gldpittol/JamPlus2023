@@ -29,9 +29,14 @@ public class Coin : MonoBehaviour
     {
         Instance = this;
         //SlowRotate();
+       
+        RandomizeRotation();
+    }
+
+    private void Start()
+    {
         scalePop = GetComponent<ScalePop>();
         scalePop.PopOutAnimation();
-        RandomizeRotation();
     }
 
     private void Update()

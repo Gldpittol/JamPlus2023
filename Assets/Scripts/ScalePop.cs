@@ -31,6 +31,7 @@ public class ScalePop : MonoBehaviour
     public void PopOutAnimation()
     {
         transform.localScale = _originalScale;
+
         transform.DOKill();
         _transform.DOScale(popOutScale, popInDuration).OnComplete(() => _transform.DOScale(targetOriginalScale, popOutDuration));
     }
