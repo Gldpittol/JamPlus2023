@@ -2107,7 +2107,7 @@ MonoBehaviour:
   pressSpaceTextLose: {fileID: 8051209448741011615}
   pressSpaceTextWin: {fileID: 2779684472474627612}
   delayBetweenStamps: 0.5
-  blur: {fileID: 0}
+  blur: {fileID: 5693632596812237610}
 --- !u!1 &6686216728187748818
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,6 +2837,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 778775c04620b1647a89b257f68c0832, type: 3}
+--- !u!1 &5693632596812237610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7674400362620242037, guid: 778775c04620b1647a89b257f68c0832, type: 3}
+  m_PrefabInstance: {fileID: 2703051300644307807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5693632596812237611 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7674400362620242036, guid: 778775c04620b1647a89b257f68c0832, type: 3}
