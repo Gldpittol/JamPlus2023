@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     private bool isFlashing = false;
 
     public bool LevelEnded => levelEnded;
+    public float Score => score;
     
     private void Awake()
     {
@@ -96,32 +97,32 @@ public class GameManager : MonoBehaviour
         {
             print("Died,Retrying!");
 
-            HUDManager.Instance.EnableFinalText(false);
+            HUDManager.Instance.EnableFinalText(false, 0);
             yield break;
         }
         
         if (score >= scoreRequiredGold)
         {
-            HUDManager.Instance.EnableFinalText(true);
+            HUDManager.Instance.EnableFinalText(true, 3);
             print("Got Gold!");
         }
         else if (score >= scoreRequiredSilver)
         {
             print("Got Silver!");
 
-            HUDManager.Instance.EnableFinalText(true);
+            HUDManager.Instance.EnableFinalText(true, 2);
         }
         else if (score >= scoreRequiredPass)
         {
             print("Got Bronze!");
 
-            HUDManager.Instance.EnableFinalText(true);
+            HUDManager.Instance.EnableFinalText(true, 1);
         }
         else 
         {
             print("Failed Level, Retrying!");
 
-            HUDManager.Instance.EnableFinalText(false);
+            HUDManager.Instance.EnableFinalText(false, 0);
         }
     }
 

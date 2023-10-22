@@ -118,7 +118,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.43
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
@@ -166,11 +166,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Mochido SDF
+  m_Name: TextMochido
   m_EditorClassIdentifier: 
-  hashCode: 1081456858
+  hashCode: -944914506
   material: {fileID: -4616863558997792033}
-  materialHashCode: 1074765754
+  materialHashCode: -178773290
   m_Version: 1.1.0
   m_SourceFontFileGUID: cc2ea6f591a73d542a91160df266b76e
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: cc2ea6f591a73d542a91160df266b76e, type: 3}
