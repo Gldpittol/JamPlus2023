@@ -12,6 +12,9 @@ public class ComboBar : MonoBehaviour
     [SerializeField] private float incrementOnJump;
     [SerializeField] private float decrementPerFrame;
     [SerializeField] private float tweenDuration = 0.3f;
+    [SerializeField] private float comboTextYIncrease = 1f;
+    [SerializeField] private float comboTextTweenDuration = 1f;
+
     [SerializeField] private Ease tweenEase;
 
     [SerializeField] private SpriteRenderer barFill;
@@ -20,6 +23,7 @@ public class ComboBar : MonoBehaviour
     [SerializeField] private List<float> multiplierList = new List<float>();
     [SerializeField] private List<Color> colorList = new List<Color>();
     [SerializeField] private Color defaultColor;
+    [SerializeField] private GameObject comboTextPrefab;
 
     private float originalY;
     private float currentDelay;
@@ -34,8 +38,10 @@ public class ComboBar : MonoBehaviour
 
     private void Start()
     {
-        comboText.transform.parent = Coin.Instance.transform;
-        comboText.transform.localPosition = Vector2.zero;
+        //comboText.transform.parent = Coin.Instance.transform;
+        //comboText.transform.localPosition = Vector2.zero;
+        comboText.transform.parent = null;
+        comboText.DOFade(0, 0);
     }
     
     private void Update()
@@ -102,21 +108,33 @@ public class ComboBar : MonoBehaviour
             float currentPercentage = barFill.transform.localScale.y / originalY * 100;
             if (currentPercentage > thresholdList[i])
             {
-                barFill.color = colorList[i];
-                comboText.color = colorList[i];
+                barFill.color = new Color(colorList[i].r, colorList[i].g, colorList[i].b, barFill.color.a);
+                comboText.color = new Color(colorList[i].r, colorList[i].g, colorList[i].b, comboText.color.a);
 
                 comboText.text = GetComboMultiplier().ToString("F0") + "X";
                 return;
             }
         }
 
-        barFill.color = defaultColor;
-        comboText.color = defaultColor;
+        barFill.color = new Color(defaultColor.r, defaultColor.g, defaultColor.b, barFill.color.a);
+        comboText.color = new Color(defaultColor.r, defaultColor.g, defaultColor.b, comboText.color.a);
         comboText.text = GetComboMultiplier().ToString("F0") + "X";
     }
 
     public float GetPercentage()
     {
         return barFill.transform.localScale.y / originalY;
+    }
+
+    public void DoComboText()
+    {
+        TextMeshPro tempComboText = Instantiate(comboTextPrefab).GetComponent<TextMeshPro>();
+        tempComboText.color = new Color(comboText.color.r, comboText.color.g, comboText.color.b, 1);
+        tempComboText.text = comboText.text;
+        tempComboText.DOFade(0, comboTextTweenDuration).OnComplete(()=>       
+            tempComboText.color = new Color(tempComboText.color.r, tempComboText.color.g, tempComboText.color.b, 0));
+        
+        tempComboText.transform.position = Coin.Instance.transform.position;
+        tempComboText.transform.DOMoveY(tempComboText.transform.position.y + comboTextYIncrease,comboTextTweenDuration);
     }
 }

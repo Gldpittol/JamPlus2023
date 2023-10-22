@@ -29,10 +29,11 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             coinsCollected++;
-            transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
             GameManager.Instance.UpdateScore();
             ComboBar.Instance.ResetDelay();
             ComboBar.Instance.Increment();
+            ComboBar.Instance.DoComboText();
+            transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
             AudioManager.Instance.PlaySound(AudioManager.AudioType.Collect);
             PlayerMovement.Instance.IncreaseIncrement();
 
