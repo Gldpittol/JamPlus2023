@@ -105,10 +105,7 @@ public class PlayerMovement : MonoBehaviour
                 isGrounded = true;
                 rb.velocity = Vector2.zero;
             }
-
-
-            print("Aqui");
-            ;
+            
             currentAngle = 0;
             
             if (isFirst)
