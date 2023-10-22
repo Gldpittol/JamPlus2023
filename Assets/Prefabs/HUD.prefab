@@ -2107,6 +2107,7 @@ MonoBehaviour:
   pressSpaceTextLose: {fileID: 8051209448741011615}
   pressSpaceTextWin: {fileID: 2779684472474627612}
   delayBetweenStamps: 0.5
+  blur: {fileID: 0}
 --- !u!1 &6686216728187748818
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2819,10 @@ PrefabInstance:
     - target: {fileID: 7674400362620242037, guid: 778775c04620b1647a89b257f68c0832, type: 3}
       propertyPath: m_Name
       value: Blur
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674400362620242037, guid: 778775c04620b1647a89b257f68c0832, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7674400362620242039, guid: 778775c04620b1647a89b257f68c0832, type: 3}
       propertyPath: m_Enabled
