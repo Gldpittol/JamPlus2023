@@ -14,7 +14,10 @@ public class AudioManager : MonoBehaviour
         Star,
         Stamp,
         CatDeath,
-        CatStamp
+        CatStamp,
+        UISelect,
+        UIConfirm,
+        UIBack
     }
     
     [System.Serializable]

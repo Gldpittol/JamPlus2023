@@ -101,4 +101,28 @@ MonoBehaviour:
     defaultPitch: 1
     maxPitch: 1
     startPoint: 0.25
+  - type: 7
+    clip:
+    - {fileID: 8300000, guid: e347e7f8f32d07c4ea44bc1d0d3d9889, type: 3}
+    volume: 0.8
+    adaptativePitch: 0
+    defaultPitch: 1
+    maxPitch: 1
+    startPoint: 0.2
+  - type: 8
+    clip:
+    - {fileID: 8300000, guid: ee68265872d94bb4cb7e3134d2253be6, type: 3}
+    volume: 0.8
+    adaptativePitch: 0
+    defaultPitch: 1
+    maxPitch: 1
+    startPoint: 0.2
+  - type: 9
+    clip:
+    - {fileID: 8300000, guid: c080084a856e4e341bc9400a20670f55, type: 3}
+    volume: 0.8
+    adaptativePitch: 0
+    defaultPitch: 1
+    maxPitch: 1
+    startPoint: 0.2
   musicManager: {fileID: 6079124378174031762, guid: 1fd2ca16eac531a4abf18c3dc02a6b00, type: 3}

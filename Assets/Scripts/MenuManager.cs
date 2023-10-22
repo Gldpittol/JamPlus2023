@@ -23,7 +23,6 @@ public class MenuManager : MonoBehaviour
     {
         currentButton = button0;
         currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
-        currentButton.GetComponent<ScalePop>().PopOutAnimation();
     }
 
     private void Update()
@@ -35,6 +34,7 @@ public class MenuManager : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 creditsPanel.SetActive(false);
+                AudioManager.Instance.PlaySound(AudioManager.AudioType.UIBack);
             }
         }
 
@@ -54,6 +54,7 @@ public class MenuManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             currentButton.onClick.Invoke();
+            AudioManager.Instance.PlaySound(AudioManager.AudioType.UIConfirm);
         }
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) ||
@@ -65,6 +66,7 @@ public class MenuManager : MonoBehaviour
                 currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
                 currentButton.GetComponent<ScalePop>().PopOutAnimation();
                 button0.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+                AudioManager.Instance.PlaySound(AudioManager.AudioType.UISelect);
             }
             else
             {
@@ -72,6 +74,7 @@ public class MenuManager : MonoBehaviour
                 currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
                 currentButton.GetComponent<ScalePop>().PopOutAnimation();
                 button1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+                AudioManager.Instance.PlaySound(AudioManager.AudioType.UISelect);
             }
         }
     }

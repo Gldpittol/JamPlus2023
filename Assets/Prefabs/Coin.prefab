@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241504b0ad7967a49ada9f0ac63e0360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -6.78
-  maxX: 6.91
-  minY: -3.47
-  maxY: 3.51
+  minX: -6.5
+  maxX: 6.5
+  minY: -3.3
+  maxY: 3.3
   coinsForNewObstacle: 100
   minRotationSpeedT1: 30
   maxRotationSPeedT1: 70
