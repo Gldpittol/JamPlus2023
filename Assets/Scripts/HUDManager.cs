@@ -137,6 +137,7 @@ public class HUDManager : MonoBehaviour
         if (!isWin)
         {
             stampLose.SetActive(true);
+            if(Time.timeScale == 1)stampLose.GetComponent<ScalePop>().PopOutAnimation();
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
             pressSpaceTextLose.SetActive(true);
@@ -149,19 +150,23 @@ public class HUDManager : MonoBehaviour
             if (stars >= 1)
             {
                 starGold1.SetActive(true);
+                if(Time.timeScale == 1)starGold1.GetComponent<ScalePop>().PopOutAnimation();
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
             if (stars >= 2)
             {
                 starGold2.SetActive(true);
+                if(Time.timeScale == 1)starGold2.GetComponent<ScalePop>().PopOutAnimation();
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
             if (stars == 3)
             {
                 starGold3.SetActive(true);
+                if(Time.timeScale == 1)starGold3.GetComponent<ScalePop>().PopOutAnimation();
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
             stampWin.SetActive(true);
+            if(Time.timeScale == 1)stampWin.GetComponent<ScalePop>().PopOutAnimation();
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
             pressSpaceTextWin.SetActive(true);
