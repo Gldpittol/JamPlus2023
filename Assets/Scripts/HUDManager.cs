@@ -39,6 +39,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject pressSpaceTextLose;
     [SerializeField] private GameObject pressSpaceTextWin;
     [SerializeField] private float delayBetweenStamps = 0.5f;
+    [SerializeField] private GameObject blur;
+
 
     private bool isAnimating = false;
     private bool canGoToNextLevel;
@@ -88,6 +90,7 @@ public class HUDManager : MonoBehaviour
         if (isAnimating) return;
         won = isWin;
         isAnimating = true;
+        blur.SetActive(true);
         StartCoroutine(SummonScrollCoroutine(isWin, stars));
         
         /*if (finalPanel.enabled) return;
@@ -137,7 +140,11 @@ public class HUDManager : MonoBehaviour
         if (!isWin)
         {
             stampLose.SetActive(true);
-            if(Time.timeScale == 1)stampLose.GetComponent<ScalePop>().PopOutAnimation();
+            if (Time.timeScale == 1)
+            {
+                stampLose.GetComponent<ScalePop>().PopOutAnimation();
+                AudioManager.Instance.PlaySound(AudioManager.AudioType.Stamp);
+            }
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
             pressSpaceTextLose.SetActive(true);
@@ -150,23 +157,41 @@ public class HUDManager : MonoBehaviour
             if (stars >= 1)
             {
                 starGold1.SetActive(true);
-                if(Time.timeScale == 1)starGold1.GetComponent<ScalePop>().PopOutAnimation();
+                if (Time.timeScale == 1)
+                {
+                    starGold1.GetComponent<ScalePop>().PopOutAnimation();
+                }
+                AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
+
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
             if (stars >= 2)
             {
                 starGold2.SetActive(true);
-                if(Time.timeScale == 1)starGold2.GetComponent<ScalePop>().PopOutAnimation();
+                if (Time.timeScale == 1)
+                {
+                    starGold2.GetComponent<ScalePop>().PopOutAnimation();
+                    AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
+                }
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
             if (stars == 3)
             {
                 starGold3.SetActive(true);
-                if(Time.timeScale == 1)starGold3.GetComponent<ScalePop>().PopOutAnimation();
+                if (Time.timeScale == 1)
+                {
+                    starGold3.GetComponent<ScalePop>().PopOutAnimation();
+                    AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
+                }
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
             stampWin.SetActive(true);
-            if(Time.timeScale == 1)stampWin.GetComponent<ScalePop>().PopOutAnimation();
+            if (Time.timeScale == 1)
+            {
+                stampWin.GetComponent<ScalePop>().PopOutAnimation();
+            }
+            AudioManager.Instance.PlaySound(AudioManager.AudioType.Stamp);
+
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
             pressSpaceTextWin.SetActive(true);

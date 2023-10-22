@@ -10,7 +10,9 @@ public class AudioManager : MonoBehaviour
     {
         Jump,
         Collect,
-        Death
+        Death,
+        Star,
+        Stamp
     }
     
     [System.Serializable]

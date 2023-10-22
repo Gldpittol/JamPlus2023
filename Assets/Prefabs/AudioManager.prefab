@@ -48,15 +48,15 @@ MonoBehaviour:
   - type: 0
     clip:
     - {fileID: 8300000, guid: e347e7f8f32d07c4ea44bc1d0d3d9889, type: 3}
-    volume: 0.6
+    volume: 1
     adaptativePitch: 1
     defaultPitch: 1
     maxPitch: 1.5
-    startPoint: 0
+    startPoint: 0.2
   - type: 1
     clip:
     - {fileID: 8300000, guid: d2bca7a994bf9574dab8e8e37460651e, type: 3}
-    volume: 0.5
+    volume: 0.4
     adaptativePitch: 1
     defaultPitch: 1
     maxPitch: 1.3
@@ -64,6 +64,22 @@ MonoBehaviour:
   - type: 2
     clip:
     - {fileID: 8300000, guid: 93de7c830831fdb459708d2b17a956a7, type: 3}
+    volume: 1
+    adaptativePitch: 0
+    defaultPitch: 1
+    maxPitch: 1
+    startPoint: 0
+  - type: 3
+    clip:
+    - {fileID: 8300000, guid: 10e01622e03cd5446b0a3fac5aa64b90, type: 3}
+    volume: 1
+    adaptativePitch: 0
+    defaultPitch: 1
+    maxPitch: 1
+    startPoint: 0
+  - type: 4
+    clip:
+    - {fileID: 8300000, guid: 54ba6b4aedfb55c4eb0eeb19a13f06a9, type: 3}
     volume: 1
     adaptativePitch: 0
     defaultPitch: 1

@@ -13,6 +13,8 @@ public class MusicManager : MonoBehaviour
 
     private AudioSource audSource;
     public static MusicManager Instance;
+
+    private float originalVolume;
     private void Awake()
     {
         if (Instance == null)
@@ -20,6 +22,7 @@ public class MusicManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             audSource = GetComponent<AudioSource>();
+            originalVolume = audSource.volume;
             UpdateMusic();
         }
         else
@@ -54,6 +57,6 @@ public class MusicManager : MonoBehaviour
         audSource.clip = clip;
         audSource.loop = true;
         audSource.Play();
-        audSource.DOFade(1, fadeDuration);
+        audSource.DOFade(originalVolume, fadeDuration);
     }
 }

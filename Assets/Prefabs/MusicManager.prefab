@@ -48,7 +48,6 @@ MonoBehaviour:
   menuClip: {fileID: 8300000, guid: 9540e6eba0f28e64591e8f46e5af7382, type: 3}
   gameClip: {fileID: 8300000, guid: 32b27109293dcd94da156b868a81c4a0, type: 3}
   fadeDuration: 0.6
-  id: -1
 --- !u!82 &85687405290706252
 AudioSource:
   m_ObjectHideFlags: 0
@@ -61,7 +60,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
