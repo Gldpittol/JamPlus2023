@@ -2513,6 +2513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shuriken
       objectReference: {fileID: 0}
+    - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
+      propertyPath: angle
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 1304532214837700325, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.45199
