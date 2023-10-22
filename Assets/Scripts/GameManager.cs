@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float minAcceptableObstacleDistanceFromPlayer = 2f;
     [SerializeField] private GameObject obstaclesParent;
     [SerializeField] private List<string> possibleObstacleTags = new List<string>();
+    [SerializeField] private GameObject loadingCanvas;
 
     private List<GameObject> obstaclesList = new List<GameObject>();
     private float score;
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
         InitializeObstacleList();
 
         QualitySettings.vSyncCount = 1;
+
+        Instantiate(loadingCanvas, Vector3.zero, Quaternion.identity);
     }
 
     private void Start()
@@ -181,11 +184,11 @@ public class GameManager : MonoBehaviour
     {
         if (!next)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            LoadingCanvas.Instance.GoToScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-            SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+            LoadingCanvas.Instance.GoToScene(nextSceneName);
         }
     }
 

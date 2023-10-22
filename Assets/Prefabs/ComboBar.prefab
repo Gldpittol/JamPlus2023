@@ -344,6 +344,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3570966093761153433}
     m_Modifications:
+    - target: {fileID: 547017900693442433, guid: 07675563db789574998df36e5c0aef25, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2059626091396744808, guid: 07675563db789574998df36e5c0aef25, type: 3}
       propertyPath: m_Name
       value: ComboText
