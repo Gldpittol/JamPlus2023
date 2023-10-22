@@ -4339,6 +4339,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 230503878360543706, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -38
+      objectReference: {fileID: 0}
     - target: {fileID: 569815044839578144, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_fontStyle
       value: 1
