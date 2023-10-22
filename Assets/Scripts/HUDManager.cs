@@ -36,7 +36,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject textWin;
     [SerializeField] private GameObject textLost;
     [SerializeField] private TextMeshProUGUI score;
-    [SerializeField] private GameObject pressSpaceText;
+    [SerializeField] private GameObject pressSpaceTextLose;
+    [SerializeField] private GameObject pressSpaceTextWin;
     [SerializeField] private float delayBetweenStamps = 0.5f;
 
     private bool isAnimating = false;
@@ -115,11 +116,13 @@ public class HUDManager : MonoBehaviour
         }
         scrollParent.GetComponent<RectTransform>().DOLocalMoveY(68,upTweenDuration);
         yield return new WaitForSeconds(upTweenDuration);
+        Time.timeScale = 1;
         sheet.GetComponent<RectTransform>().DOLocalMoveX(-50,sheetTweenDuration1);
         yield return new WaitForSeconds(sheetTweenDuration1);
         sheet.GetComponent<RectTransform>().DOLocalMoveX(-60,sheetTweenDuration2);
         yield return new WaitForSeconds(sheetTweenDuration1);
         GiveStars(isWin, stars);
+        Time.timeScale = 1;
     }
 
     public void GiveStars(bool isWin, int stars)
@@ -136,7 +139,7 @@ public class HUDManager : MonoBehaviour
             stampLose.SetActive(true);
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
-            pressSpaceText.SetActive(true);
+            pressSpaceTextLose.SetActive(true);
             Time.timeScale = 1;
             yield break;
         }
@@ -161,7 +164,7 @@ public class HUDManager : MonoBehaviour
             stampWin.SetActive(true);
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
-            pressSpaceText.SetActive(true);
+            pressSpaceTextWin.SetActive(true);
             Time.timeScale = 1;
         }
     }
