@@ -93,13 +93,13 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayBeforeGoingToNextLevel);
 
-        if (died)
+        /*if (died)
         {
             print("Died,Retrying!");
 
             HUDManager.Instance.EnableFinalText(false, 0);
             yield break;
-        }
+        }*/
         
         if (score >= scoreRequiredGold)
         {
