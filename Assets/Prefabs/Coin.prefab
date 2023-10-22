@@ -103,6 +103,7 @@ MonoBehaviour:
   minY: -3.47
   maxY: 3.51
   coinsForNewObstacle: 5
+  slowRotateDuration: 40
 --- !u!58 &2166071879538915281
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,12 +17,14 @@ public class Coin : MonoBehaviour
     [SerializeField] private float maxY;
 
     [SerializeField] private int coinsForNewObstacle;
-    
+    [SerializeField] private float slowRotateDuration;
+
     private int coinsCollected;
     
     private void Awake()
     {
         Instance = this;
+        SlowRotate();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -42,5 +45,10 @@ public class Coin : MonoBehaviour
                 PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
             }
         }
+    }
+
+    public void SlowRotate()
+    {
+        transform.DORotate(new Vector3(0,0,1000), slowRotateDuration, RotateMode.FastBeyond360).OnComplete(()=>SlowRotate());
     }
 }
