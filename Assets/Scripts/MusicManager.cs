@@ -13,8 +13,6 @@ public class MusicManager : MonoBehaviour
 
     private AudioSource audSource;
     public static MusicManager Instance;
-
-    public int id;
     private void Awake()
     {
         if (Instance == null)
@@ -32,26 +30,29 @@ public class MusicManager : MonoBehaviour
 
     public void UpdateMusic()
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu" && id != 1)
-        {
-            StartCoroutine(SwapSoundCoroutine(gameClip));
-            id = 1;
-        }
-        else if (id != 0)
+        if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             StartCoroutine(SwapSoundCoroutine(menuClip));
-            id = 0;
         }
-
-        audSource.loop = true;
-        audSource.Play();
+        else
+        {
+            StartCoroutine(SwapSoundCoroutine(gameClip));
+        }
     }
 
     public IEnumerator SwapSoundCoroutine(AudioClip clip)
     {
+        if (audSource.clip)
+        {
+            //print(clip.name);
+            //print(audSource.clip.name);
+            if (clip.name == audSource.clip.name) yield break;
+        }
+       
         audSource.DOFade(0, fadeDuration);
         yield return new WaitForSeconds(fadeDuration);
         audSource.clip = clip;
+        audSource.loop = true;
         audSource.Play();
         audSource.DOFade(1, fadeDuration);
     }
