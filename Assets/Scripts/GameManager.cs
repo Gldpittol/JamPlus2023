@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float delayBeforeGoingToNextLevel = 1f;
     [SerializeField] private float playerDeathAngle = 10f;
     [SerializeField] private Vector2 playerDeathAddPosition;
+    [SerializeField] private Color arrowStartColor;
+    [SerializeField] private Color arrowEndColor;
+    [SerializeField] private float flashThreshold = 8f;
 
     [SerializeField] private string nextSceneName;
 
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool useObstacle;
 
     private bool levelEnded = false;
+    private bool isFlashing = false;
 
     public bool LevelEnded => levelEnded;
 
@@ -41,6 +45,11 @@ public class GameManager : MonoBehaviour
         InitializeObstacleList();
 
         QualitySettings.vSyncCount = 1;
+    }
+
+    private void Start()
+    {
+        PlayerMovement.Instance.SetArrowCountdown(arrowStartColor, arrowEndColor, countdownTime);
     }
 
     private void Update()
@@ -55,6 +64,12 @@ public class GameManager : MonoBehaviour
             HUDManager.Instance.UpdateTimeText(0);
             FinishLevel(false);
         }
+
+        if (countdownTime < flashThreshold && !isFlashing)
+        {
+            isFlashing = true;
+            PlayerMovement.Instance.SetArrowFlash();
+        }
     }
 
     public void FinishLevel(bool died)
@@ -65,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator FinishLevelCoroutine(bool died)
     {
+        PlayerMovement.Instance.DisableArrow();
         if (died)
         {
             SpinPlayer();
