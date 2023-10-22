@@ -163,6 +163,7 @@ public class GameManager : MonoBehaviour
     {
         score += ComboBar.Instance.GetComboMultiplier();
         HUDManager.Instance.UpdateScoreText(score);
+        StarsManager.Instance.UpdateStars(score, scoreRequiredPass,scoreRequiredSilver,scoreRequiredGold);
     }
 
     public void SpawnObstacle(int iter = 0)
