@@ -2465,6 +2465,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 1488907255045072508, guid: c20371088535aee43b3046a2074159f7, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488907255045072508, guid: c20371088535aee43b3046a2074159f7, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4033575020838848935, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4722,6 +4730,14 @@ PrefabInstance:
     - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
       propertyPath: colorList.Array.data[4].r
       value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: tresholdList.Array.data[0]
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
+      propertyPath: tresholdList.Array.data[1]
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 3062302247908113084, guid: 3636c3aaf8b1e934fa9b165b62abde44, type: 3}
       propertyPath: thresholdList.Array.data[0]
