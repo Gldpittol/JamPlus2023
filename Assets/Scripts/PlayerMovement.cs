@@ -49,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxCameraZoomIn;
     [SerializeField] private float cameraZoomOutDuration;
 
+    [Header("Arrow New")] 
+    public GameObject arrowMask;
+    public GameObject centerGlow;
+    public float maskMoveXAmount ;
+
     private Animator animator;
     private Vector2 currentValues; 
     private bool isIncreasing = true;
@@ -392,15 +397,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetArrowCountdown(Color startColor, Color endColor, float duration)
     {
-        lineColor.color = startColor;
-        lineColor.DOColor(endColor, duration* 2);
-        lineMask.transform.DOScaleX(0, duration * 2);
+        //lineColor.color = startColor;
+        //lineColor.DOColor(endColor, duration* 2);
+        arrowMask.transform.DOLocalMoveX(0, duration).SetEase(Ease.Linear);
+        //lineMask.transform.DOScaleX(0, duration * 2);
     }
 
     public void SetArrowFlash()
     {
-        lineColor.DOFade(0, flashDuration)
-            .OnComplete(() => lineColor.DOFade(1, flashDuration).OnComplete(() => SetArrowFlash()));
+        centerGlow.SetActive(true);
+        /*lineColor.DOFade(0, flashDuration)
+            .OnComplete(() => lineColor.DOFade(1, flashDuration).OnComplete(() => SetArrowFlash()));*/
     }
 
     public void DisableArrow()
@@ -409,5 +416,7 @@ public class PlayerMovement : MonoBehaviour
         {
             sr.enabled = false;
         }
+
+        centerGlow.SetActive(false);
     }
 }
