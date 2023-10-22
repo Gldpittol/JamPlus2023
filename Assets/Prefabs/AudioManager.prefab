@@ -69,3 +69,4 @@ MonoBehaviour:
     defaultPitch: 1
     maxPitch: 1
     startPoint: 0
+  musicManager: {fileID: 6079124378174031762, guid: 1fd2ca16eac531a4abf18c3dc02a6b00, type: 3}

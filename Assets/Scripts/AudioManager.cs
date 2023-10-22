@@ -29,9 +29,22 @@ public class AudioManager : MonoBehaviour
 
     public List<AudioStruct> audioList = new List<AudioStruct>();
 
+    [SerializeField] private GameObject musicManager;
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        if (!MusicManager.Instance)
+        {
+            Instantiate(musicManager);
+        }
+        else
+        {
+            MusicManager.Instance.UpdateMusic();
+        }
     }
 
     public void PlaySound(AudioType type)
