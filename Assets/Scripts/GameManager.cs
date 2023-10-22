@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color arrowStartColor;
     [SerializeField] private Color arrowEndColor;
     [SerializeField] private float flashThreshold = 8f;
+    [SerializeField] private float minShake = 1f;
+    [SerializeField] private float maxShake = 3f;
 
     [SerializeField] private string nextSceneName;
 
@@ -195,5 +197,22 @@ public class GameManager : MonoBehaviour
     public float GetTime()
     {
         return countdownTime;
+    }
+
+    public void DoScreenShake()
+    {
+        StartCoroutine(DoScreenShakeCoroutine());
+    }
+
+    public IEnumerator DoScreenShakeCoroutine()
+    {
+        float shakeFactor = minShake + (ComboBar.Instance.GetPercentage() * (maxShake - minShake));
+        Camera.main.transform.eulerAngles = new Vector3 (0,0, shakeFactor);
+        yield return null;
+        Camera.main.transform.eulerAngles = Vector3.zero;
+        yield return null;
+        Camera.main.transform.eulerAngles = new Vector3 (0,0, -shakeFactor);
+        yield return null;
+        Camera.main.transform.eulerAngles = Vector3.zero;
     }
 }

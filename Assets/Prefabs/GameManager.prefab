@@ -54,6 +54,8 @@ MonoBehaviour:
   arrowStartColor: {r: 0, g: 1, b: 0, a: 1}
   arrowEndColor: {r: 1, g: 0, b: 0, a: 1}
   flashThreshold: 8
+  minShake: 0.5
+  maxShake: 1.2
   nextSceneName: 
   minAcceptableObstacleDistanceFromPlayer: 2
   obstaclesParent: {fileID: 0}

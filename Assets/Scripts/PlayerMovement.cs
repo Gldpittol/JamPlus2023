@@ -105,6 +105,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 dustVFX.gameObject.SetActive(true);
                 dustVFX.Play();
+                playerRenderer.gameObject.GetComponent<ScalePop>().PopOutAnimation();
+                GameManager.Instance.DoScreenShake();
             }
            
             foreach (ContactPoint2D contact in other.contacts)
