@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,14 +12,66 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject firstPart;
     [SerializeField] private GameObject secondPart;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private Button button0;
+    [SerializeField] private Button button1;
+    [SerializeField] private Color highLightColor;
+
+    private Button currentButton;
+    private float currentDelay;
+
+    private void Start()
+    {
+        currentButton = button0;
+        currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
+        currentButton.GetComponent<ScalePop>().PopOutAnimation();
+    }
 
     private void Update()
     {
+        currentDelay -= Time.deltaTime;
+            
         if (creditsPanel.activeInHierarchy)
         {
             if (Input.anyKeyDown)
             {
                 creditsPanel.SetActive(false);
+            }
+        }
+
+        CheckInputs();
+    }
+
+    public void CheckInputs()
+    {
+        if (creditsPanel.activeInHierarchy || firstPart.activeInHierarchy)
+        {
+            currentDelay = 0.2f;
+            return;
+        }
+        if (currentDelay > 0) return;
+        
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            currentButton.onClick.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) ||
+            Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if (currentButton == button0)
+            {
+                currentButton = button1;
+                currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
+                currentButton.GetComponent<ScalePop>().PopOutAnimation();
+                button0.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+            }
+            else
+            {
+                currentButton = button0;
+                currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
+                currentButton.GetComponent<ScalePop>().PopOutAnimation();
+                button1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
             }
         }
     }
