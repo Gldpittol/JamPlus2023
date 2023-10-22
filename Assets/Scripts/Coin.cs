@@ -17,18 +17,26 @@ public class Coin : MonoBehaviour
     [SerializeField] private float maxY;
 
     [SerializeField] private int coinsForNewObstacle;
-    [SerializeField] private float slowRotateDuration;
+    [SerializeField] private float minRotationSpeed, maxRotationSPeed;
     [SerializeField] private GameObject collectVFX;
 
     private int coinsCollected;
     private ScalePop scalePop;
-    
+    private float rotationSpeed;
+    private int extraFactor = 1;
+
     private void Awake()
     {
         Instance = this;
-        SlowRotate();
+        //SlowRotate();
         scalePop = GetComponent<ScalePop>();
         scalePop.PopOutAnimation();
+        RandomizeRotation();
+    }
+
+    private void Update()
+    {
+        transform.eulerAngles += new Vector3(0, 0, rotationSpeed) * Time.deltaTime * extraFactor;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -47,6 +55,7 @@ public class Coin : MonoBehaviour
             scalePop.PopOutAnimation();
             AudioManager.Instance.PlaySound(AudioManager.AudioType.Collect);
             PlayerMovement.Instance.IncreaseIncrement();
+            RandomizeRotation();
 
             if (coinsCollected % coinsForNewObstacle == 0)
             {
@@ -55,8 +64,14 @@ public class Coin : MonoBehaviour
         }
     }
 
-    public void SlowRotate()
+    public void RandomizeRotation()
     {
-        transform.DORotate(new Vector3(0,0,1000), slowRotateDuration, RotateMode.FastBeyond360).OnComplete(()=>SlowRotate());
+        rotationSpeed = Random.Range(minRotationSpeed, maxRotationSPeed);
+        if (Random.value < 0.5f) extraFactor *= -1;
     }
+
+    /*public void SlowRotate()
+    {
+        transform.DORotate(new Vector3(0,0,180), slowRotateDuration, RotateMode.FastBeyond360).OnComplete(()=>SlowRotate());
+    }*/
 }

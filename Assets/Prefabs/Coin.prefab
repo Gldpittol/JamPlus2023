@@ -105,7 +105,8 @@ MonoBehaviour:
   minY: -3.47
   maxY: 3.51
   coinsForNewObstacle: 100
-  slowRotateDuration: 40
+  minRotationSpeed: 30
+  maxRotationSPeed: 70
   collectVFX: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
 --- !u!58 &2166071879538915281
 CircleCollider2D:
