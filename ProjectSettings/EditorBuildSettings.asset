@@ -6,15 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 07a49db75ca36564aaf7e9c9b9a9b637
+  - enabled: 1
     path: Assets/Scenes/Level_1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 88024020502bfa04da34683ee5becd7b
+  - enabled: 0
+    path: Assets/Scenes/Level X.unity
+    guid: d7186c4fa36edcd41ae8f2da017b482e
+  - enabled: 1
+    path: Assets/Scenes/Level_2.unity
+    guid: 5abc6c6118bd2ab4283e4b722e5b9cd2
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: f9d137547b7815b4e93cb65befd04eed
+  - enabled: 1
+    path: Assets/Scenes/Level_4.unity
+    guid: 68c76366fea936f4baaf591d4d639928
+  - enabled: 1
+    path: Assets/Scenes/Level_5.unity
+    guid: 8b6417950f1121344b80e6cbdb562b65
+  - enabled: 0
+    path: Assets/Scenes/Polishing.unity
+    guid: 5b44862dc7b3ba74288242d47ba1bfa5
   - enabled: 0
     path: Assets/Scenes/Prototype2.unity
     guid: 01b286892280d39448ce89d8a784187c
-  - enabled: 1
-    path: Assets/Scenes/Polishing.unity
-    guid: 5b44862dc7b3ba74288242d47ba1bfa5
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 07a49db75ca36564aaf7e9c9b9a9b637
   m_configObjects: {}
