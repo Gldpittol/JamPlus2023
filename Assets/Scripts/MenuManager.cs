@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private string firstLevel;
     [SerializeField] private GameObject firstPart;
     [SerializeField] private GameObject secondPart;
+    [SerializeField] private GameObject creditsPanel;
 
     public void StartGame()
     {
@@ -23,5 +24,10 @@ public class MenuManager : MonoBehaviour
     {
         firstPart.SetActive(false);
         secondPart.SetActive(true);
+    }
+
+    public void OpenCredits(bool creditsState)
+    {
+        creditsPanel.SetActive(creditsState);
     }
 }
