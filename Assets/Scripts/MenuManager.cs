@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private string firstLevel;
+    [SerializeField] private GameObject firstPart;
+    [SerializeField] private GameObject secondPart;
 
     public void StartGame()
     {
@@ -15,5 +17,11 @@ public class MenuManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void EnableSecondPart()
+    {
+        firstPart.SetActive(false);
+        secondPart.SetActive(true);
     }
 }
