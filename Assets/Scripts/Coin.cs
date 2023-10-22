@@ -18,6 +18,7 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private int coinsForNewObstacle;
     [SerializeField] private float slowRotateDuration;
+    [SerializeField] private GameObject collectVFX;
 
     private int coinsCollected;
     
@@ -32,6 +33,9 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             coinsCollected++;
+            GameObject tempVFX = Instantiate(collectVFX, transform.position, Quaternion.identity);
+            tempVFX.transform.eulerAngles = collectVFX.transform.eulerAngles;
+            Destroy(tempVFX, 1f);
             GameManager.Instance.UpdateScore();
             ComboBar.Instance.ResetDelay();
             ComboBar.Instance.Increment();
