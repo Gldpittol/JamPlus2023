@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class MusicManager : MonoBehaviour
 {
     [SerializeField] private AudioClip menuClip;
     [SerializeField] private AudioClip gameClip;
+    [SerializeField] private float fadeDuration = 0.6f;
 
     private AudioSource audSource;
     public static MusicManager Instance;
@@ -32,16 +34,25 @@ public class MusicManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "MainMenu" && id != 1)
         {
-            audSource.clip = gameClip;
+            StartCoroutine(SwapSoundCoroutine(gameClip));
             id = 1;
         }
         else if (id != 0)
         {
-            audSource.clip = menuClip;
+            StartCoroutine(SwapSoundCoroutine(menuClip));
             id = 0;
         }
 
         audSource.loop = true;
         audSource.Play();
+    }
+
+    public IEnumerator SwapSoundCoroutine(AudioClip clip)
+    {
+        audSource.DOFade(0, fadeDuration);
+        yield return new WaitForSeconds(fadeDuration);
+        audSource.clip = clip;
+        audSource.Play();
+        audSource.DOFade(1, fadeDuration);
     }
 }
