@@ -82,6 +82,8 @@ public class StarsManager : MonoBehaviour
             popped2 = true;
         }
         
+        starMask1.transform.DOKill();
+        starMask2.transform.DOKill();
         starMask3.transform.DOKill();
         starMask3.transform.DOMoveY(-maskSize * scorePercentage, tweenDuration);
     }
@@ -95,6 +97,7 @@ public class StarsManager : MonoBehaviour
             popped1 = true;
         }
         
+        starMask1.transform.DOKill();
         starMask2.transform.DOKill();
         starMask2.transform.DOMoveY(-maskSize * scorePercentage, tweenDuration);
     }
