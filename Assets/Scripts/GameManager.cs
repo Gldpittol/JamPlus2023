@@ -104,23 +104,23 @@ public class GameManager : MonoBehaviour
         if (score >= scoreRequiredGold)
         {
             HUDManager.Instance.EnableFinalText(true, 3);
-            print("Got Gold!");
+          //  print("Got Gold!");
         }
         else if (score >= scoreRequiredSilver)
         {
-            print("Got Silver!");
+            //print("Got Silver!");
 
             HUDManager.Instance.EnableFinalText(true, 2);
         }
         else if (score >= scoreRequiredPass)
         {
-            print("Got Bronze!");
+//            print("Got Bronze!");
 
             HUDManager.Instance.EnableFinalText(true, 1);
         }
         else 
         {
-            print("Failed Level, Retrying!");
+           // print("Failed Level, Retrying!");
 
             HUDManager.Instance.EnableFinalText(false, 0);
         }

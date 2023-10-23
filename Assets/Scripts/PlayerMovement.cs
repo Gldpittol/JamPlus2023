@@ -297,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (currentDashTimer > 0) return;
         
-        print("Aqui");
+//        print("Aqui");
         if(canSwapAnimation)animator.Play("JumpAnim");
         currentDashTimer = dashCooldown;
 
