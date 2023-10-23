@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            print(iter);
+//            print(iter);
             SpawnObstacle(iter+1);
         }
     }

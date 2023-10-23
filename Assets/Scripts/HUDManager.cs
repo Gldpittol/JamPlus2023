@@ -40,6 +40,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject pressSpaceTextWin;
     [SerializeField] private float delayBetweenStamps = 0.5f;
     [SerializeField] private GameObject blur;
+    [SerializeField] private GameObject touchPanel;
 
 
     private bool isAnimating = false;
@@ -75,6 +76,32 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    public void ClickedScreen(bool isRight)
+    {
+        if (!canGoToNextLevel)
+        {
+            Time.timeScale = 100;
+        }
+        else
+        {
+            if (won)
+            {
+                if (isRight)
+                {
+                    GameManager.Instance.LoadNextScene(true);
+                }
+                else
+                {
+                    GameManager.Instance.LoadNextScene(false);
+                }
+            }
+            else
+            {
+                GameManager.Instance.LoadNextScene(false);
+            }
+        }
+    }
+
     public void UpdateScoreText(float score)
     {
         scoreText.text = "Score: " + score.ToString("F0");
@@ -91,6 +118,7 @@ public class HUDManager : MonoBehaviour
         won = isWin;
         isAnimating = true;
         blur.SetActive(true);
+        touchPanel.SetActive(true);
         StartCoroutine(SummonScrollCoroutine(isWin, stars));
         
         /*if (finalPanel.enabled) return;

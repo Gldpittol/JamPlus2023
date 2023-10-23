@@ -79,6 +79,21 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void ClickedScreen()
+    {
+        if (firstPart.activeInHierarchy)
+        {
+            firstPart.SetActive(false);
+            secondPart.SetActive(true);
+            currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
+        
+        if (creditsPanel.activeInHierarchy)
+        {
+            creditsPanel.SetActive(false);
+        }
+    }
+
     public void StartGame()
     {
         LoadingCanvas.Instance.GoToScene(firstLevel);
