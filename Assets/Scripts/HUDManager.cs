@@ -78,6 +78,12 @@ public class HUDManager : MonoBehaviour
 
     public void ClickedScreen(bool isRight)
     {
+        if (!isAnimating)
+        {
+            PlayerMovement.Instance.InputPerformed();
+            return;
+        }
+        
         if (!canGoToNextLevel)
         {
             Time.timeScale = 100;
@@ -118,7 +124,6 @@ public class HUDManager : MonoBehaviour
         won = isWin;
         isAnimating = true;
         blur.SetActive(true);
-        touchPanel.SetActive(true);
         StartCoroutine(SummonScrollCoroutine(isWin, stars));
         
         /*if (finalPanel.enabled) return;

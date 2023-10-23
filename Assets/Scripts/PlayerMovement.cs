@@ -263,20 +263,28 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(IsGrounded())
-            {
-                AngledDash();
-            }
-            else
-            {
-                if(dashCoroutine != null)StopCoroutine(dashCoroutine);
-                dashCoroutine = StartCoroutine(DashBufferCoroutine());
-            }
+            InputPerformed();
         }
         
         if(dashBuffered && IsGrounded())
         {
             AngledDash();
+        }
+    }
+
+    public void InputPerformed()
+    {
+        if (initialDelay > 0) return;
+        if (GameManager.Instance.LevelEnded) return;
+
+        if(IsGrounded())
+        {
+            AngledDash();
+        }
+        else
+        {
+            if(dashCoroutine != null)StopCoroutine(dashCoroutine);
+            dashCoroutine = StartCoroutine(DashBufferCoroutine());
         }
     }
 
