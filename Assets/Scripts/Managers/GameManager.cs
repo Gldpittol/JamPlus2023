@@ -33,12 +33,17 @@ public class GameManager : MonoBehaviour
     private List<GameObject> obstaclesList = new List<GameObject>();
     private float score;
 
+    [Header("Prefabs")]
+    [SerializeField] private GameObject playerDataManager;
+
     [Header("Debug")] 
+    [SerializeField] private bool doDebugs;
+    [SerializeField] private string debugLevelSelectName;
     [SerializeField] private bool useObstacle;
 
     private bool levelEnded = false;
     private bool isFlashing = false;
-
+    private int starsUnlocked;
     public bool LevelEnded => levelEnded;
     public float Score => score;
     
@@ -50,18 +55,48 @@ public class GameManager : MonoBehaviour
 
         QualitySettings.vSyncCount = 1;
 
-        Instantiate(loadingCanvas, Vector3.zero, Quaternion.identity);
+        InstantiatePrefabs();
     }
 
     private void Start()
     {
-        PlayerMovement.Instance.SetArrowCountdown(arrowStartColor, arrowEndColor, countdownTime);
+        if(PlayerMovement.Instance) PlayerMovement.Instance.SetArrowCountdown(arrowStartColor, arrowEndColor, countdownTime);
     }
 
     private void Update()
     {
         if (levelEnded) return;
         countdownTime -= Time.deltaTime;
+        
+        UpdateHUD();
+
+        if (doDebugs)
+        {
+            DoDebugs();   
+        }
+    }
+
+    public void DoDebugs()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadingCanvas.Instance.GoToScene(debugLevelSelectName);
+        }
+    }
+
+    public void InstantiatePrefabs()
+    {
+        if (!PlayerDataManager.Instance)
+        {
+            if(playerDataManager) Instantiate(playerDataManager);
+        }
+        Instantiate(loadingCanvas, Vector3.zero, Quaternion.identity);
+    }
+
+    public void UpdateHUD()
+    {
+        if (!HUDManager.Instance) return;
+        
         HUDManager.Instance.UpdateTimeText(countdownTime);
 
         if (countdownTime <= 0)
@@ -103,24 +138,29 @@ public class GameManager : MonoBehaviour
         
         if (score >= scoreRequiredGold)
         {
+            starsUnlocked = 3;
             HUDManager.Instance.EnableFinalText(true, 3);
           //  print("Got Gold!");
         }
         else if (score >= scoreRequiredSilver)
         {
             //print("Got Silver!");
+            starsUnlocked = 2;
 
             HUDManager.Instance.EnableFinalText(true, 2);
         }
         else if (score >= scoreRequiredPass)
         {
 //            print("Got Bronze!");
+            starsUnlocked = 1;
 
             HUDManager.Instance.EnableFinalText(true, 1);
         }
         else 
         {
            // print("Failed Level, Retrying!");
+
+           starsUnlocked = 0;
 
             HUDManager.Instance.EnableFinalText(false, 0);
         }
@@ -146,6 +186,7 @@ public class GameManager : MonoBehaviour
 
     public void InitializeObstacleList()
     {
+        if (!obstaclesParent) return;
         if (useObstacle)
         {
             obstaclesParent.transform.position = Vector2.zero;
@@ -188,10 +229,14 @@ public class GameManager : MonoBehaviour
     {
         if (!next)
         {
+            if(starsUnlocked > 0) PlayerDataManager.Instance.UnlockLevel(nextSceneName);
+            PlayerDataManager.Instance.ModifyLevel(SceneManager.GetActiveScene().name, score, starsUnlocked);
             LoadingCanvas.Instance.GoToScene(SceneManager.GetActiveScene().name);
         }
         else
         {
+            PlayerDataManager.Instance.UnlockLevel(nextSceneName);
+            PlayerDataManager.Instance.ModifyLevel(SceneManager.GetActiveScene().name, score, starsUnlocked);
             LoadingCanvas.Instance.GoToScene(nextSceneName);
         }
     }
