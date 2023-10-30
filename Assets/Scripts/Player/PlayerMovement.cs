@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer lineObjectRenderer;
     private bool isFirst = true;
     private bool isDead = false;
+    private bool canSwapAnimation = true;
 
     private float initialDelay = 0.1f;
     private void Awake()
@@ -101,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded)
             {
-                animator.Play("IdleAnim");
+                if(canSwapAnimation)animator.Play("IdleAnim");
                 isGrounded = true;
                 rb.velocity = Vector2.zero;
             }
@@ -214,7 +215,11 @@ public class PlayerMovement : MonoBehaviour
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
             GameManager.Instance.FinishLevel(true);
-            animator.Play("Dead");
+            if (canSwapAnimation)
+            {
+                animator.Play("Dead");
+                canSwapAnimation = false;
+            }
         }
     }
 
@@ -263,15 +268,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(IsGrounded())
-            {
-                AngledDash();
-            }
-            else
-            {
-                if(dashCoroutine != null)StopCoroutine(dashCoroutine);
-                dashCoroutine = StartCoroutine(DashBufferCoroutine());
-            }
+            InputPerformed();
         }
         
         if(dashBuffered && IsGrounded())
@@ -280,11 +277,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void InputPerformed()
+    {
+        if (initialDelay > 0) return;
+        if (GameManager.Instance.LevelEnded) return;
+
+        if(IsGrounded())
+        {
+            AngledDash();
+        }
+        else
+        {
+            if(dashCoroutine != null)StopCoroutine(dashCoroutine);
+            dashCoroutine = StartCoroutine(DashBufferCoroutine());
+        }
+    }
+
     public void AngledDash()
     {
         if (currentDashTimer > 0) return;
         
-        animator.Play("JumpPrep");
+//        print("Aqui");
+        if(canSwapAnimation)animator.Play("JumpAnim");
         currentDashTimer = dashCooldown;
 
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);

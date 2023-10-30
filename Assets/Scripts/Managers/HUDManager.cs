@@ -25,9 +25,6 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private float sheetTweenDuration2;
 
     [Header("Stars")] 
-    [SerializeField] private GameObject starGray1;
-    [SerializeField] private GameObject starGray2;
-    [SerializeField] private GameObject starGray3;
     [SerializeField] private GameObject starGold1;
     [SerializeField] private GameObject starGold2;
     [SerializeField] private GameObject starGold3;
@@ -40,7 +37,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject pressSpaceTextWin;
     [SerializeField] private float delayBetweenStamps = 0.5f;
     [SerializeField] private GameObject blur;
-
+    [SerializeField] private GameObject touchPanel;
 
     private bool isAnimating = false;
     private bool canGoToNextLevel;
@@ -75,6 +72,38 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    public void ClickedScreen(bool isRight)
+    {
+        if (!isAnimating)
+        {
+            PlayerMovement.Instance.InputPerformed();
+            return;
+        }
+        
+        if (!canGoToNextLevel)
+        {
+            Time.timeScale = 100;
+        }
+        else
+        {
+            if (won)
+            {
+                if (isRight)
+                {
+                    GameManager.Instance.LoadNextScene(true);
+                }
+                else
+                {
+                    GameManager.Instance.LoadNextScene(false);
+                }
+            }
+            else
+            {
+                GameManager.Instance.LoadNextScene(false);
+            }
+        }
+    }
+
     public void UpdateScoreText(float score)
     {
         scoreText.text = "Score: " + score.ToString("F0");
@@ -88,6 +117,7 @@ public class HUDManager : MonoBehaviour
     public void EnableFinalText(bool isWin, int stars)
     {
         if (isAnimating) return;
+
         won = isWin;
         isAnimating = true;
         blur.SetActive(true);

@@ -55,6 +55,7 @@ public class StarsManager : MonoBehaviour
         if (!popped1)
         {
             star1.GetComponent<ScalePop>().PopOutAnimation();
+            star1.GetComponent<SpriteRenderer>().color = Color.white;
             popped1 = true;
             GameObject temp = Instantiate(starsVFX, star1.transform.position, Quaternion.identity);
             temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
@@ -63,6 +64,7 @@ public class StarsManager : MonoBehaviour
         if (!popped2)
         {
             star2.GetComponent<ScalePop>().PopOutAnimation();
+            star2.GetComponent<SpriteRenderer>().color = Color.white;
             popped2 = true;
             GameObject temp = Instantiate(starsVFX, star2.transform.position, Quaternion.identity);
             temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
@@ -71,6 +73,7 @@ public class StarsManager : MonoBehaviour
         if (!popped3)
         {
             star3.GetComponent<ScalePop>().PopOutAnimation();
+            star3.GetComponent<SpriteRenderer>().color = Color.white;
             popped3 = true;
             GameObject temp = Instantiate(starsVFX, star3.transform.position, Quaternion.identity);
             temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
@@ -86,6 +89,7 @@ public class StarsManager : MonoBehaviour
         if (!popped1)
         {
             star1.GetComponent<ScalePop>().PopOutAnimation();
+            star1.GetComponent<SpriteRenderer>().color = Color.white;
             popped1 = true;
             GameObject temp = Instantiate(starsVFX, star1.transform.position, Quaternion.identity);
             temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
@@ -94,6 +98,7 @@ public class StarsManager : MonoBehaviour
         if (!popped2)
         {
             star2.GetComponent<ScalePop>().PopOutAnimation();
+            star2.GetComponent<SpriteRenderer>().color = Color.white;
             popped2 = true;
             GameObject temp = Instantiate(starsVFX, star2.transform.position, Quaternion.identity);
             temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
@@ -113,6 +118,7 @@ public class StarsManager : MonoBehaviour
         if (!popped1)
         {
             star1.GetComponent<ScalePop>().PopOutAnimation();
+            star1.GetComponent<SpriteRenderer>().color = Color.white;
             popped1 = true;
             GameObject temp = Instantiate(starsVFX, star1.transform.position, Quaternion.identity);
             temp.transform.eulerAngles = starsVFX.transform.eulerAngles;
