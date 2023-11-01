@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuClip: {fileID: 8300000, guid: 9540e6eba0f28e64591e8f46e5af7382, type: 3}
   gameClip: {fileID: 8300000, guid: 32b27109293dcd94da156b868a81c4a0, type: 3}
-  fadeDuration: 0.6
+  fadeDuration: 0.3
 --- !u!82 &85687405290706252
 AudioSource:
   m_ObjectHideFlags: 0

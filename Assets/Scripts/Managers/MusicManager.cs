@@ -15,6 +15,7 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Instance;
 
     private float originalVolume;
+    private float defaultMusicVolume;
     private void Awake()
     {
         if (Instance == null)
@@ -22,8 +23,9 @@ public class MusicManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             audSource = GetComponent<AudioSource>();
-            originalVolume = audSource.volume;
+            defaultMusicVolume = audSource.volume;
             UpdateMusic();
+            UpdateMusicVolume();
         }
         else
         {
@@ -45,6 +47,14 @@ public class MusicManager : MonoBehaviour
 
     public IEnumerator SwapSoundCoroutine(AudioClip clip)
     {
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            originalVolume = defaultMusicVolume * PlayerPrefs.GetFloat("MusicVolume");
+        }
+        else
+        {
+            originalVolume = defaultMusicVolume;
+        }
         if (audSource.clip)
         {
             //print(clip.name);
@@ -58,5 +68,11 @@ public class MusicManager : MonoBehaviour
         audSource.loop = true;
         audSource.Play();
         audSource.DOFade(originalVolume, fadeDuration);
+    }
+
+    public void UpdateMusicVolume()
+    {
+        if (!PlayerPrefs.HasKey("MusicVolume")) audSource.volume = defaultMusicVolume;
+        audSource.volume = defaultMusicVolume * PlayerPrefs.GetFloat("MusicVolume");
     }
 }

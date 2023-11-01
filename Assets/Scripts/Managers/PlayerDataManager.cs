@@ -109,4 +109,9 @@ public class PlayerDataManager : MonoBehaviour
         }
         return false;
     }
+
+    public void ResetData()
+    {
+        playerData = new PlayerData(); 
+    }
 }
