@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField] private float coinBaseScore = 500f;
     [SerializeField] private float countdownTime = 30f;
     [SerializeField] private float scoreRequiredPass = 100f;
     [SerializeField] private float scoreRequiredSilver = 200f;
@@ -202,7 +203,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore()
     {
-        score += ComboBar.Instance.GetComboMultiplier();
+        score += coinBaseScore * ComboBar.Instance.GetComboMultiplier();
         HUDManager.Instance.UpdateScoreText(score);
         StarsManager.Instance.UpdateStars(score, scoreRequiredPass,scoreRequiredSilver,scoreRequiredGold);
     }

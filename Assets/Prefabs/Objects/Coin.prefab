@@ -102,8 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: -6.5
   maxX: 6.5
-  minY: -3.3
-  maxY: 3.3
+  minY: -2.8
+  maxY: 2.8
   coinsForNewObstacle: 100
   minRotationSpeedT1: 30
   maxRotationSPeedT1: 70
