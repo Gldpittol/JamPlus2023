@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private string firstLevel;
     [SerializeField] private GameObject firstPart;
     [SerializeField] private GameObject secondPart;
     [SerializeField] private GameObject creditsPanel;
@@ -169,7 +168,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        LoadingCanvas.Instance.GoToScene(firstLevel);
+        GameManager.Instance.LoadNextScene(true);
     }
 
     public void Quit()

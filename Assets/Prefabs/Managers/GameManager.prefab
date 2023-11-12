@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e91f39e2065b6e48acd452562966c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinBaseScore: 500
   countdownTime: 30
   scoreRequiredPass: 10
   scoreRequiredSilver: 200
@@ -56,7 +57,13 @@ MonoBehaviour:
   flashThreshold: 8
   minShake: 0.5
   maxShake: 1.2
-  nextSceneName: 
+  sceneNames:
+  - MainMenu
+  - LevelSelect
+  - Level_1-1
+  - Level_2-1
+  - Level_3-1
+  - Level_4-1
   minAcceptableObstacleDistanceFromPlayer: 2
   obstaclesParent: {fileID: 0}
   possibleObstacleTags:

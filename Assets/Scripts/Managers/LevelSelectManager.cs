@@ -14,6 +14,11 @@ public class LevelSelectManager : MonoBehaviour
 
     public void GoToLevel(string sceneName)
     {
-        LoadingCanvas.Instance.GoToScene(sceneName);
+        GameManager.Instance.GoToScene(sceneName);
+    }
+
+    public void GoToMenu()
+    {
+        GameManager.Instance.GoToMainMenu();
     }
 }

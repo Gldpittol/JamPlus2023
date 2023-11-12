@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float minShake = 1f;
     [SerializeField] private float maxShake = 3f;
 
-    [SerializeField] private string nextSceneName;
+    [SerializeField] private List<string> sceneNames = new List<string>();
 
     [SerializeField] private float minAcceptableObstacleDistanceFromPlayer = 2f;
     [SerializeField] private GameObject obstaclesParent;
@@ -228,18 +228,36 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene(bool next)
     {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int nextSceneId = -1;
+        nextSceneId = sceneNames.IndexOf(currentSceneName) + 1;
+        if (nextSceneId == sceneNames.Count)
+        {
+            nextSceneId = 1; //index of level select
+        }
+        
         if (!next)
         {
-            if(starsUnlocked > 0) PlayerDataManager.Instance.UnlockLevel(nextSceneName);
+            if(starsUnlocked > 0) PlayerDataManager.Instance.UnlockLevel(sceneNames[nextSceneId]);
             PlayerDataManager.Instance.ModifyLevel(SceneManager.GetActiveScene().name, score, starsUnlocked);
             LoadingCanvas.Instance.GoToScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-            PlayerDataManager.Instance.UnlockLevel(nextSceneName);
+            PlayerDataManager.Instance.UnlockLevel(sceneNames[nextSceneId]);
             PlayerDataManager.Instance.ModifyLevel(SceneManager.GetActiveScene().name, score, starsUnlocked);
-            LoadingCanvas.Instance.GoToScene(nextSceneName);
+            LoadingCanvas.Instance.GoToScene(sceneNames[nextSceneId]);
         }
+    }
+
+    public void GoToMainMenu()
+    {
+        LoadingCanvas.Instance.GoToScene(sceneNames[0]); //index of menu screen
+    }
+
+    public void GoToScene(string sceneName)
+    {
+        LoadingCanvas.Instance.GoToScene(sceneName);
     }
 
     public float GetTime()

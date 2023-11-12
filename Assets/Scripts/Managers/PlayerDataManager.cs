@@ -96,6 +96,38 @@ public class PlayerDataManager : MonoBehaviour
         }
     }
 
+    public float GetHighScore(string levelName)
+    {
+        if (!CheckIfLevelIsAlreadyUnlocked(levelName))
+        {
+            return 0;
+        }
+        foreach (PlayerData.LevelData data in playerData.levelData)
+        {
+            if (data.levelName == levelName)
+            {
+                return data.highScore;
+            }
+        }
+        return 0;
+    }
+    
+    public int GetStarsAmount(string levelName)
+    {
+        if (!CheckIfLevelIsAlreadyUnlocked(levelName))
+        {
+            return 0;
+        }
+        foreach (PlayerData.LevelData data in playerData.levelData)
+        {
+            if (data.levelName == levelName)
+            {
+                return data.starsAchieved;
+            }
+        }
+        return 0;
+    }
+
     public bool CheckIfUnlocked(string levelName)
     {
         if (playerData.levelData.Count == 0) return false;
