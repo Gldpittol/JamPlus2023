@@ -726,7 +726,7 @@ MonoBehaviour:
   alwaysUnlocked: 1
   star1Fill: {fileID: 975487642096998788}
   star2Fill: {fileID: 3192297887858449823}
-  star3Fill: {fileID: 7113394425080319437}
+  star3Fill: {fileID: 3389824226691599837}
   highScoreText: {fileID: 6925181928834470299}
   levelText: {fileID: 5369722708312851869}
 --- !u!1 &6572100845656371618

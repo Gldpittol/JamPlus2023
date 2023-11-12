@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
@@ -39,6 +40,12 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject blur;
     [SerializeField] private GameObject touchPanel;
 
+    [Header("Options")] 
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseButton;
+
+    private bool isRetrying;
+    private bool isPaused = false;
     private bool isAnimating = false;
     private bool canGoToNextLevel;
     private bool won = false;
@@ -74,6 +81,8 @@ public class HUDManager : MonoBehaviour
 
     public void ClickedScreen(bool isRight)
     {
+        if (isPaused) return;
+        
         if (!isAnimating)
         {
             PlayerMovement.Instance.InputPerformed();
@@ -120,6 +129,7 @@ public class HUDManager : MonoBehaviour
 
         won = isWin;
         isAnimating = true;
+        pauseButton.SetActive(false);
         blur.SetActive(true);
         StartCoroutine(SummonScrollCoroutine(isWin, stars));
         
@@ -230,5 +240,35 @@ public class HUDManager : MonoBehaviour
             pressSpaceTextWin.SetActive(true);
             Time.timeScale = 1;
         }
+    }
+
+    public void GoToLevelSelect()
+    {
+        isRetrying = true;
+        Continue();
+        LoadingCanvas.Instance.GoToScene("LevelSelect");
+    }
+
+    public void Retry()
+    {
+        isRetrying = true;
+        Continue();
+        LoadingCanvas.Instance.GoToScene(SceneManager.GetActiveScene().name);
+    }
+    public void Continue()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+        isPaused = false;
+    }
+    
+    public void Pause()
+    {
+        if (GameManager.Instance.LevelEnded) return;
+        if (isRetrying) return;
+
+        isPaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 }
