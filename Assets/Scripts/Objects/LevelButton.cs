@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,7 +40,10 @@ public class LevelButton : MonoBehaviour
         if(starsUnlocked >= 1) star1Fill.gameObject.SetActive(true);
 
         if (alwaysUnlocked) return;
+        
         myBytton.interactable = PlayerDataManager.Instance.CheckIfUnlocked(levelName);
+        levelText.DOFade(0.5f, 0);
+        highScoreText.DOFade(0.5f, 0);
     }
 
     public void Clicked()

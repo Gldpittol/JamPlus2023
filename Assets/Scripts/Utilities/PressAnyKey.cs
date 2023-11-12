@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PressAnyKey : MonoBehaviour
@@ -11,7 +12,7 @@ public class PressAnyKey : MonoBehaviour
     [SerializeField] private Vector3 enlargedScale;
     [SerializeField] private Vector3 shrinkedScale;
     [SerializeField] private float duration;
-    [SerializeField] private MenuManager menu;
+    [FormerlySerializedAs("menu")] [SerializeField] private MainMenuManager mainMenu;
 
     private float originalScale;
     private void Awake()
@@ -25,7 +26,7 @@ public class PressAnyKey : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            menu.EnableSecondPart();
+            mainMenu.EnableSecondPart();
             enabled = false;
         }
     }

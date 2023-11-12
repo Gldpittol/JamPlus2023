@@ -35,7 +35,7 @@ public class MusicManager : MonoBehaviour
 
     public void UpdateMusic()
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "LevelSelect")
         {
             StartCoroutine(SwapSoundCoroutine(menuClip));
         }

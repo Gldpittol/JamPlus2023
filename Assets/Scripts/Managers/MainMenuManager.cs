@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject firstPart;
     [SerializeField] private GameObject secondPart;
@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
     private Button currentButton;
     private GameObject currentOptionsSelection;
     private float currentDelay;
+    private bool pressedSpace;
 
     private void Start()
     {
@@ -59,6 +60,7 @@ public class MenuManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                pressedSpace = true;
                 currentButton.onClick.Invoke();
                 // AudioManager.Instance.PlaySound(AudioManager.AudioType.UIConfirm);
             }
@@ -68,6 +70,7 @@ public class MenuManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                pressedSpace = true;
                 Button tempButton = currentOptionsSelection.GetComponent<Button>();
                 if(tempButton) tempButton.onClick.Invoke();
                 // AudioManager.Instance.PlaySound(AudioManager.AudioType.UIConfirm);
@@ -157,7 +160,7 @@ public class MenuManager : MonoBehaviour
         {
             firstPart.SetActive(false);
             secondPart.SetActive(true);
-           // currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+            currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
         }
         
         if (creditsPanel.activeInHierarchy)
@@ -207,7 +210,11 @@ public class MenuManager : MonoBehaviour
     public void OnEnableSliders()
     {
         currentOptionsSelection = musicSlider.gameObject;
-        musicSlider.GetComponentInChildren<TextMeshProUGUI>().color = highLightColor;
+        if (pressedSpace)
+        {
+            musicSlider.GetComponentInChildren<TextMeshProUGUI>().color = highLightColor;
+            pressedSpace = false;
+        }
         currentOptionsSelection = optionsInteractableList[0];
         
         if (PlayerPrefs.HasKey("MusicVolume"))
