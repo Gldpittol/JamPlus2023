@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Wall
   - Coin
+  - BouncyWall
   layers:
   - Default
   - TransparentFX

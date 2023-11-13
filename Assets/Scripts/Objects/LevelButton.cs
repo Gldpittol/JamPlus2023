@@ -41,9 +41,13 @@ public class LevelButton : MonoBehaviour
 
         if (alwaysUnlocked) return;
         
-        myBytton.interactable = PlayerDataManager.Instance.CheckIfUnlocked(levelName);
-        levelText.DOFade(0.5f, 0);
-        highScoreText.DOFade(0.5f, 0);
+        bool isUnlocked = PlayerDataManager.Instance.CheckIfUnlocked(levelName);
+        myBytton.interactable = isUnlocked;
+        if (!isUnlocked)
+        {
+            levelText.DOFade(0.5f, 0);
+            highScoreText.DOFade(0.5f, 0);
+        }
     }
 
     public void Clicked()
