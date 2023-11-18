@@ -46,14 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinBaseScore: 500
   countdownTime: 30
-  scoreRequiredPass: 10
-  scoreRequiredSilver: 200
-  scoreRequiredGold: 300
+  scoreRequiredPass: 1500
+  scoreRequiredSilver: 3250
+  scoreRequiredGold: 6000
   delayBeforeGoingToNextLevel: 1
   playerDeathAngle: 720
   playerDeathAddPosition: {x: 10, y: -5}
-  arrowStartColor: {r: 0, g: 1, b: 0, a: 1}
-  arrowEndColor: {r: 1, g: 0, b: 0, a: 1}
+  arrowStartColor: {r: 0.0658597, g: 0.9433962, b: 0.15363523, a: 1}
+  arrowEndColor: {r: 0.8867924, g: 0.06190812, b: 0.06190812, a: 1}
   flashThreshold: 8
   minShake: 0.5
   maxShake: 1.2
@@ -61,6 +61,10 @@ MonoBehaviour:
   - MainMenu
   - LevelSelect
   - Level_1-1
+  - Level_1-2
+  - Level_1-3
+  - Level_1-4
+  - Level_1-5
   - Level_2-1
   - Level_3-1
   - Level_4-1
@@ -72,4 +76,4 @@ MonoBehaviour:
   playerDataManager: {fileID: 4398248174677757392, guid: eac186ee9cf73b6448f39f93483e46aa, type: 3}
   doDebugs: 1
   debugLevelSelectName: LevelSelect
-  useObstacle: 1
+  useObstacle: 0
