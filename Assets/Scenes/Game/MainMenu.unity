@@ -582,13 +582,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1130096184600171993, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.599995
+      objectReference: {fileID: 0}
     - target: {fileID: 1279340149908421984, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1948535062698485053, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052723069341283783, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687141705584527465, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318177543551242325, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930921191106514557, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.599995
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698124920090018770, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.599995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491458536864475385, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704297811537681802, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997175873709970449, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6688391641802008481, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
       propertyPath: m_Name
       value: MainMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283986772176896235, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066015925671664826, guid: faee478794e06714daaf737db2aa3f3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.599995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
