@@ -16,6 +16,8 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private Image star3Fill;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private GameObject scrollClosed;
+    [SerializeField] private GameObject scrollOpen;
 
     private Button myBytton;
     private void Awake()
@@ -41,13 +43,25 @@ public class LevelButton : MonoBehaviour
 
         if (alwaysUnlocked) return;
         
-        myBytton.interactable = PlayerDataManager.Instance.CheckIfUnlocked(levelName);
-        levelText.DOFade(0.5f, 0);
-        highScoreText.DOFade(0.5f, 0);
+        bool isUnlocked = PlayerDataManager.Instance.CheckIfUnlocked(levelName);
+        myBytton.interactable = isUnlocked;
+        if (!isUnlocked)
+        {
+            levelText.DOFade(0.5f, 0);
+            highScoreText.DOFade(0.5f, 0);
+            scrollClosed.SetActive(true);
+            scrollOpen.SetActive(false);
+        }
+        else
+        {
+            scrollClosed.SetActive(false);
+            scrollOpen.SetActive(true);
+        }
     }
 
     public void Clicked()
     {
+        GetComponent<ScalePop>().PopOutAnimation();
         LevelSelectManager.Instance.GoToLevel(levelName);
     }
 }

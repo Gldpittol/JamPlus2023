@@ -204,6 +204,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore()
     {
         score += coinBaseScore * ComboBar.Instance.GetComboMultiplier();
+//        Debug.Log(score);
         HUDManager.Instance.UpdateScoreText(score);
         StarsManager.Instance.UpdateStars(score, scoreRequiredPass,scoreRequiredSilver,scoreRequiredGold);
     }
