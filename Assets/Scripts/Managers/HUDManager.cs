@@ -43,6 +43,9 @@ public class HUDManager : MonoBehaviour
     [Header("Options")] 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject pauseButton;
+  //  [SerializeField] private GameObject continueButton;
+  //  [SerializeField] private GameObject levelSelectButton;
+  //  [SerializeField] private GameObject retryButton;
 
     private bool isRetrying;
     private bool isPaused = false;
@@ -247,6 +250,7 @@ public class HUDManager : MonoBehaviour
         isRetrying = true;
         Continue();
         LoadingCanvas.Instance.GoToScene("LevelSelect");
+     //   levelSelectButton.GetComponent<ScalePop>().PopOutAnimation();
     }
 
     public void Retry()
@@ -254,12 +258,14 @@ public class HUDManager : MonoBehaviour
         isRetrying = true;
         Continue();
         LoadingCanvas.Instance.GoToScene(SceneManager.GetActiveScene().name);
+      //  retryButton.GetComponent<ScalePop>().PopOutAnimation();
     }
     public void Continue()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
+      //  if(continueButton) continueButton.GetComponent<ScalePop>().PopOutAnimation();
     }
     
     public void Pause()
@@ -267,6 +273,7 @@ public class HUDManager : MonoBehaviour
         if (GameManager.Instance.LevelEnded) return;
         if (isRetrying) return;
 
+      //  pauseButton.GetComponent<ScalePop>().PopOutAnimation();
         isPaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
