@@ -1,36 +1,62 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SpikesWall : MonoBehaviour
 {
-    [SerializeField] private float delayInBetween = 5f;
-    [SerializeField] private float onScreenDuration = 1f;
+    [FormerlySerializedAs("delayInBetween")] [SerializeField] private float initialDelay = 5f;
     [SerializeField] private float warningDuration = 2f;
     [SerializeField] private GameObject warningObject ;
     [SerializeField] private GameObject killObject;
+    [SerializeField] private Color invisibleColor ;
+    [SerializeField] private Color warningColor ;
+    [SerializeField] private Color killColor ;
+    [SerializeField] private Ease colorEase ;
+    [SerializeField] private float spikesYMove ;
+    [SerializeField] private float moveDuration = 0.1f ;
 
-    private void Start()
+    private SpriteRenderer warningObjectSr;
+    private void Awake()
     {
-        ActivateSpikes();
+        warningObject.SetActive(false);
+        killObject.SetActive(false);
+        warningObjectSr = warningObject.GetComponent<SpriteRenderer>();
+        warningObjectSr.color = invisibleColor;
     }
 
-    public void ActivateSpikes()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        StartCoroutine(ActivateSpikesCoroutine());
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine(ActivateSpikesCoroutine());
+        }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StopAllCoroutines();
+            warningObjectSr.DOKill();
+            warningObject.SetActive(false);
+            warningObjectSr.color = invisibleColor;
+        }
+    }
+
+  
     public IEnumerator ActivateSpikesCoroutine()
     {
-        yield return new WaitForSeconds(delayInBetween - warningDuration);
         warningObject.SetActive(true);
+        warningObjectSr.DOColor(warningColor, initialDelay - warningDuration).SetEase(colorEase);
+        yield return new WaitForSeconds(initialDelay - warningDuration);
+        warningObject.SetActive(true);
+        warningObjectSr.DOColor(killColor, warningDuration).SetEase(colorEase);
         yield return new WaitForSeconds(warningDuration);
         warningObject.SetActive(false);
         killObject.SetActive(true);
-        yield return new WaitForSeconds(onScreenDuration);
-        warningObject.SetActive(false);
-        killObject.SetActive(false);
-        ActivateSpikes();
+        killObject.transform.DOLocalMoveY(spikesYMove, moveDuration);
     }
 }

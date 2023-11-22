@@ -1637,6 +1637,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &885963439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8988129442013712084, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
+  m_PrefabInstance: {fileID: 4647329486905461919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1202120226
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,6 +3519,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3524913024584707449, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58.799988
+      objectReference: {fileID: 0}
     - target: {fileID: 3901823516994501872, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 58.03296
@@ -3662,6 +3671,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1095081593091383717, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
   m_PrefabInstance: {fileID: 4647329486905461919}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &3840811428053848186
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885963439}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &4162491427108077555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3832,6 +3886,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7628880408530012735, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
+      propertyPath: invisibleColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628880408530012735, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
+      propertyPath: invisibleColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628880408530012735, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
+      propertyPath: invisibleColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8988129442013712084, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
       propertyPath: m_Name
       value: SpikeWall
@@ -3839,7 +3905,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8988129442013712084, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3840811428053848186}
   m_SourcePrefab: {fileID: 100100000, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
 --- !u!1001 &7149272668285707298
 PrefabInstance:

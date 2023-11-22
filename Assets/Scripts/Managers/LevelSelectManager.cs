@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelSelectManager : MonoBehaviour
 {
     public static LevelSelectManager Instance;
+    [SerializeField] private GameObject backButton;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class LevelSelectManager : MonoBehaviour
 
     public void GoToMenu()
     {
+        backButton.GetComponent<ScalePop>().PopOutAnimation();
         GameManager.Instance.GoToMainMenu();
     }
 }
