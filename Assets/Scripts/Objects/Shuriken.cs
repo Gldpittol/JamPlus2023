@@ -19,7 +19,7 @@ public class Shuriken : MonoBehaviour
             child.transform.parent = null;
         }
 
-
+        /*
         float furthestDistance = 0;
         int furthestId = 0;
         for (int i = 0; i < childList.Count; i++)
@@ -32,8 +32,8 @@ public class Shuriken : MonoBehaviour
                 furthestId = i;
             }
         }
-        transform.position = childList[furthestId].transform.position;
-        DoMove(furthestId);
+        transform.position = childList[furthestId].transform.position;*/
+        DoMove(0);
     }
 
     private void Update()
