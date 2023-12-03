@@ -15,6 +15,8 @@ public class LoadingCanvas : MonoBehaviour
     [SerializeField] private Image fadePanel;
 
     private bool isFading;
+    
+    public float FadeOutDuration => fadeOutDuration;
     private void Awake()
     {
         Instance = this;
