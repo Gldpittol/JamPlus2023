@@ -298,8 +298,10 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator AngledDashCoroutine()
     {
         if (currentDashTimer > 0) yield break;
-        yield return new WaitForEndOfFrame();
+        currentDashTimer = dashCooldown;
         
+        yield return new WaitForEndOfFrame();
+
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
 
 //        print("Aqui");
