@@ -34,6 +34,7 @@ public class Coin : MonoBehaviour
     private ScalePop scalePop;
     private float rotationSpeed;
     private int extraFactor = 1;
+    private bool collected = false;
 
     private void Awake()
     {
@@ -53,10 +54,13 @@ public class Coin : MonoBehaviour
         transform.eulerAngles += new Vector3(0, 0, rotationSpeed) * Time.deltaTime * extraFactor;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
+        if (collected) return;
+        
         if (other.CompareTag("Player"))
         {
+            collected = true;
             coinsCollected++;
             GameObject tempVFX = Instantiate(collectVFX, transform.position, Quaternion.identity);
             tempVFX.transform.eulerAngles = collectVFX.transform.eulerAngles;
@@ -75,6 +79,8 @@ public class Coin : MonoBehaviour
             {
                 PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
             }
+
+            collected = false;
         }
     }
 
