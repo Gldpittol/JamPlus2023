@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 104
+  controlID: 68
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 48
+  controlID: 69
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 49
+  controlID: 70
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -321,7 +321,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/Game/Area 3
+    - Assets/Scenes/Game
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -329,16 +329,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/Game/Area 3
+  - Assets/Scenes/Game
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Projetos - Game Jams\JamPlus2023
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 293}
-    m_SelectedIDs: fa670000
-    m_LastClickedID: 26618
-    m_ExpandedIDs: 00000000bc670000be670000c0670000c267000000ca9a3b
+    m_SelectedIDs: 1c6b0000
+    m_LastClickedID: 27420
+    m_ExpandedIDs: 00000000186b00001a6b00001c6b00001e6b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -366,7 +366,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000bc670000be670000c0670000c2670000
+    m_ExpandedIDs: 00000000186b00001a6b00001c6b00001e6b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -506,23 +506,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 74460200
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6caefbff1eb1fbff50b4fbff6430fcff3239fcfff83bfcfff2b4fcff1cb7fcff58bafcffcebdfcff86c0fcff70c3fcff46c6fcff98c9fcff4accfcff00cffcffe2d1fcffb0d4fcff04d8fcfface6fcff62e9fcff30ecfcff12effcfff4f1fcffd060fdff7861fdff8061fdffbc61fdff5062fdffa465fdff8668fdff546bfdff0a6efdffbc70fdff7474fdff8e77fdffa07afdff567dfdff0c80fdffda82fdffbc85fdff9e88fdff568bfdff148efdffc690fdff7c93fdff4a96fdff2c99fdff0e9cfdffd89efdffdea1fdff92a4fdff98a7fdff62aafdff34adfdffceb0fdffd2b6fdffc8b9fdffcebcfdff82bffdff38c2fdff0ac5fdffecc7fdffaacafdff5ccdfdff26d0fdfff4d2fdffbed5fdffa0d8fdff5edbfdff34defdfffee0fdffb0e3fdff7ae6fdff48e9fdff12ecfdffccf1fdff7ef4fdff48f7fdff16fafdffe0fcfdffaefffdff9002feff7205feff5008feffae23feffb426feff6829feff3a2cfeffec2efeffba31feffa434feff8637feff0c73feff1273feff1873feff2473feffba73feffa674feffa874feff1278fefff47afeffdc7dfeff38a0feff24a1feff4aa1feffaaa5feff8ca8feff6eabfeff50aefeff32b1feff14b4feffe2b6feff80b9feff4ebcfeff30bffeff10c2feffeac4feff0a18ffff8a1affff8c1affff421cffff2e1dffff5a1dffff2421ffff2a24ffffde26ffff9429ffff662cffffbe38ffffaa39ffffd439ffff703dffff4a40ffff3443ffff8246ffff6449ffff3a4cfffff84effffae51ffff9054ffff7257ffff5a5affff325dffff4060ffff9663ffff7866ffff5a69ffff1a6dfffffc6fffffde72ffff4a7affff2c7dffff0e80fffff082ffff8286ffffd289ffff408dffff5890ffff6a94ffffee97ffffc09affffa29dffff70a0ffff52a3ffff20a6ffffdea8ffffacabffff8eaeffff5cb1ffffd6dbffffc2dcffff50ddffff56ddffff5cddffff68ddffff6addffffc4e0ffffcae3ffff7ee6ffff34e9ffff06ecffffbaeeffff70f1ffff42f4ffff02f7ffff5efaffffa2760000becc0000ceda0000e8db000004dc000008dc000044dc00005adc00008c7901003cf501000e400200e6460200
+      m_SelectedIDs: dac9fdff
+      m_LastClickedID: -144934
+      m_ExpandedIDs: 0acafdff12cafdff1ecafdff26cafdff70cdfdffc6d0fdffe8d3fdff66d7fdff880efeff5c16feffb219feffce2ffeff9837feffa83bfeff5e3efeff9441feff7a44feff5c47feff124afeffcc4cfeff1055feffda5cfeff965ffeffe696feff3eacfeffb4affeff80b7fefffcbefeff2cc4feff36c8feff34ebfeffa8edfeff2807ffff180dffff1c11ffff3a16ffff0447ffff2a53ffffb457ffffa058ffff405affffec5dffffa498ffff9099ffffc099ffff7c9dffffdaa0ffffe0a3ffff5af4ffff46f5ffff94f6ffffb2faffff883b0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: SpikeWall
+        m_OriginalName: SpikeWall
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -48202
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -901,9 +901,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.0338073, y: 0.5161234, z: 0.05359573}
+    m_Target: {x: 1.3951106, y: 0.09014009, z: -10.017115}
     speed: 2
-    m_Value: {x: 3.0338073, y: 0.5161234, z: 0.05359573}
+    m_Value: {x: 1.3951106, y: 0.09014009, z: -10.017115}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -953,9 +953,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.2683244
+    m_Target: 5.618588
     speed: 2
-    m_Value: 5.2683244
+    m_Value: 5.618588
   m_Ortho:
     m_Target: 1
     speed: 2
