@@ -10,20 +10,16 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager Instance;
-
+    
+    [Header("Scroll")] 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI timeText;
-
-    [SerializeField] private Image finalPanel;
-    [SerializeField] private TextMeshProUGUI winText;
-    [SerializeField] private TextMeshProUGUI loseText;
-
-    [Header("Scroll")] 
     [SerializeField] private GameObject scrollParent;
     [SerializeField] private GameObject sheet;
     [SerializeField] private float upTweenDuration;
     [SerializeField] private float sheetTweenDuration1;
     [SerializeField] private float sheetTweenDuration2;
+    [SerializeField] private GameObject touchPanel;
 
     [Header("Stars")] 
     [SerializeField] private GameObject starGold1;
@@ -31,18 +27,20 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject starGold3;
     [SerializeField] private GameObject stampWin;
     [SerializeField] private GameObject stampLose;
-    [SerializeField] private GameObject textWin;
-    [SerializeField] private GameObject textLost;
+    [SerializeField] private TextMeshProUGUI textWin;
+    [SerializeField] private TextMeshProUGUI textLost;
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private GameObject pressSpaceTextLose;
     [SerializeField] private GameObject pressSpaceTextWin;
+    [SerializeField] private GameObject pressSpaceTextMid;
     [SerializeField] private float delayBetweenStamps = 0.5f;
     [SerializeField] private GameObject blur;
-    [SerializeField] private GameObject touchPanel;
 
     [Header("Options")] 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject pauseButton;
+    [SerializeField] private TextMeshProUGUI pauseTextLevelName;
+
   //  [SerializeField] private GameObject continueButton;
   //  [SerializeField] private GameObject levelSelectButton;
   //  [SerializeField] private GameObject retryButton;
@@ -96,24 +94,16 @@ public class HUDManager : MonoBehaviour
         {
             Time.timeScale = 100;
         }
-        else
-        {
-            if (won)
-            {
-                if (isRight)
-                {
-                    GameManager.Instance.LoadNextScene(true);
-                }
-                else
-                {
-                    GameManager.Instance.LoadNextScene(false);
-                }
-            }
-            else
-            {
-                GameManager.Instance.LoadNextScene(false);
-            }
-        }
+    }
+
+    public void GoToNextLevel()
+    {
+        GameManager.Instance.LoadNextScene(true);
+    }
+
+    public void RetryLevel()
+    {
+        GameManager.Instance.LoadNextScene(false);
     }
 
     public void UpdateScoreText(float score)
@@ -154,11 +144,13 @@ public class HUDManager : MonoBehaviour
         score.text = "Final Score: " + GameManager.Instance.Score;
         if (isWin)
         {
-            textWin.SetActive(true);
+            textWin.text = "Mission " + GetLevelName() + " Successful!";
+            textWin.gameObject.SetActive(true);
         }
         else
         {
-            textLost.SetActive(true);
+            textLost.text = "Mission " + GetLevelName() + " Failed!";
+            textLost.gameObject.SetActive(true);
         }
         scrollParent.GetComponent<RectTransform>().DOLocalMoveY(68,upTweenDuration);
         yield return new WaitForSeconds(upTweenDuration);
@@ -192,7 +184,10 @@ public class HUDManager : MonoBehaviour
 
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
-            pressSpaceTextLose.SetActive(true);
+            pressSpaceTextMid.SetActive(true);
+
+            pressSpaceTextMid.transform.parent = touchPanel.transform;
+            
             Time.timeScale = 1;
             yield break;
         }
@@ -241,6 +236,11 @@ public class HUDManager : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
             pressSpaceTextWin.SetActive(true);
+            pressSpaceTextLose.SetActive(true);
+
+            pressSpaceTextLose.transform.parent = touchPanel.transform;
+            pressSpaceTextWin.transform.parent = touchPanel.transform;
+
             Time.timeScale = 1;
         }
     }
@@ -273,9 +273,25 @@ public class HUDManager : MonoBehaviour
         if (GameManager.Instance.LevelEnded) return;
         if (isRetrying) return;
 
-      //  pauseButton.GetComponent<ScalePop>().PopOutAnimation();
+        pauseTextLevelName.text = "Mission " + GetLevelName();
         isPaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public string GetLevelName()
+    {
+        string name = SceneManager.GetActiveScene().name;
+        
+        for (int i = 0; i < name.Length; i++)
+        {
+            if (Char.IsDigit(name[i]))
+            {
+                name = name.Substring(i);
+                break;
+            }
+        }
+
+        return name;
     }
 }

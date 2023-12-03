@@ -19,7 +19,9 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Slider audioSlider;
     [SerializeField] private List<GameObject> optionsInteractableList = new List<GameObject>();
     [SerializeField] private float sliderIncrement = 0.1f;
+    [SerializeField] private float delayBetweenAutoMove = 0.1f;
 
+    private float currentDelayAutoMove;
     private Button currentButton;
     private GameObject currentOptionsSelection;
     private float currentDelay;
@@ -34,7 +36,8 @@ public class MainMenuManager : MonoBehaviour
     private void Update()
     {
         currentDelay -= Time.deltaTime;
-            
+        currentDelayAutoMove -= Time.deltaTime;    
+        
         if (creditsPanel.activeInHierarchy)
         {
             if (Input.anyKeyDown)
@@ -58,7 +61,7 @@ public class MainMenuManager : MonoBehaviour
         
         if (secondPart.activeInHierarchy)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 pressedSpace = true;
                 currentButton.onClick.Invoke();
@@ -68,7 +71,7 @@ public class MainMenuManager : MonoBehaviour
         }
         else if (optionsPanel.activeInHierarchy)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 pressedSpace = true;
                 Button tempButton = currentOptionsSelection.GetComponent<Button>();
@@ -82,7 +85,9 @@ public class MainMenuManager : MonoBehaviour
     public void CheckInputMainCanvas()
     {
         if (currentDelay > 0) return;
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (currentDelayAutoMove > 0) return;
+
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
             int buttonId = mainMenuButtonsList.IndexOf(currentButton);
             int newButtonId = (buttonId - 1) % mainMenuButtonsList.Count;
@@ -92,9 +97,10 @@ public class MainMenuManager : MonoBehaviour
             currentButton = mainMenuButtonsList[newButtonId];
             currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
             currentButton.GetComponent<ScalePop>().PopOutAnimation();
+            currentDelayAutoMove = delayBetweenAutoMove;
             //AudioManager.Instance.PlaySound(AudioManager.AudioType.UISelect);
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetAxisRaw("Vertical") < 0)
         {
             int buttonId = mainMenuButtonsList.IndexOf(currentButton);
             int newButtonId = (buttonId + 1) % mainMenuButtonsList.Count;
@@ -103,13 +109,17 @@ public class MainMenuManager : MonoBehaviour
             currentButton = mainMenuButtonsList[newButtonId];
             currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
             currentButton.GetComponent<ScalePop>().PopOutAnimation();
+            currentDelayAutoMove = delayBetweenAutoMove;
             //AudioManager.Instance.PlaySound(AudioManager.AudioType.UISelect);
         }
     }
 
     public void CheckInputOptionsCanvas()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (currentDelay > 0) return;
+        if (currentDelayAutoMove > 0) return;
+
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
             int optionsId = optionsInteractableList.IndexOf(currentOptionsSelection);
             int newOptionsId = (optionsId - 1) % optionsInteractableList.Count;
@@ -119,9 +129,10 @@ public class MainMenuManager : MonoBehaviour
             currentOptionsSelection = optionsInteractableList[newOptionsId];
             currentOptionsSelection.GetComponentInChildren<TextMeshProUGUI>().color = highLightColor;
             currentOptionsSelection.GetComponent<ScalePop>().PopOutAnimation();
+            currentDelayAutoMove = delayBetweenAutoMove;
             //AudioManager.Instance.PlaySound(AudioManager.AudioType.UISelect);
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetAxisRaw("Vertical") < 0)
         {
             int optionsId = optionsInteractableList.IndexOf(currentOptionsSelection);
             int newOptionsId = (optionsId + 1) % optionsInteractableList.Count;
@@ -130,9 +141,10 @@ public class MainMenuManager : MonoBehaviour
             currentOptionsSelection = optionsInteractableList[newOptionsId];
             currentOptionsSelection.GetComponentInChildren<TextMeshProUGUI>().color = highLightColor;
             currentOptionsSelection.GetComponent<ScalePop>().PopOutAnimation();
+            currentDelayAutoMove = delayBetweenAutoMove;
             //AudioManager.Instance.PlaySound(AudioManager.AudioType.UISelect);
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetAxisRaw("Horizontal") > 0)
         {
             if (currentOptionsSelection.GetComponent<Slider>())
             {
@@ -140,9 +152,10 @@ public class MainMenuManager : MonoBehaviour
                 tempSlider.value += sliderIncrement;
                 if (tempSlider.value > 1) tempSlider.value = 1;
                 tempSlider.onValueChanged.Invoke(tempSlider.value);
+                currentDelayAutoMove = delayBetweenAutoMove;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetAxisRaw("Horizontal") < 0)
         {
             if (currentOptionsSelection.GetComponent<Slider>())
             {
@@ -150,6 +163,7 @@ public class MainMenuManager : MonoBehaviour
                 tempSlider.value -= sliderIncrement;
                 if (tempSlider.value < 0) tempSlider.value = 0;
                 tempSlider.onValueChanged.Invoke(tempSlider.value);
+                currentDelayAutoMove = delayBetweenAutoMove;
             }
         }
     }

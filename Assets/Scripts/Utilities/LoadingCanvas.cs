@@ -29,6 +29,7 @@ public class LoadingCanvas : MonoBehaviour
     public void GoToScene(string sceneName)
     {
         if (isFading) return;
+        GetComponentInChildren<Image>().raycastTarget = true;
         isFading = true;
         fadePanel.DOFade(1, fadeInDuration).OnComplete(()=>LoadScene(sceneName));
     }

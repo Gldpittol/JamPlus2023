@@ -56,7 +56,7 @@ MonoBehaviour:
   arrowEndColor: {r: 0.8867924, g: 0.06190812, b: 0.06190812, a: 1}
   flashThreshold: 8
   minShake: 0.5
-  maxShake: 1.2
+  maxShake: 0.7
   sceneNames:
   - MainMenu
   - LevelSelect
@@ -82,6 +82,7 @@ MonoBehaviour:
   - KillTrigger
   loadingCanvas: {fileID: 7187226742752445299, guid: 20492e34c05cd3546841efe4e3b271dc, type: 3}
   playerDataManager: {fileID: 4398248174677757392, guid: eac186ee9cf73b6448f39f93483e46aa, type: 3}
+  screenClickManager: {fileID: 5795540042509189084, guid: 446b1103a8d41b34883c0fb0212e0b52, type: 3}
   doDebugs: 1
   debugLevelSelectName: LevelSelect
   useObstacle: 0

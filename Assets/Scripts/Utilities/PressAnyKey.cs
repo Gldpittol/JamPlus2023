@@ -24,7 +24,7 @@ public class PressAnyKey : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)  || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             mainMenu.EnableSecondPart();
             enabled = false;
