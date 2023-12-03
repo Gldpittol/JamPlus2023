@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public event Action onGameEnd;
+
     [SerializeField] private float coinBaseScore = 500f;
     [SerializeField] private float countdownTime = 30f;
     [SerializeField] private float scoreRequiredPass = 100f;
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
     private bool levelEnded = false;
     private bool isFlashing = false;
     private int starsUnlocked;
+    private Coroutine screenShake;
     public bool LevelEnded => levelEnded;
     public float Score => score;
     
@@ -123,6 +126,7 @@ public class GameManager : MonoBehaviour
     {
         levelEnded = true;
         StartCoroutine(FinishLevelCoroutine(died));
+        onGameEnd?.Invoke();
     }
 
     public IEnumerator FinishLevelCoroutine(bool died)
@@ -273,7 +277,12 @@ public class GameManager : MonoBehaviour
 
     public void DoScreenShake()
     {
-        StartCoroutine(DoScreenShakeCoroutine());
+        if (screenShake != null)
+        {
+            StopCoroutine(screenShake);
+            Camera.main.transform.eulerAngles = Vector3.zero;
+        }
+        screenShake = StartCoroutine(DoScreenShakeCoroutine());
     }
 
     public IEnumerator DoScreenShakeCoroutine()

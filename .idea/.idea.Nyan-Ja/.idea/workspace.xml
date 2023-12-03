@@ -6,32 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/ConfettiBlastRainbow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/ConfettiBlastRainbow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/DustDirtyPoofSoft.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/DustDirtyPoofSoft.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/Hit.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/Hit.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/MagicChargeYellow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/MagicChargeYellow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/Omg.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/Omg.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/SmokeExplosionWhite Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/SmokeExplosionWhite Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/Wow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/Prefabs/Wow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/GameManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/HUD.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/LoadingCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/LoadingCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerParent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerParent.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level_Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/HUDManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/HUDManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/MainMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MainMenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/SpikesWall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/SpikesWall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/LoadingCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/LoadingCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/PressAnyKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/PressAnyKey.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +108,7 @@
       <workItem from="1699906635234" duration="1104000" />
       <workItem from="1700506914032" duration="672000" />
       <workItem from="1700589292996" duration="2662000" />
-      <workItem from="1701636157310" duration="4929000" />
+      <workItem from="1701636157310" duration="5983000" />
     </task>
     <servers />
   </component>

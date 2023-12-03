@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded)
             {
-                if(canSwapAnimation)animator.Play("IdleAnim");
+                if(canSwapAnimation) animator.Play("IdleAnim");
                 isGrounded = true;
                 rb.velocity = Vector2.zero;
             }
@@ -120,10 +120,9 @@ public class PlayerMovement : MonoBehaviour
                 playerRenderer.gameObject.GetComponent<ScalePop>().PopOutAnimation();
                 GameManager.Instance.DoScreenShake();
             }
-           
-            foreach (ContactPoint2D contact in other.contacts)
-            {
-                playerRenderer.flipX = false;
+
+            ContactPoint2D contact = other.contacts[0];
+            playerRenderer.flipX = false;
                 if (contact.normal.y > 0)
                 {
                     //   Debug.Log("Bottom hit");
@@ -195,9 +194,7 @@ public class PlayerMovement : MonoBehaviour
                         else isIncreasing = false;
                     }
                     playerRenderer.gameObject.transform.localPosition = offsetRight;
-
                 }
-            }
         }
     }
 
@@ -295,20 +292,26 @@ public class PlayerMovement : MonoBehaviour
 
     public void AngledDash()
     {
-        if (currentDashTimer > 0) return;
+        StartCoroutine(AngledDashCoroutine());
+    }
+
+    public IEnumerator AngledDashCoroutine()
+    {
+        if (currentDashTimer > 0) yield break;
+        yield return new WaitForEndOfFrame();
         
+        rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
+
 //        print("Aqui");
         if(canSwapAnimation)animator.Play("JumpAnim");
         currentDashTimer = dashCooldown;
-
-        rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
         
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
         SetCharacterOrientation();
         dustVFX.Stop();
         dustVFX.gameObject.SetActive(false);
     }
-
+    
     public void SetCharacterOrientation()
     {
         playerRenderer.gameObject.transform.eulerAngles = Vector3.zero;

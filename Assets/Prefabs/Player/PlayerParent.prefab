@@ -134,7 +134,7 @@ MonoBehaviour:
   colorNotAimed: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   dustVFX: {fileID: 22244402400382127}
   dashStrength: 110
-  dashCooldown: 0.3
+  dashCooldown: 0.2
   followCoin: 1
   dashBufferTime: 0.15
   offsetBottom: {x: 0, y: -0.029}

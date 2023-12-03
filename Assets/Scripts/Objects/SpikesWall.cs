@@ -27,6 +27,21 @@ public class SpikesWall : MonoBehaviour
         warningObjectSr.color = invisibleColor;
     }
 
+    private void Start()
+    {
+        GameManager.Instance.onGameEnd += StopSpikes;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.onGameEnd -= StopSpikes;
+    }
+
+    public void StopSpikes()
+    {
+        StopAllCoroutines();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
