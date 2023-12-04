@@ -62,7 +62,7 @@ public class HUDManager : MonoBehaviour
         
         if (!canGoToNextLevel)
         {
-            if(Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
                 Time.timeScale = 100;
             }
@@ -70,11 +70,11 @@ public class HUDManager : MonoBehaviour
             return;
         }
 
-        if (won && Input.GetKeyDown(KeyCode.Space))
+        if (won && Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             GameManager.Instance.LoadNextScene(true);
         }
-        else if(Input.GetKeyDown(KeyCode.R))
+        else if(Input.GetKeyDown(KeyCode.R)|| Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             GameManager.Instance.LoadNextScene(false);
         }
