@@ -10,6 +10,8 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject firstPart;
+    [SerializeField] private GameObject firstPart2;
+
     [SerializeField] private GameObject secondPart;
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject optionsPanel;
@@ -173,6 +175,7 @@ public class MainMenuManager : MonoBehaviour
         if (firstPart.activeInHierarchy)
         {
             firstPart.SetActive(false);
+            firstPart2.SetActive(false);
             secondPart.SetActive(true);
             currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
         }
@@ -196,6 +199,8 @@ public class MainMenuManager : MonoBehaviour
     public void EnableSecondPart()
     {
         firstPart.SetActive(false);
+        firstPart2.SetActive(false);
+
         secondPart.SetActive(true);
     }
 

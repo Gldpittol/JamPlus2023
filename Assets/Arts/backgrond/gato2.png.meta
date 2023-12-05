@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3fb4238232dd1054dac562ac000260c0
+guid: c2cc83b984b6c2548bab7bef56f7e1e9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gato_0
+      name: gato2_0
       rect:
         serializedVersion: 2
         x: 1044
@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e291faa0b283f043ab0eb1a5adaaca9
-      internalID: -55483155
+      spriteID: 9a2e4d14528e4dc4082e431cc15113dd
+      internalID: -497667796
       vertices: []
       indices: 
       edges: []
@@ -167,7 +167,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gato_0: -55483155
+      gato2_0: -497667796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
