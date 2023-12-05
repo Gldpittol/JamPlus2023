@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject firstPart2;
 
     [SerializeField] private GameObject secondPart;
+    [SerializeField] private GameObject secondPart2;
+
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject optionsPanel;
     [FormerlySerializedAs("buttonsList")] [SerializeField] private List<Button> mainMenuButtonsList = new List<Button>();
@@ -23,11 +26,24 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private float sliderIncrement = 0.1f;
     [SerializeField] private float delayBetweenAutoMove = 0.1f;
 
+    [Header("First Part Refs")] 
+    [SerializeField] private Image playerFirstPart;
+    [SerializeField]  private GameObject blackBorderTopFirstPart;
+    [SerializeField]  private GameObject blackBorderBottomFirstPart;
+    [SerializeField]  private RectTransform titleFirstPart;
+    [SerializeField]  private TextMeshProUGUI pressAnyText;
+    [SerializeField] private float firstPartFadeduration;
+    [SerializeField]  private Image bgFirstPart;
+    [SerializeField] private Sprite secondPartSprite;
+    [SerializeField] private RectTransform titleFinalPos;
+
     private float currentDelayAutoMove;
     private Button currentButton;
     private GameObject currentOptionsSelection;
     private float currentDelay;
     private bool pressedSpace;
+
+    private bool isOnFirstPart;
 
     private void Start()
     {
@@ -174,9 +190,8 @@ public class MainMenuManager : MonoBehaviour
     {
         if (firstPart.activeInHierarchy)
         {
-            firstPart.SetActive(false);
-            firstPart2.SetActive(false);
-            secondPart.SetActive(true);
+            StartCoroutine(EnableSecondPartCoroutine());
+
             currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
         }
         
@@ -198,10 +213,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void EnableSecondPart()
     {
-        firstPart.SetActive(false);
-        firstPart2.SetActive(false);
-
-        secondPart.SetActive(true);
+        StartCoroutine(EnableSecondPartCoroutine());
     }
 
     public void OpenCredits(bool creditsState)
@@ -259,6 +271,27 @@ public class MainMenuManager : MonoBehaviour
         currentOptionsSelection.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         currentDelay = 0.2f;
         optionsPanel.SetActive(false);
+        secondPart.SetActive(true);
+        secondPart2.SetActive(true);
+    }
+
+    public IEnumerator EnableSecondPartCoroutine()
+    {
+        if (isOnFirstPart) yield break;
+        isOnFirstPart = true;
+
+        bgFirstPart.sprite = secondPartSprite;
+        blackBorderTopFirstPart.GetComponent<RectTransform>().DOAnchorPosY(1300, firstPartFadeduration);
+        blackBorderBottomFirstPart.GetComponent<RectTransform>().DOAnchorPosY(-1300, firstPartFadeduration);
+        pressAnyText.DOFade(0, firstPartFadeduration);
+        playerFirstPart.DOFade(0, firstPartFadeduration);
+        titleFirstPart.DOAnchorPos(titleFinalPos.position, firstPartFadeduration);
+        
+        yield return new WaitForSeconds(firstPartFadeduration);
+        titleFirstPart.transform.parent = titleFinalPos.transform;
+        firstPart.SetActive(false);
+        firstPart2.SetActive(false);
+        secondPart2.SetActive(true);
         secondPart.SetActive(true);
     }
 }
