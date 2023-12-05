@@ -21,6 +21,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject optionsPanel2;
 
+    [SerializeField] private GameObject UIClickBlocker;
+
     [FormerlySerializedAs("buttonsList")] [SerializeField] private List<Button> mainMenuButtonsList = new List<Button>();
     [SerializeField] private Color highLightColor;
     [SerializeField] private Slider musicSlider;
@@ -45,12 +47,18 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private float secondPartFadeInDuration;
     [SerializeField] private float secondPartFadeOutDuration;
 
-    [Header("Second Part Refs")] 
+    [Header("Options Refs")] 
     [SerializeField] private float thirdPartFadeInDuration;
     [SerializeField] private float thirdPartFadeOutDuration;
     [SerializeField] private List<TextMeshProUGUI> textFadeListThirdPart = new List<TextMeshProUGUI>();
     [SerializeField] private List<Image> imgFadeListThirdPart = new List<Image>();
 
+    [Header("Credits Refs")] 
+    [SerializeField] private float creditsFadeInDuration;
+    [SerializeField] private float creditsFadeOutDuration;
+    [SerializeField] private List<TextMeshProUGUI> textFadeListcredits = new List<TextMeshProUGUI>();
+    [SerializeField] private List<Image> imgFadeListcredits = new List<Image>();
+    
     private float currentDelayAutoMove;
     private Button currentButton;
     private GameObject currentOptionsSelection;
@@ -78,7 +86,7 @@ public class MainMenuManager : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
-                creditsPanel.SetActive(false);
+                OpenCredits(false);
               //  AudioManager.Instance.PlaySound(AudioManager.AudioType.UIBack);
             }
         }
@@ -219,7 +227,7 @@ public class MainMenuManager : MonoBehaviour
         
         if (creditsPanel.activeInHierarchy)
         {
-            creditsPanel.SetActive(false);
+            OpenCredits(false);
         }
     }
 
@@ -240,7 +248,14 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenCredits(bool creditsState)
     {
-        creditsPanel.SetActive(creditsState);
+        if (creditsState == true)
+        {
+            StartCoroutine(OpenCreditsCoroutine());
+        }
+        if (creditsState == false)
+        {
+            StartCoroutine(CloseCreditsCoroutine());
+        }
     }
 
     public void ResetData()
@@ -300,6 +315,7 @@ public class MainMenuManager : MonoBehaviour
         if (isOnFirstPart) yield break;
         isAnimating = true;
         isOnFirstPart = true;
+        UIClickBlocker.SetActive(true);
 
         bgFirstPart.sprite = secondPartSprite;
         blackBorderTopFirstPart.GetComponent<RectTransform>().DOAnchorPosY(1300, firstPartFadeDuration);
@@ -322,16 +338,16 @@ public class MainMenuManager : MonoBehaviour
             i.DOFade(1, secondPartFadeInDuration);
             t.DOFade(1, secondPartFadeInDuration);
         }
+        UIClickBlocker.SetActive(false);
 
         isAnimating = false;
     }
     
-    
-
     public IEnumerator EnableOptions()
     {
         if (isAnimating) yield break;
         isAnimating = true;
+        UIClickBlocker.SetActive(true);
 
         titleFirstPart.GetComponent<Image>().DOFade(0, secondPartFadeOutDuration);
         foreach (Button b in mainMenuButtonsList)
@@ -369,6 +385,8 @@ public class MainMenuManager : MonoBehaviour
         
         yield return new WaitForSeconds(thirdPartFadeInDuration);
 
+        UIClickBlocker.SetActive(false);
+
         isAnimating = false;
     }
     
@@ -376,6 +394,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (isAnimating) yield break;
         isAnimating = true;
+        UIClickBlocker.SetActive(true);
 
         foreach (TextMeshProUGUI t in textFadeListThirdPart)
         {
@@ -406,6 +425,91 @@ public class MainMenuManager : MonoBehaviour
         
         yield return new WaitForSeconds(secondPartFadeInDuration);
 
+        UIClickBlocker.SetActive(false);
+
+        isAnimating = false;
+    }
+
+    public IEnumerator OpenCreditsCoroutine()
+    {
+        if (isAnimating) yield break;
+        isAnimating = true;
+        UIClickBlocker.SetActive(true);
+
+        titleFirstPart.GetComponent<Image>().DOFade(0, secondPartFadeOutDuration);
+        foreach (Button b in mainMenuButtonsList)
+        {
+            Image i = b.GetComponent<Image>();
+            TextMeshProUGUI t = b.transform.GetChild(0).transform.GetComponent<TextMeshProUGUI>();
+            i.DOFade(0, secondPartFadeInDuration);
+            t.DOFade(0, secondPartFadeInDuration);
+        }
+        
+        foreach (TextMeshProUGUI t in textFadeListcredits)
+        {
+            t.DOFade(0, 0);
+        }
+        
+        foreach (Image i in imgFadeListcredits)
+        {
+            i.DOFade(0, 0);
+        }
+
+        yield return new WaitForSeconds(secondPartFadeOutDuration);
+        creditsPanel.SetActive(true);
+        creditsPanel.SetActive(true);
+        secondPart.SetActive(false);
+        secondPart2.SetActive(false);
+        
+        foreach (TextMeshProUGUI t in textFadeListcredits)
+        {
+            t.DOFade(1, creditsFadeInDuration);
+        }
+        foreach (Image i in imgFadeListcredits)
+        {
+            i.DOFade(1, creditsFadeInDuration);
+        }
+        
+        yield return new WaitForSeconds(creditsFadeInDuration);
+
+        UIClickBlocker.SetActive(false);
+        isAnimating = false;
+    }
+    
+    public IEnumerator CloseCreditsCoroutine()
+    {
+        if (isAnimating) yield break;
+        isAnimating = true;
+        UIClickBlocker.SetActive(true);
+
+        foreach (TextMeshProUGUI t in textFadeListcredits)
+        {
+            t.DOFade(0, creditsFadeOutDuration);
+        }
+        foreach (Image i in imgFadeListcredits)
+        {
+            i.DOFade(0, creditsFadeOutDuration);
+        }
+        
+        yield return new WaitForSeconds(creditsFadeOutDuration);
+        
+        creditsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+        secondPart.SetActive(true);
+        secondPart2.SetActive(true);
+        
+        titleFirstPart.GetComponent<Image>().DOFade(1, secondPartFadeInDuration);
+        foreach (Button b in mainMenuButtonsList)
+        {
+            Image i = b.GetComponent<Image>();
+            TextMeshProUGUI t = b.transform.GetChild(0).transform.GetComponent<TextMeshProUGUI>();
+            i.DOFade(1, secondPartFadeInDuration);
+            t.DOFade(1, secondPartFadeInDuration);
+        }
+        
+        yield return new WaitForSeconds(secondPartFadeInDuration);
+
+        UIClickBlocker.SetActive(false);
         isAnimating = false;
     }
 }
