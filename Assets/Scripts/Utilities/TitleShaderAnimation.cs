@@ -1,4 +1,5 @@
 using DG.Tweening;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,6 @@ public class TitleShaderAnimation : MonoBehaviour
     [SerializeField] private float shineLoopDelay = 1f;
   //  [ShowIf("shineOn")]
     [SerializeField] private bool pingPong = true;
-    [SerializeField] private Image foodmessImage;
     [SerializeField] private Image ultraImage;
 
 
@@ -36,14 +36,15 @@ public class TitleShaderAnimation : MonoBehaviour
     [SerializeField] private Ease rotationReturnEase = Ease.InSine;
 
     [SerializeField] private float rotationDuration = 0.8f;
-    [SerializeField] private Transform ultraText;
+    [SerializeField] private RectTransform ultraText;
     [SerializeField] private float ultraRotationDelay = 0.4f;
+
+    [SerializeField] private float originalPosY;
 
   //  private BetterOffsetter offsetter = null;
 
     private void Awake()
     {
-        foodmessImage.material = new Material(foodmessImage.material);
         ultraImage.material = new Material(ultraImage.material);
        // offsetter = transform.parent.GetComponent<BetterOffsetter>();
 
@@ -51,10 +52,10 @@ public class TitleShaderAnimation : MonoBehaviour
         {
             PlayShineAnimation();
         }
-        /*if (bobOn)
+        if (bobOn)
         {
             PlayBobAnimation();
-        }*/
+        }
     }
 
     private void PlayShineAnimation()
@@ -64,12 +65,10 @@ public class TitleShaderAnimation : MonoBehaviour
         sequence.PrependInterval(shineLoopDelay);
         sequence.Append(DOTween.To(() => GetShineLocation(ultraImage), x => SetShineLocation(ultraImage, x), 
             endValue: 0f, duration: 0f));
-        sequence.Join(DOTween.To(() => GetShineLocation(foodmessImage), x => SetShineLocation(foodmessImage, x),
-            endValue: 0f, duration: 0f));
+      
         sequence.Append(DOTween.To(() => GetShineLocation(ultraImage), x => SetShineLocation(ultraImage, x), 
             endValue: 1f, duration: shineDuration));
-        sequence.Join(DOTween.To(() => GetShineLocation(foodmessImage), x => SetShineLocation(foodmessImage, x),
-            endValue: 1f, duration: shineDuration));
+      
 
 
         if (pingPong)
@@ -82,18 +81,17 @@ public class TitleShaderAnimation : MonoBehaviour
         }
     }
 
-    /*private void PlayBobAnimation()
+    private void PlayBobAnimation()
     {
         //transform.parent.DORotate(bobRotationRange, rotationDuration).SetEase(bobRotationEase).SetLoops(-1, LoopType.Yoyo); //colocar dentro da sequencia
         Sequence sequence = DOTween.Sequence();
         //sequence.SetEase(Ease.Linear);
-        sequence.Append(offsetter.DOAnchoredPositionY(bobRange, bobDuration).SetEase(bobEase));
-        sequence.Append(offsetter.DOAnchoredPositionY(0, bobDuration).SetEase(bobReturnEase));
-        sequence.Append(offsetter.DOAnchoredPositionY(-bobRange, bobDuration).SetEase(bobEase));
-        sequence.Append(offsetter.DOAnchoredPositionY(0, bobDuration).SetEase(bobReturnEase));
+        sequence.Append(ultraText.DOAnchorPosY(originalPosY + bobRange, bobDuration).SetEase(bobEase));
+        sequence.Append(ultraText.DOAnchorPosY(originalPosY, bobDuration).SetEase(bobReturnEase));
+        sequence.Append(ultraText.DOAnchorPosY(originalPosY -bobRange, bobDuration).SetEase(bobEase));
+        sequence.Append(ultraText.DOAnchorPosY(originalPosY, bobDuration).SetEase(bobReturnEase));
         sequence.SetLoops(-1);
-
-
+        
         Sequence rotationSequence = DOTween.Sequence();
         rotationSequence.Append(transform.DORotate(bobRotationRange, rotationDuration).SetEase(bobRotationEase));
         rotationSequence.Append(transform.DORotate(Vector3.zero, rotationDuration).SetEase(rotationReturnEase));
@@ -104,7 +102,7 @@ public class TitleShaderAnimation : MonoBehaviour
         Invoke("PlayUltraRotation", ultraRotationDelay);
 
     }
-    */
+    
 
     private void PlayUltraRotation()
     {
