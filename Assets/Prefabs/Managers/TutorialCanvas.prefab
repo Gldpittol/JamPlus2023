@@ -543,9 +543,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1486094252607938505}
+  - {fileID: 3027961003787412109}
   - {fileID: 1313435108480009511}
   - {fileID: 1028187044774847865}
-  - {fileID: 3027961003787412109}
   - {fileID: 480213352029367906}
   - {fileID: 5988037837421298884}
   m_Father: {fileID: 0}
@@ -644,7 +644,7 @@ MonoBehaviour:
   firstBubble: {fileID: 5177158424620327082}
   firstDialogue: {fileID: 8987255400962956998}
   smokeVFX: {fileID: 4942634397187282595}
-  smokeVFXDuration: 2
+  smokeVFXDuration: 1
 --- !u!1 &3950600463425873279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,6 +1794,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.b
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.g
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.r
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
       propertyPath: startDelay.maxCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
@@ -1808,6 +1820,10 @@ PrefabInstance:
     - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
@@ -1908,6 +1924,10 @@ PrefabInstance:
     - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minCurve.m_Curve.Array.data[1].outWeight
       value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655965170942656951, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -20,6 +20,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject firstDialogue;
     [SerializeField] private GameObject smokeVFX;
     [SerializeField] private float smokeVFXDuration = 2f;
+    [SerializeField] private float bubbleFadeOutDuration = 2f;
 
     private int currentTextID = 0;
     private bool canGoNext = false;
@@ -35,7 +36,11 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        if(PlayerDataManager.Instance.CheckIfSeenTutorial(tutorialID)) gameObject.SetActive(false);
+        if (PlayerDataManager.Instance.CheckIfSeenTutorial(tutorialID))
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         
         StartCoroutine(StopTimeCoroutine());
     }
@@ -94,25 +99,29 @@ public class TutorialManager : MonoBehaviour
 
     public IEnumerator MasterSmokeCoroutine()
     {
-        Time.timeScale = 1;
-
         canGoNext = false;
+        var mainModule = smokeVFX.GetComponent<ParticleSystem>().main;
+        mainModule.startLifetime = smokeVFXDuration;
         smokeVFX.SetActive(true);
         smokeVFX.GetComponent<ParticleSystem>().Play();
         PlayerDataManager.Instance.AddSeenTutorial(tutorialID);
 
-        masterObject.GetComponent<Image>().DOFade(0, smokeVFXDuration/2).SetUpdate(true);
-        firstBubble.GetComponent<Image>().DOFade(0, smokeVFXDuration).SetUpdate(true);
-        textList[currentTextID - 1].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, smokeVFXDuration)
+        firstBubble.GetComponent<Image>().DOFade(0, bubbleFadeOutDuration).SetUpdate(true);
+        textList[currentTextID - 1].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, bubbleFadeOutDuration)
             .SetUpdate(true);
+
+        yield return new WaitForSecondsRealtime(bubbleFadeOutDuration);
+
+        masterObject.GetComponent<Image>().DOFade(0, smokeVFXDuration/2).SetUpdate(true);
 
         yield return new WaitForSecondsRealtime(smokeVFXDuration);
 
         Time.timeScale = 1;
-        gameObject.SetActive(false);
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         GameManager.Instance.gameState = GameManager.GameState.Gameplay;
+        
+        gameObject.SetActive(false);
     }
 }
