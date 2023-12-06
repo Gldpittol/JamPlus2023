@@ -1865,7 +1865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.data[1]
@@ -2269,7 +2269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.data[1]
@@ -4593,7 +4593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.data[1]
@@ -4728,7 +4728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.data[1]

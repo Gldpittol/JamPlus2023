@@ -2503,7 +2503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.data[1]
@@ -3302,7 +3302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919678399431788547, guid: c20371088535aee43b3046a2074159f7, type: 3}
       propertyPath: childList.Array.data[1]
@@ -4469,6 +4469,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3524913024584707449, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58.799988
+      objectReference: {fileID: 0}
     - target: {fileID: 4120585803948146385, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 838
@@ -4480,6 +4484,10 @@ PrefabInstance:
     - target: {fileID: 5150368056283844353, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 58.03296
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532668671992402057, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -96.22101
       objectReference: {fileID: 0}
     - target: {fileID: 6349848225950052217, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4512,6 +4520,10 @@ PrefabInstance:
     - target: {fileID: 8061940921546883478, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232987450280765624, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -51.622986
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

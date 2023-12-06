@@ -13,8 +13,11 @@ public class Shuriken : MonoBehaviour
     private void Start()
     {
         DoRotate();
+
+        if (childList.Count == 1) return;
+        
         transform.parent = null;
-        foreach (GameObject child in childList)
+        if(childList.Count > 1)foreach (GameObject child in childList)
         {
             child.transform.parent = null;
         }
