@@ -644,7 +644,8 @@ MonoBehaviour:
   firstBubble: {fileID: 5177158424620327082}
   firstDialogue: {fileID: 8987255400962956998}
   smokeVFX: {fileID: 4942634397187282595}
-  smokeVFXDuration: 1
+  smokeVFXDuration: 1.5
+  bubbleFadeOutDuration: 0.2
 --- !u!1 &3950600463425873279
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +909,7 @@ GameObject:
   - component: {fileID: 3027961003787412109}
   - component: {fileID: 8652032931690406532}
   - component: {fileID: 7472644581691802454}
+  - component: {fileID: 764090277719075520}
   m_Layer: 5
   m_Name: ChatBubble
   m_TagString: Untagged
@@ -972,6 +974,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &764090277719075520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177158424620327082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dceb07035388f5469843f2d832f4f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getTransform: 1
+  _transform: {fileID: 3027961003787412109}
+  popInDuration: 0.1
+  popOutDuration: 0.2
+  popOutScale: {x: 0.25, y: 0.25, z: 0.25}
+  inDuration: 0.14
+  outDuration: 0.6
+  elasticScale: {x: 1.1, y: 1.1, z: 1.1}
 --- !u!1 &6950211257006408146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1813,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 3
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5655911337183570285, guid: 41e7baad69a4b2e4181d07f8dca4380f, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key1.b

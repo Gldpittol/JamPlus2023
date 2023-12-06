@@ -125,4 +125,12 @@ MonoBehaviour:
     defaultPitch: 1
     maxPitch: 1
     startPoint: 0.2
+  - type: 10
+    clip:
+    - {fileID: 8300000, guid: 90e311c6ff79f9e449e656646fef0ca2, type: 3}
+    volume: 0.5
+    adaptativePitch: 0
+    defaultPitch: 1
+    maxPitch: 1
+    startPoint: 0.2
   musicManager: {fileID: 6079124378174031762, guid: 1fd2ca16eac531a4abf18c3dc02a6b00, type: 3}

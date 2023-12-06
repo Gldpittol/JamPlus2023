@@ -17,7 +17,8 @@ public class AudioManager : MonoBehaviour
         CatStamp,
         UISelect,
         UIConfirm,
-        UIBack
+        UIBack,
+        Smoke
     }
     
     [System.Serializable]

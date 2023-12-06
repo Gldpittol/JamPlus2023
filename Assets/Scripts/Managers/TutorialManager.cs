@@ -74,6 +74,7 @@ public class TutorialManager : MonoBehaviour
             return;
         }
         textList[i].gameObject.SetActive(true);
+        firstBubble.GetComponent<ScalePop>().PopOutAnimation(true);
         if(i >=1)textList[i-1].gameObject.SetActive(false);
     }
 
@@ -109,6 +110,8 @@ public class TutorialManager : MonoBehaviour
         firstBubble.GetComponent<Image>().DOFade(0, bubbleFadeOutDuration).SetUpdate(true);
         textList[currentTextID - 1].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, bubbleFadeOutDuration)
             .SetUpdate(true);
+
+        if(AudioManager.Instance) AudioManager.Instance.PlaySound(AudioManager.AudioType.Smoke);
 
         yield return new WaitForSecondsRealtime(bubbleFadeOutDuration);
 

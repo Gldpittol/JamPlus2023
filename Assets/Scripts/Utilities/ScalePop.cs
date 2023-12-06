@@ -28,12 +28,12 @@ public class ScalePop : MonoBehaviour
         targetOriginalScale = _transform.localScale;
     }
 
-    public void PopOutAnimation()
+    public void PopOutAnimation(bool ignoreTimescale = false)
     {
         transform.localScale = _originalScale;
 
         transform.DOKill();
-        _transform.DOScale(popOutScale, popInDuration).OnComplete(() => _transform.DOScale(targetOriginalScale, popOutDuration));
+        _transform.DOScale(popOutScale, popInDuration).OnComplete(() => _transform.DOScale(targetOriginalScale, popOutDuration)).SetUpdate(ignoreTimescale);
     }
 
     public void ElasticPop()

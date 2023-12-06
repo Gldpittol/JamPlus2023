@@ -1510,18 +1510,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5067375959967958699, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067375959967958699, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
-      propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067375959967958699, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
-      propertyPath: InitialModule.startLifetime.minMaxState
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7397014918140942287, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1601,14 +1589,6 @@ PrefabInstance:
     - target: {fileID: 7397014918140942287, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7865412107325969296, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
-      propertyPath: smokeVFXDuration
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7865412107325969296, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
-      propertyPath: bubbleFadeOutDuration
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2204,7 +2184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3524913024584707449, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 58.799988
+      value: 58.80005
       objectReference: {fileID: 0}
     - target: {fileID: 3901823516994501872, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2276,7 +2256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232987450280765624, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -51.622986
+      value: -51.623047
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
