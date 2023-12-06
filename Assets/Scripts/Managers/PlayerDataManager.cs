@@ -24,6 +24,7 @@ public class PlayerDataManager : MonoBehaviour
         }
 
         public List<LevelData> levelData = new List<LevelData>();
+        public List<int> seeenTutorialsList = new List<int>();
     }
     
     //ended class declarations
@@ -144,6 +145,16 @@ public class PlayerDataManager : MonoBehaviour
 
     public void ResetData()
     {
-        playerData = new PlayerData(); 
+        playerData = new PlayerData();
+    }
+
+    public void AddSeenTutorial(int hash)
+    {
+        playerData.seeenTutorialsList.Add(hash);
+    }
+
+    public bool CheckIfSeenTutorial(int hash)
+    {
+        return playerData.seeenTutorialsList.Contains(hash);
     }
 }

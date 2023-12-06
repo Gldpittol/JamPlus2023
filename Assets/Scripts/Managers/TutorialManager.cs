@@ -8,6 +8,8 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> textList = new List<GameObject>();
+    [SerializeField] private int tutorialID;
+
     private int currentTextID = 0;
     private bool canGoNext = false;
     private void Update()
@@ -20,6 +22,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
+        if(PlayerDataManager.Instance.CheckIfSeenTutorial(tutorialID)) gameObject.SetActive(false);
         StartCoroutine(StopTimeCoroutine());
     }
 
@@ -51,6 +54,7 @@ public class TutorialManager : MonoBehaviour
 
     private void FinishTutorial()
     {
+        PlayerDataManager.Instance.AddSeenTutorial(tutorialID);
         Time.timeScale = 1;
         gameObject.SetActive(false);
     }

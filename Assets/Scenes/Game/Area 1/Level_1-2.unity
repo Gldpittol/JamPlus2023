@@ -2821,6 +2821,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7865412107325969296, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
+      propertyPath: tutorialID
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865412107325969296, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: textList.Array.size
       value: 4
       objectReference: {fileID: 0}
