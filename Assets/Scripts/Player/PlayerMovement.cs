@@ -198,6 +198,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void CheckIfSwapToIdle()
+    {
+        if (isGrounded)
+        {
+            animator.Play("IdleAnim");
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall"))
