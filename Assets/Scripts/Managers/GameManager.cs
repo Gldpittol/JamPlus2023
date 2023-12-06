@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public enum GameState
+    {
+        Gameplay,
+        Tutorial
+    }
+
     public event Action onGameEnd;
 
     [SerializeField] private float coinBaseScore = 500f;
@@ -44,6 +50,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool doDebugs;
     [SerializeField] private string debugLevelSelectName;
     [SerializeField] private bool useObstacle;
+
+    public GameState gameState = GameState.Gameplay;
 
     private bool levelEnded = false;
     private bool isFlashing = false;

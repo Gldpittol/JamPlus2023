@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/TutorialCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/TutorialCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MusicManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/TutorialManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/TutorialManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

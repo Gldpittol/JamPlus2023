@@ -235,6 +235,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void CalculateAngle()
     {
+        if (GameManager.Instance.gameState != GameManager.GameState.Gameplay) return;
+
         if (!IsGrounded()) return;
         
         if (isIncreasing)
@@ -271,6 +273,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckInput()
     {
+        if (GameManager.Instance.gameState != GameManager.GameState.Gameplay) return;
+
         if(Input.GetKeyDown(KeyCode.Space)  || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             InputPerformed();
@@ -284,6 +288,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void InputPerformed()
     {
+        if (GameManager.Instance.gameState != GameManager.GameState.Gameplay) return;
         if (initialDelay > 0) return;
         if (GameManager.Instance.LevelEnded) return;
 

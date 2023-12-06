@@ -63,7 +63,7 @@ public class MusicManager : MonoBehaviour
         }
        
         audSource.DOFade(0, fadeDuration);
-        yield return new WaitForSeconds(fadeDuration);
+        yield return new WaitForSecondsRealtime(fadeDuration);
         audSource.clip = clip;
         audSource.loop = true;
         audSource.Play();
