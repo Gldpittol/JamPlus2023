@@ -44,6 +44,7 @@ public class TutorialManager : MonoBehaviour
         if (i >= textList.Count)
         {
             FinishTutorial();
+            return;
         }
         textList[i].gameObject.SetActive(true);
     }
