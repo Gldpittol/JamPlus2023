@@ -9,10 +9,12 @@ public class BouncyWall : MonoBehaviour
     [SerializeField] private bool invertY;
 
     private ScalePop scalePop;
+    private Collider2D col;
 
     private void Awake()
     {
         scalePop = GetComponent<ScalePop>();
+        col = GetComponent<Collider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -30,10 +32,19 @@ public class BouncyWall : MonoBehaviour
             {
                 playerRb.velocity = new Vector2(other.relativeVelocity.x, -other.relativeVelocity.y);
             }
+            
             scalePop.PopOutAnimation();
             if(AudioManager.Instance) AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
-            
+
+            //col.enabled = false;
+            //StartCoroutine(DisableColliderCoroutine());
             PlayerMovement.Instance.TouchedBouncer();
         }
+    }
+
+    public IEnumerator DisableColliderCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        col.enabled = true;
     }
 }

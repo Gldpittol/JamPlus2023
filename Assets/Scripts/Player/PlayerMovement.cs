@@ -69,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
     private bool canSwapAnimation = true;
 
     private float initialDelay = 0.1f;
+
+    private float playerSpeed;
     private void Awake()
     {
         Instance = this;
@@ -87,6 +89,11 @@ public class PlayerMovement : MonoBehaviour
         UpdateTimers();        
         CalculateAngle();
         CheckInput();
+
+        if (playerSpeed == 0 && rb.velocity.magnitude > 0)
+        {
+            playerSpeed = rb.velocity.magnitude;
+        }
     }
 
     private void FixedUpdate()
@@ -459,6 +466,8 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
+       
+        rb.velocity = rb.velocity.normalized * playerSpeed;
         animator.Play("JumpAnim");
         dustVFX.gameObject.SetActive(false);
     }
