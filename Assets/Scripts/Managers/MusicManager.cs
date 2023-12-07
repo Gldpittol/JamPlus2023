@@ -62,12 +62,12 @@ public class MusicManager : MonoBehaviour
             if (clip.name == audSource.clip.name) yield break;
         }
        
-        audSource.DOFade(0, fadeDuration);
+        audSource.DOFade(0, fadeDuration).SetUpdate(true);
         yield return new WaitForSecondsRealtime(fadeDuration);
         audSource.clip = clip;
         audSource.loop = true;
         audSource.Play();
-        audSource.DOFade(originalVolume, fadeDuration);
+        audSource.DOFade(originalVolume, fadeDuration).SetUpdate(true);
     }
 
     public void UpdateMusicVolume()
