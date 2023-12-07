@@ -448,4 +448,18 @@ public class PlayerMovement : MonoBehaviour
 
         centerGlow.SetActive(false);
     }
+
+    public void TouchedBouncer()
+    {
+        StartCoroutine(TouchedBouncerCoroutine());
+    }
+
+    public IEnumerator TouchedBouncerCoroutine()
+    {
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
+        animator.Play("JumpAnim");
+        dustVFX.gameObject.SetActive(false);
+    }
 }

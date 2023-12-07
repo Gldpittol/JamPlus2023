@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
     private bool isFlashing = false;
     private int starsUnlocked;
     private Coroutine screenShake;
+
+    public bool playerDied = false;
     public bool LevelEnded => levelEnded;
     public float Score => score;
     
@@ -132,6 +134,7 @@ public class GameManager : MonoBehaviour
 
     public void FinishLevel(bool died)
     {
+        playerDied = died;
         levelEnded = true;
         StartCoroutine(FinishLevelCoroutine(died));
         onGameEnd?.Invoke();

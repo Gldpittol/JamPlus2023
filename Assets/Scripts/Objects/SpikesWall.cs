@@ -40,7 +40,7 @@ public class SpikesWall : MonoBehaviour
     public void StopSpikes()
     {
         StopAllCoroutines();
-        killObject.transform.DOKill();
+        if(!GameManager.Instance.playerDied)killObject.transform.DOKill();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
