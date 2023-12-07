@@ -9346,6 +9346,7 @@ MonoBehaviour:
   selectionSizeSmall: {x: 0.6, y: 3}
   selectionSizeBig: {x: 0.72, y: 3.6}
   sizeChangeDuration: 0.2
+  deadZone: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

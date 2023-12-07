@@ -16,6 +16,7 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private Vector2 selectionSizeSmall;
     [SerializeField] private Vector2 selectionSizeBig;
     [SerializeField] private float sizeChangeDuration = 0.2f;
+    [SerializeField] private float deadZone = 0.8f;
 
     private float currentDelayVertical = 0;
     private float currentDelayHorizontal = 0;
@@ -67,16 +68,19 @@ public class LevelSelectManager : MonoBehaviour
             GoToMenu();
             canInteract = true;
         }
-
-
+        
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             canInteract = false;
             currentSelection.Clicked();
         }
 
-        Vector2 axis = new Vector2( Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
+        Vector2 axis = new Vector2( Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        bool xNegative = axis.x < 0;
+        bool yNegative = axis.y < 0;
+        axis = new Vector2(Mathf.Abs(axis.x) > deadZone ? 1 : 0, Mathf.Abs(axis.y) > deadZone ? 1 : 0);
+        axis = new Vector2(xNegative ? axis.x * -1 : axis.x * 1, yNegative ? axis.y * -1 : axis.y * 1);
+        
         if (currentId == -1 && axis != Vector2.zero)
         {
             currentId = 0;
