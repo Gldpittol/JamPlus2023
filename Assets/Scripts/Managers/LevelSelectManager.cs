@@ -76,6 +76,13 @@ public class LevelSelectManager : MonoBehaviour
         }
 
         Vector2 axis = new Vector2( Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) ||
+            Input.GetKeyDown(KeyCode.A))
+        {
+            axis = new Vector2( Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
+        
         bool xNegative = axis.x < 0;
         bool yNegative = axis.y < 0;
         axis = new Vector2(Mathf.Abs(axis.x) > deadZone ? 1 : 0, Mathf.Abs(axis.y) > deadZone ? 1 : 0);
