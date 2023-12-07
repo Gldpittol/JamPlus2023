@@ -468,7 +468,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForFixedUpdate();
        
         playerRenderer.flipY = false;
-        rb.velocity = rb.velocity.normalized * playerSpeed;
+        //rb.velocity = rb.velocity.normalized * playerSpeed;
         animator.Play("JumpAnim");
         dustVFX.gameObject.SetActive(false);
     }
