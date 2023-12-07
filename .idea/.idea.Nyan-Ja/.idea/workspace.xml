@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Objects/BouncyWall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Objects/BouncyWall.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/BouncyWall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/BouncyWall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +111,7 @@
       <workItem from="1701646775390" duration="4319000" />
       <workItem from="1701706033721" duration="681000" />
       <workItem from="1701805169235" duration="8726000" />
-      <workItem from="1701905560086" duration="4168000" />
+      <workItem from="1701905560086" duration="4526000" />
     </task>
     <servers />
   </component>

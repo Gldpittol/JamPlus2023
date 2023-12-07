@@ -9,19 +9,14 @@ public class BouncyWall : MonoBehaviour
     [SerializeField] private bool invertY;
 
     private ScalePop scalePop;
-    private Collider2D col;
-
-    private bool canCollide = true;
 
     private void Awake()
     {
         scalePop = GetComponentInChildren<ScalePop>();
-        col = GetComponent<Collider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!canCollide) return;
         if (other.gameObject.CompareTag("Player"))
         {
             Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
@@ -46,9 +41,9 @@ public class BouncyWall : MonoBehaviour
         }
     }
 
-    public IEnumerator DisableColliderCoroutine()
+    /*public IEnumerator DisableColliderCoroutine()
     {
         yield return new WaitForSeconds(0.2f);
         canCollide = true;
-    }
+    }*/
 }
