@@ -7,6 +7,14 @@ public class BouncyWall : MonoBehaviour
 {
     [SerializeField] private bool invertX;
     [SerializeField] private bool invertY;
+
+    private ScalePop scalePop;
+
+    private void Awake()
+    {
+        scalePop = GetComponent<ScalePop>();
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -22,6 +30,10 @@ public class BouncyWall : MonoBehaviour
             {
                 playerRb.velocity = new Vector2(other.relativeVelocity.x, -other.relativeVelocity.y);
             }
+            scalePop.PopOutAnimation();
+            if(AudioManager.Instance) AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
+            
+            PlayerMovement.Instance.TouchedBouncer();
         }
     }
 }
