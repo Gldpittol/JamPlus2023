@@ -11,17 +11,21 @@ public class BouncyWall : MonoBehaviour
     private ScalePop scalePop;
     private Collider2D col;
 
+    private bool canCollide = true;
+
     private void Awake()
     {
-        scalePop = GetComponent<ScalePop>();
+        scalePop = GetComponentInChildren<ScalePop>();
         col = GetComponent<Collider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (!canCollide) return;
         if (other.gameObject.CompareTag("Player"))
         {
             Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
+            Vector2 relVel = other.relativeVelocity;
 
             if (invertX)
             {
@@ -36,15 +40,15 @@ public class BouncyWall : MonoBehaviour
             scalePop.PopOutAnimation();
             if(AudioManager.Instance) AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
 
-            //col.enabled = false;
+            //canCollide = false;
             //StartCoroutine(DisableColliderCoroutine());
-            PlayerMovement.Instance.TouchedBouncer();
+            PlayerMovement.Instance.TouchedBouncer(relVel);
         }
     }
 
     public IEnumerator DisableColliderCoroutine()
     {
         yield return new WaitForSeconds(0.2f);
-        col.enabled = true;
+        canCollide = true;
     }
 }

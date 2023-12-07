@@ -456,18 +456,18 @@ public class PlayerMovement : MonoBehaviour
         centerGlow.SetActive(false);
     }
 
-    public void TouchedBouncer()
+    public void TouchedBouncer(Vector2 relVel)
     {
-        StartCoroutine(TouchedBouncerCoroutine());
+        StartCoroutine(TouchedBouncerCoroutine(relVel));
     }
 
-    public IEnumerator TouchedBouncerCoroutine()
+    public IEnumerator TouchedBouncerCoroutine(Vector2 relVel)
     {
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
        
-        playerRenderer.flipX = false;
+        playerRenderer.flipY = false;
         rb.velocity = rb.velocity.normalized * playerSpeed;
         animator.Play("JumpAnim");
         dustVFX.gameObject.SetActive(false);
