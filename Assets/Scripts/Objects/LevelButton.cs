@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,7 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private GameObject scrollOpen;
 
     private Button myBytton;
+    private bool isUnlocked;
     private void Awake()
     {
         levelText.text = levelTextString;
@@ -43,7 +45,7 @@ public class LevelButton : MonoBehaviour
 
         if (alwaysUnlocked) return;
         
-        bool isUnlocked = PlayerDataManager.Instance.CheckIfUnlocked(levelName);
+        isUnlocked = PlayerDataManager.Instance.CheckIfUnlocked(levelName);
         myBytton.interactable = isUnlocked;
         if (!isUnlocked)
         {
@@ -61,6 +63,12 @@ public class LevelButton : MonoBehaviour
 
     public void Clicked()
     {
+        if (!isUnlocked && !alwaysUnlocked)
+        {
+            LevelSelectManager.Instance.EnableInteract();
+            return;
+        }
+        
         GetComponent<ScalePop>().PopOutAnimation();
         LevelSelectManager.Instance.GoToLevel(levelName);
     }
