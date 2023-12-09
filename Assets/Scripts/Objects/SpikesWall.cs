@@ -25,7 +25,7 @@ public class SpikesWall : MonoBehaviour
     private float originalPressureY;
     private void Awake()
     {
-        originalPressureY = pressurePlateDefault.transform.position.y;
+        originalPressureY = pressurePlateDefault.transform.localPosition.y;
         warningObject.SetActive(false);
         killObject.SetActive(false);
         warningObjectSr = warningObject.GetComponent<SpriteRenderer>();
@@ -65,7 +65,7 @@ public class SpikesWall : MonoBehaviour
             warningObject.SetActive(false);
             warningObjectSr.color = invisibleColor;
             pressurePlateDefault.transform.DOKill();
-            pressurePlateDefault.transform.DOMoveY(originalPressureY, pressurePlateTweenDuration);
+            pressurePlateDefault.transform.DOLocalMoveY(originalPressureY, pressurePlateTweenDuration);
         }
     }
 
@@ -73,7 +73,7 @@ public class SpikesWall : MonoBehaviour
     public IEnumerator ActivateSpikesCoroutine()
     {
         pressurePlateDefault.transform.DOKill();
-        pressurePlateDefault.transform.DOMoveY(pressurePlateLowered.transform.position.y, pressurePlateTweenDuration);
+        pressurePlateDefault.transform.DOLocalMoveY(pressurePlateLowered.transform.localPosition.y, pressurePlateTweenDuration);
         warningObject.SetActive(true);
         warningObjectSr.DOColor(warningColor, initialDelay - warningDuration).SetEase(colorEase);
         yield return new WaitForSeconds(initialDelay - warningDuration);

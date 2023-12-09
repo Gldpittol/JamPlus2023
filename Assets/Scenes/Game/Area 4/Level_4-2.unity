@@ -2260,6 +2260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3255253850808163638, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14
+      objectReference: {fileID: 0}
     - target: {fileID: 7628880408530012735, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
       propertyPath: initialDelay
       value: 2
@@ -2275,6 +2279,14 @@ PrefabInstance:
     - target: {fileID: 7628880408530012735, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
       propertyPath: invisibleColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747157187149138043, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747157187149138043, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 7931563817015263722, guid: 117552e8bcb207c4ab618c4b38d3fa7e, type: 3}
       propertyPath: m_IsActive

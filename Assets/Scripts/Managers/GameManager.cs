@@ -97,6 +97,22 @@ public class GameManager : MonoBehaviour
         {
             LoadingCanvas.Instance.GoToScene(debugLevelSelectName);
         }
+        
+        if (Input.GetKey(KeyCode.Joystick1Button4))
+        {
+            if (Input.GetKeyDown(KeyCode.Joystick1Button5))
+            {
+                LoadingCanvas.Instance.GoToScene(debugLevelSelectName);
+            }
+        }
+        
+        if (Input.GetKey(KeyCode.Joystick1Button5))
+        {
+            if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+            {
+                LoadingCanvas.Instance.GoToScene(debugLevelSelectName);
+            }
+        }
     }
 
     public void InstantiatePrefabs()
