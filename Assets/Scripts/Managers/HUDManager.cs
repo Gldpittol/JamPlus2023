@@ -74,7 +74,7 @@ public class HUDManager : MonoBehaviour
         {
             GameManager.Instance.LoadNextScene(true);
         }
-        else if((Input.GetKeyDown(KeyCode.R)|| Input.GetKeyDown(KeyCode.Joystick1Button1)))
+        else if((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick1Button1)))
         {
             GameManager.Instance.LoadNextScene(false);
         }

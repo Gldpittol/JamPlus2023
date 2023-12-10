@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
@@ -17,6 +18,7 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private Vector2 selectionSizeBig;
     [SerializeField] private float sizeChangeDuration = 0.2f;
     [SerializeField] private float deadZone = 0.8f;
+    [SerializeField] private GameObject winScreen;
 
     private float currentDelayVertical = 0;
     private float currentDelayHorizontal = 0;
@@ -29,6 +31,15 @@ public class LevelSelectManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        if (GameManager.cameFromLastLevel)
+        {
+            GameManager.cameFromLastLevel = false;
+            winScreen.SetActive(true);
+        }
     }
 
     private void Update()
@@ -63,6 +74,15 @@ public class LevelSelectManager : MonoBehaviour
 
     private void CheckInputs()
     {
+        if (winScreen.activeInHierarchy)
+        {
+            if(Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick1Button1))
+            {
+                winScreen.SetActive(false);
+            }
+            return;
+        }
+        
         if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.R))
         {
             GoToMenu();
@@ -71,6 +91,7 @@ public class LevelSelectManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
+            if (!currentSelection) return;
             canInteract = false;
             currentSelection.Clicked();
         }

@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public static bool cameFromLastLevel = false;
     public enum GameState
     {
         Gameplay,
@@ -271,6 +271,7 @@ public class GameManager : MonoBehaviour
         if (nextSceneId == sceneNames.Count)
         {
             nextSceneId = 1; //index of level select
+            cameFromLastLevel = true;
         }
         
         if (!next)
