@@ -20,6 +20,10 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private float deadZone = 0.8f;
     [SerializeField] private GameObject winScreen;
 
+    [Header("Zones")] 
+    [SerializeField] private List<GameObject> zoneList = new List<GameObject>();
+    [SerializeField] private GameObject defaultZonePanel;
+
     private float currentDelayVertical = 0;
     private float currentDelayHorizontal = 0;
 
@@ -28,6 +32,8 @@ public class LevelSelectManager : MonoBehaviour
     private int currentId = -1;
     private bool updatedSelection = false;
     private int oldId = -1;
+
+    
     private void Awake()
     {
         Instance = this;
@@ -179,5 +185,15 @@ public class LevelSelectManager : MonoBehaviour
     {
         backButton.GetComponent<ScalePop>().PopOutAnimation();
         GameManager.Instance.GoToMainMenu();
+    }
+
+    public void OpenZoneScreen(int zoneId)
+    {
+        LoadingCanvas.Instance.SwapUiPanel(defaultZonePanel, zoneList[zoneId]);
+    }
+
+    public void CloseZoneScreen(int zoneId)
+    {
+        LoadingCanvas.Instance.SwapUiPanel(zoneList[zoneId], defaultZonePanel);
     }
 }

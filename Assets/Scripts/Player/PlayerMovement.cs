@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         if (initialDelay > 0) return;
         if(isDead) dustVFX.gameObject.SetActive(false);
 
-        if (GameManager.Instance.LevelEnded) return;
+        if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
         UpdateTimers();        
         CalculateAngle();
         CheckInput();
@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.LevelEnded) return;
+        if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
 
         DrawRayCasts();
     }
@@ -223,6 +223,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
         if (other.CompareTag("KillTrigger"))
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
@@ -297,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GameManager.Instance.gameState != GameManager.GameState.Gameplay) return;
         if (initialDelay > 0) return;
-        if (GameManager.Instance.LevelEnded) return;
+        if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
 
         if(IsGrounded())
         {

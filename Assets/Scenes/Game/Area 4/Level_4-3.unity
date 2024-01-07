@@ -5588,6 +5588,30 @@ PrefabInstance:
       propertyPath: coinsForNewObstacle
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: minObstacleDistance
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 89026610}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.data[1]
+      value: 
+      objectReference: {fileID: 443689312}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.data[2]
+      value: 
+      objectReference: {fileID: 933179648}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1264014905}
     - target: {fileID: 4999434513105551499, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
