@@ -40,4 +40,25 @@ public class LoadingCanvas : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
+
+    public void SwapUiPanel(GameObject oldPanel, GameObject newPanel)
+    {
+        if (isFading) return;
+        GetComponentInChildren<Image>().raycastTarget = true;
+        isFading = true;
+        fadePanel.DOFade(1, fadeInDuration).OnComplete(()=>SwapUiPanelFinish(oldPanel,newPanel));
+    }
+
+    public void SwapUiPanelFinish(GameObject oldPanel, GameObject newPanel)
+    {
+        oldPanel.SetActive(false);
+        newPanel.SetActive(true);
+        fadePanel.DOFade(0, fadeOutDuration).OnComplete(()=>FinishUiPanel());
+    }
+
+    public void FinishUiPanel()
+    {
+        GetComponentInChildren<Image>().raycastTarget = false;
+        isFading = false;
+    }
 }

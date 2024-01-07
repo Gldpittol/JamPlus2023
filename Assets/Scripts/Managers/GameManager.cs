@@ -92,10 +92,10 @@ public class GameManager : MonoBehaviour
 
     public void DoDebugs()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        /*if (Input.GetKeyDown(KeyCode.L))
         {
             LoadingCanvas.Instance.GoToScene(debugLevelSelectName);
-        }
+        }*/
         
         if (Input.GetKey(KeyCode.Joystick1Button4))
         {
