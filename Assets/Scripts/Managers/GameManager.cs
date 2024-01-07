@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         Gameplay,
-        Tutorial
+        Tutorial,
+        GameEnded
     }
 
     public event Action onGameEnd;
@@ -53,13 +54,11 @@ public class GameManager : MonoBehaviour
 
     public GameState gameState = GameState.Gameplay;
 
-    private bool levelEnded = false;
     private bool isFlashing = false;
     private int starsUnlocked;
     private Coroutine screenShake;
 
     public bool playerDied = false;
-    public bool LevelEnded => levelEnded;
     public float Score => score;
     
     private void Awake()
@@ -80,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (levelEnded) return;
+        if (gameState == GameState.GameEnded) return;
         countdownTime -= Time.deltaTime;
         
         UpdateHUD();
@@ -151,11 +150,11 @@ public class GameManager : MonoBehaviour
     public void FinishLevel(bool died)
     {
         playerDied = died;
-        levelEnded = true;
+        gameState = GameState.GameEnded;
         StartCoroutine(FinishLevelCoroutine(died));
         onGameEnd?.Invoke();
     }
-
+    
     public IEnumerator FinishLevelCoroutine(bool died)
     {
         PlayerMovement.Instance.DisableArrow();

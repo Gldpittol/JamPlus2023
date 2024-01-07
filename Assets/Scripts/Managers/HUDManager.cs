@@ -270,7 +270,7 @@ public class HUDManager : MonoBehaviour
     
     public void Pause()
     {
-        if (GameManager.Instance.LevelEnded) return;
+        if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
         if (isRetrying) return;
 
         pauseTextLevelName.text = "Mission " + GetLevelName();

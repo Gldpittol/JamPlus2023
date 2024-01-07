@@ -5,6 +5,7 @@ using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Coin : MonoBehaviour
@@ -30,6 +31,14 @@ public class Coin : MonoBehaviour
     [SerializeField] private GameObject permanentVFX;
     [SerializeField] private ParticleSystem glowVFX;
 
+    [Header("Constrains")] 
+    [SerializeField] private float minDistanceFromLast = 3;
+    [SerializeField] private float minObstacleDistance;
+    [SerializeField] private List<GameObject> obstacles;
+
+    [Header("Debug")] 
+    [SerializeField] private bool enableAKeyDebug = false;
+
     private int coinsCollected;
     private ScalePop scalePop;
     private float rotationSpeed;
@@ -52,6 +61,8 @@ public class Coin : MonoBehaviour
     private void Update()
     {
         transform.eulerAngles += new Vector3(0, 0, rotationSpeed) * Time.deltaTime * extraFactor;
+        
+        if(enableAKeyDebug) if(Input.GetKeyDown(KeyCode.A)) Collect();
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -60,28 +71,56 @@ public class Coin : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            collected = true;
-            coinsCollected++;
-            GameObject tempVFX = Instantiate(collectVFX, transform.position, Quaternion.identity);
-            tempVFX.transform.eulerAngles = collectVFX.transform.eulerAngles;
-            Destroy(tempVFX, 1f);
-            GameManager.Instance.UpdateScore();
-            ComboBar.Instance.ResetDelay();
-            ComboBar.Instance.Increment();
-            ComboBar.Instance.DoComboText();
-            transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
-            scalePop.PopOutAnimation();
-            AudioManager.Instance.PlaySound(AudioManager.AudioType.Collect);
-            PlayerMovement.Instance.IncreaseIncrement();
-            RandomizeRotation();
-
-            if (coinsCollected % coinsForNewObstacle == 0)
-            {
-                PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
-            }
-
-            collected = false;
+           Collect();
         }
+    }
+
+    public void Collect()
+    {
+        collected = true;
+        coinsCollected++;
+        GameObject tempVFX = Instantiate(collectVFX, transform.position, Quaternion.identity);
+        tempVFX.transform.eulerAngles = collectVFX.transform.eulerAngles;
+        Destroy(tempVFX, 1f);
+        GameManager.Instance.UpdateScore();
+        ComboBar.Instance.ResetDelay();
+        ComboBar.Instance.Increment();
+        ComboBar.Instance.DoComboText();
+        GetNewPos(0); 
+        scalePop.PopOutAnimation();
+        AudioManager.Instance.PlaySound(AudioManager.AudioType.Collect);
+        PlayerMovement.Instance.IncreaseIncrement();
+        RandomizeRotation();
+
+        if (coinsCollected % coinsForNewObstacle == 0)
+        {
+            PlayerMovement.Instance.WaitForGroundedAndSpawnObstacle();
+        }
+
+        collected = false;
+    }
+
+    private void GetNewPos(int iter)
+    {
+        Vector2 newPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        if(iter >= 20) transform.position = newPos;
+
+        if (Vector2.Distance(newPos, transform.position) < minDistanceFromLast)
+        {
+            GetNewPos(iter + 1);
+            return;
+        }
+        
+        foreach (GameObject g in obstacles)
+        {
+            if (Vector2.Distance(newPos, g.transform.position) < minObstacleDistance)
+            {
+                GetNewPos(iter + 1);
+                return;
+            }
+        }
+        
+        transform.position = newPos;
     }
 
     public void RandomizeRotation()

@@ -23,6 +23,7 @@ public class SpikesWall : MonoBehaviour
 
     private SpriteRenderer warningObjectSr;
     private float originalPressureY;
+    private float originalKillY;
     private void Awake()
     {
         originalPressureY = pressurePlateDefault.transform.localPosition.y;
@@ -30,13 +31,14 @@ public class SpikesWall : MonoBehaviour
         killObject.SetActive(false);
         warningObjectSr = warningObject.GetComponent<SpriteRenderer>();
         warningObjectSr.color = invisibleColor;
+        originalKillY = killObject.transform.localPosition.y;
     }
 
     private void Start()
     {
         GameManager.Instance.onGameEnd += StopSpikes;
     }
-
+    
     private void OnDestroy()
     {
         GameManager.Instance.onGameEnd -= StopSpikes;
@@ -45,7 +47,6 @@ public class SpikesWall : MonoBehaviour
     public void StopSpikes()
     {
         StopAllCoroutines();
-        if(!GameManager.Instance.playerDied)killObject.transform.DOKill();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -83,5 +84,7 @@ public class SpikesWall : MonoBehaviour
         warningObject.SetActive(false);
         killObject.SetActive(true);
         killObject.transform.DOLocalMoveY(spikesYMove, moveDuration);
+        yield return new WaitForSeconds(1f);
+        killObject.transform.DOLocalMoveY(originalKillY, moveDuration);
     }
 }
