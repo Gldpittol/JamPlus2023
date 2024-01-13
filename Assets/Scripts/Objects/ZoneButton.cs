@@ -9,18 +9,21 @@ using UnityEngine.UI;
 public class ZoneButton : MonoBehaviour
 {
     [SerializeField] private int zoneId;
-    [SerializeField] private string zoneName;
+    [SerializeField] private string zoneBase;
+    [SerializeField] private string zoneNumber;
     [SerializeField] private string requiredLevelToUnlock;
     [SerializeField] private bool alwaysUnlocked;
     [SerializeField] private TextMeshProUGUI zoneText;
-        
+    [SerializeField] private TextMeshProUGUI zoneText1;
+
     private bool isUnlocked;
     private Button myButton;
 
     private void Awake()
     {
         myButton = GetComponent<Button>();
-        zoneText.text = zoneName;
+        zoneText.text = zoneNumber;
+        zoneText1.text = zoneBase;
         myButton.onClick.AddListener(Clicked);
     }
 
@@ -37,6 +40,7 @@ public class ZoneButton : MonoBehaviour
         if (!isUnlocked)
         {
             zoneText.DOFade(0.5f, 0);
+            zoneText1.DOFade(0.5f, 0);
         }
     }
     
