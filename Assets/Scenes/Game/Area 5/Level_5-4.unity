@@ -191,6 +191,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BouncyWall (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5908271834795019304, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
+      propertyPath: invertX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908271834795019304, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
+      propertyPath: invertY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6943539054834228208, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
       propertyPath: m_Material
       value: 
@@ -1631,6 +1639,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BouncyWall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5908271834795019304, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
+      propertyPath: invertX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908271834795019304, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
+      propertyPath: invertY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6943539054834228208, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
       propertyPath: m_Material
       value: 
@@ -2246,6 +2262,14 @@ PrefabInstance:
     - target: {fileID: 5667182038570958295, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
       propertyPath: m_Name
       value: BouncyWall (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908271834795019304, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
+      propertyPath: invertX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908271834795019304, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
+      propertyPath: invertY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6943539054834228208, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
       propertyPath: m_Material
@@ -9140,6 +9164,14 @@ PrefabInstance:
     - target: {fileID: 5667182038570958295, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
       propertyPath: m_Name
       value: BouncyWall (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908271834795019304, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
+      propertyPath: invertX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908271834795019304, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
+      propertyPath: invertY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6943539054834228208, guid: 56c0b9d83b4ce274096c3e1e0770ff44, type: 3}
       propertyPath: m_Material

@@ -4544,6 +4544,14 @@ PrefabInstance:
       propertyPath: coinsForNewObstacle
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 651378824}
     - target: {fileID: 4999434513105551499, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.26

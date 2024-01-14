@@ -118,7 +118,7 @@ MonoBehaviour:
   minValue: -60
   maxValue: 60
   increasePerCoin: 0
-  maxSpeed: 180
+  maxSpeed: 140
   radius: 0.45
   lineObject: {fileID: 4367150643026790012}
   raycastMask:

@@ -287,7 +287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 219, y: 1033}
+  m_AnchoredPosition: {x: 140, y: 1033}
   m_SizeDelta: {x: 1830.23, y: 442.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319825646
@@ -310,9 +310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    e serei seu guia na jornada para se tornar um verdadeiro Nyan-Ja!'
+  m_text: "\nand I am going to be your guide in the \njourney to become a true Nyan-Ja!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0dab5415a23a7949b6a0de8ffa819cb, type: 2}
   m_sharedMaterial: {fileID: -4616863558997792033, guid: c0dab5415a23a7949b6a0de8ffa819cb, type: 2}
@@ -1367,6 +1365,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2843152347888068920, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
   m_PrefabInstance: {fileID: 699413734}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &699413736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1293952963164543430, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
+  m_PrefabInstance: {fileID: 699413734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1041550596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1192, y: 736}
+  m_AnchoredPosition: {x: 1275, y: 736}
   m_SizeDelta: {x: 1830.23, y: 442.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041550598
@@ -1558,7 +1561,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: novelos
+  m_text: balls of wool
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0dab5415a23a7949b6a0de8ffa819cb, type: 2}
   m_sharedMaterial: {fileID: -4616863558997792033, guid: c0dab5415a23a7949b6a0de8ffa819cb, type: 2}
@@ -1931,9 +1934,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1603037102207918822, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
+      propertyPath: m_text
+      value: Collect balls of wool to score.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603037102207918822, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
+      propertyPath: m_fontSize
+      value: 198.45
+      objectReference: {fileID: 0}
     - target: {fileID: 1847428098969434593, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060481583263294167, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
+      propertyPath: m_text
+      value: Good luck, young grasshopper!
       objectReference: {fileID: 0}
     - target: {fileID: 2116069372071399497, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1950,6 +1965,14 @@ PrefabInstance:
     - target: {fileID: 2116069372071399497, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1030
+      objectReference: {fileID: 0}
+    - target: {fileID: 2364638000206021505, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
+      propertyPath: m_text
+      value: Click anywhere to jump.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128839602411981248, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
+      propertyPath: m_text
+      value: Welcome, young grasshopper!
       objectReference: {fileID: 0}
     - target: {fileID: 3128839602411981248, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_fontSize
@@ -2029,7 +2052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6634270812765313884, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 6634270812765313884, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2123,13 +2146,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7671093732968611032, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
+      propertyPath: m_text
+      value: "Hurry up! The pointer will turn \nred as your time runs out."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671093732968611032, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
+      propertyPath: m_fontSize
+      value: 177.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7689350938960689072, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642170851969194368, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_text
-      value: Eu sou o Mestre Min-Ao...
+      value: I am Master Min-Ao...
       objectReference: {fileID: 0}
     - target: {fileID: 8642170851969194368, guid: 3d5be0b82f6a0f243b17b00a41a30166, type: 3}
       propertyPath: m_fontSize
@@ -2862,6 +2893,18 @@ PrefabInstance:
       propertyPath: coinsForNewObstacle
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: minObstacleDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 699413736}
     - target: {fileID: 4999434513105551499, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.85

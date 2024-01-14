@@ -2148,6 +2148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike_R
       objectReference: {fileID: 0}
+    - target: {fileID: 8460770758366246079, guid: 2f4516ee7a6b8e34ab191101af318abe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7600,6 +7604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike_L
       objectReference: {fileID: 0}
+    - target: {fileID: 4450853735840322248, guid: 728ac063531a5dd429697683622527cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8963,6 +8971,10 @@ PrefabInstance:
     - target: {fileID: 1743607635857902345, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: countdownTime
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7252512586678225693, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: m_LocalPosition.x

@@ -2660,6 +2660,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
+--- !u!1 &1433835114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1293952963164543430, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
+  m_PrefabInstance: {fileID: 1433835113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1476288526
 GameObject:
   m_ObjectHideFlags: 0
@@ -3356,6 +3361,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
+--- !u!1 &1836788193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1293952963164543430, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
+  m_PrefabInstance: {fileID: 1836788192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1841744652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2843152347888068920, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
@@ -4310,6 +4320,18 @@ PrefabInstance:
       propertyPath: coinsForNewObstacle
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1433835114}
+    - target: {fileID: 1825618671840183675, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
+      propertyPath: obstacles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1836788193}
     - target: {fileID: 4999434513105551499, guid: 96e9d50fd579a2b448263cb1fb444441, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.05

@@ -119,6 +119,10 @@ MonoBehaviour:
   collectVFX: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
   permanentVFX: {fileID: 6949543332482889265}
   glowVFX: {fileID: 7111701901086420183}
+  minDistanceFromLast: 3
+  minObstacleDistance: 1.5
+  obstacles: []
+  enableAKeyDebug: 0
 --- !u!58 &2166071879538915281
 CircleCollider2D:
   m_ObjectHideFlags: 0
