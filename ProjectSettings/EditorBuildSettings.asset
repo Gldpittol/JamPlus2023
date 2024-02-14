@@ -36,19 +36,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Area 2/Level_2-3.unity
     guid: e52e78f40aee22d459e3b4460aea6b36
   - enabled: 1
-    path: Assets/Scenes/Game/Area 2/Level_2-4.unity
+    path: Assets/Scenes/Game/Area 2/Level_2-3.unity
     guid: c3226ed18e20fd84cb7a3afc0d1785e4
   - enabled: 1
     path: Assets/Scenes/Game/Area 2/Level_2-5.unity
     guid: 88ea47106cdd9d64fabfde668165e9b8
   - enabled: 1
-    path: Assets/Scenes/Game/Area 3/Level_3-1.unity
+    path: Assets/Scenes/Game/Area 3/Level_3-3.unity
     guid: d2eff303e370d1143b51bad3bc9628bf
   - enabled: 1
-    path: Assets/Scenes/Game/Area 3/Level_3-2.unity
+    path: Assets/Scenes/Game/Area 3/Level_3-1.unity
     guid: 413098806ede9c14fa72730673da6084
   - enabled: 1
-    path: Assets/Scenes/Game/Area 3/Level_3-3.unity
+    path: Assets/Scenes/Game/Area 3/Level_3-2.unity
     guid: 6b5ecfef5052d6f4b82b0041af943943
   - enabled: 1
     path: Assets/Scenes/Game/Area 3/Level_3-4.unity
@@ -66,10 +66,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Area 4/Level_4-3.unity
     guid: 5a3b04aa18ec4a34cac55860196a9331
   - enabled: 1
-    path: Assets/Scenes/Game/Area 4/Level_4-4.unity
+    path: Assets/Scenes/Game/Area 4/Level_4-3.unity
     guid: 34ba5d41d1b85414e97b9aa5e5bb4101
   - enabled: 1
-    path: Assets/Scenes/Game/Area 4/Level_4-5.unity
+    path: Assets/Scenes/Game/Area 4/Level_4-4.unity
     guid: c62368f2ada24ce4ab0c643e6548c438
   - enabled: 1
     path: Assets/Scenes/Game/Area 5/Level_5-1.unity
@@ -84,6 +84,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Area 5/Level_5-4.unity
     guid: 2492ff878469ea54aa541dec28828c81
   - enabled: 1
-    path: Assets/Scenes/Game/Area 5/Level_5-5.unity
+    path: Assets/Scenes/Game/Area 4/Level_4-5.unity
     guid: afb31e3874fe3ac4fac41eaf97c408f3
   m_configObjects: {}
