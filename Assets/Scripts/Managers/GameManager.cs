@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float scoreRequiredPass = 100f;
     [SerializeField] private float scoreRequiredSilver = 200f;
     [SerializeField] private float scoreRequiredGold = 300f;
-    [SerializeField] private float delayBeforeGoingToNextLevel = 1f;
+    [SerializeField] public float delayBeforeGoingToNextLevel = 1f;
     [SerializeField] private float playerDeathAngle = 10f;
     [SerializeField] private Vector2 playerDeathAddPosition;
     [SerializeField] private Color arrowStartColor;
@@ -214,6 +214,16 @@ public class GameManager : MonoBehaviour
 
         while (i < 1)
         {
+            playerDeathAddPosition = new Vector2(Mathf.Abs(playerDeathAddPosition.x), Mathf.Abs(playerDeathAddPosition.y));
+            if (PlayerMovement.Instance.transform.position.x < 0)
+            {
+                playerDeathAddPosition.x *= -1;
+            }
+            if (PlayerMovement.Instance.transform.position.y < 0)
+            {
+                playerDeathAddPosition.y *= -1;
+            }
+            
             PlayerMovement.Instance.transform.position += (Vector3)playerDeathAddPosition * Time.deltaTime;
             i += Time.deltaTime / delayBeforeGoingToNextLevel;
             yield return null;

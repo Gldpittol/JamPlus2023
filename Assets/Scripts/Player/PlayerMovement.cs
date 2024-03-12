@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -48,6 +51,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxCameraZoomInDuration;
     [SerializeField] private float maxCameraZoomIn;
     [SerializeField] private float cameraZoomOutDuration;
+    [SerializeField] private float playerFlashDuration = 0.25f;
+    [SerializeField] private float amountOfFlashes = 8f;
+    [SerializeField] private Color flashColor;
 
     [Header("Arrow New")] 
     public GameObject arrowMask;
@@ -67,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFirst = true;
     private bool isDead = false;
     private bool canSwapAnimation = true;
+    private Vector2 defaultPosition;
 
     private float initialDelay = 0.1f;
 
@@ -77,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         lineObjectRenderer = lineObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        defaultPosition = transform.position;
     }
 
     private void Update()
@@ -227,7 +235,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("KillTrigger"))
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-            GameManager.Instance.FinishLevel(true);
+            //GameManager.Instance.FinishLevel(true);
+            
+            GameManager.Instance.SpinPlayer();
+            
             if (canSwapAnimation)
             {
                 animator.Play("Dead");
@@ -282,6 +293,7 @@ public class PlayerMovement : MonoBehaviour
     public void CheckInput()
     {
         if (GameManager.Instance.gameState != GameManager.GameState.Gameplay) return;
+        if (isDead) return;
 
         if(Input.GetKeyDown(KeyCode.Space)  || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
@@ -428,10 +440,45 @@ public class PlayerMovement : MonoBehaviour
             Camera.main.transform.DOMove(new Vector3(0,0, -10), cameraZoomOutDuration));
         yield return new WaitForSecondsRealtime(timeOnSlowMotion);
         Time.timeScale = 1;
+
+        //Respawn Player
+        
+        yield return new WaitForSeconds(GameManager.Instance.delayBeforeGoingToNextLevel);
+        canSwapAnimation = true;
+        animator.Play("IdleAnim");
+        
+        transform.position = defaultPosition;
+
+        GetComponent<Collider2D>().enabled = true;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        
+        float i = 0;
+
+        for (int j = 0; j < amountOfFlashes; j++)
+        {
+            while (i < 1)
+            {
+                i += Time.deltaTime / playerFlashDuration;
+                yield return null;
+            }
+
+            if (j % 2 == 0)
+            {
+                playerRenderer.color = flashColor;
+            }
+            else
+            {
+                playerRenderer.color = Color.white;
+            }
+
+            i = 0;
+        }
+
+        playerRenderer.color = Color.white;
+        isDead = false;
+        EnableArrow();  
     }
-
-   
-
+    
     public void SetArrowCountdown(Color startColor, Color endColor, float duration)
     {
         //lineColor.color = startColor;
@@ -455,6 +502,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         centerGlow.SetActive(false);
+    }
+
+    public void EnableArrow()
+    {
+        foreach (SpriteRenderer sr in lineObject.GetComponentsInChildren<SpriteRenderer>(true))
+        {
+            sr.enabled = true;
+        }
+
+        centerGlow.SetActive(true);
     }
 
     public void TouchedBouncer(Vector2 relVel)
