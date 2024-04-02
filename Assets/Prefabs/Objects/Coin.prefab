@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1825618671840183675}
   - component: {fileID: 2166071879538915281}
   - component: {fileID: 1572867489053722204}
+  - component: {fileID: 2647436394467363674}
   m_Layer: 6
   m_Name: Coin
   m_TagString: Coin
@@ -178,6 +179,18 @@ MonoBehaviour:
   inDuration: 0.14
   outDuration: 0.6
   elasticScale: {x: 1.1, y: 1.1, z: 1.1}
+--- !u!210 &2647436394467363674
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7690609305704772548}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100
+  m_SortAtRoot: 0
 --- !u!1001 &6949543332482764179
 PrefabInstance:
   m_ObjectHideFlags: 0

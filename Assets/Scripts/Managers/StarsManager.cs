@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class StarsManager : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class StarsManager : MonoBehaviour
     [SerializeField] private  GameObject star1, star2, star3;
     [SerializeField] private  GameObject starMask1, starMask2, starMask3;
     [SerializeField] private  bool popped1, popped2, popped3;
+    public  GameObject flagsParent;
 
     [SerializeField] private float lastScore = 0;
     [SerializeField] private float maskSize = 2;
     [SerializeField] private float tweenDuration = 0.3f;
+    [FormerlySerializedAs("minShake")] [SerializeField] private float shake = 1f;
 
     [SerializeField] private GameObject starsVFX;
 
@@ -135,5 +138,37 @@ public class StarsManager : MonoBehaviour
         starMask1.transform.DOKill();
         starMask1.transform.DOMoveY(starMask1.transform.position.y - (maskSize * scorePercentage), tweenDuration);
     }
+
+    public void ShakeFlag()
+    {
+        StartCoroutine(DoScreenCoroutine());
+    }
     
+    public IEnumerator DoScreenCoroutine()
+    {
+        float shakeFactor = shake;
+        flagsParent.transform.localEulerAngles = new Vector3 (0,0, shakeFactor);
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = Vector3.zero;
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = new Vector3 (0,0, -shakeFactor);
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = Vector3.zero;
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = new Vector3 (0,0, shakeFactor/2);
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = Vector3.zero;
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = new Vector3 (0,0, -shakeFactor/2);
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = Vector3.zero;
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = new Vector3 (0,0, shakeFactor/4);
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = Vector3.zero;
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = new Vector3 (0,0, -shakeFactor/4);
+        yield return new WaitForSeconds(0.03f);
+        flagsParent.transform.localEulerAngles = Vector3.zero;
+    }
 }

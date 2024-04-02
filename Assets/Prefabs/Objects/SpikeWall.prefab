@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 1095081593091383717}
   - component: {fileID: 7628880408530012735}
   - component: {fileID: 4728173783862490006}
+  - component: {fileID: 1277077583688894160}
   m_Layer: 0
   m_Name: SpikeWall
   m_TagString: Untagged
@@ -659,3 +660,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!210 &1277077583688894160
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8988129442013712084}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_SortAtRoot: 0

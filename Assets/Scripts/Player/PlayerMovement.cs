@@ -209,6 +209,7 @@ public class PlayerMovement : MonoBehaviour
                         else isIncreasing = false;
                     }
                     playerRenderer.gameObject.transform.localPosition = offsetRight;
+                    StarsManager.Instance.ShakeFlag();
                 }
         }
     }
