@@ -311,6 +311,7 @@ public class PlayerMovement : MonoBehaviour
         if (GameManager.Instance.gameState != GameManager.GameState.Gameplay) return;
         if (initialDelay > 0) return;
         if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
+        if (isDead) return;
 
         if(IsGrounded())
         {
