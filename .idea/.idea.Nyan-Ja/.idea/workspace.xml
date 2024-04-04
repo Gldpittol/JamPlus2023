@@ -6,32 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte/Mochido SDF.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte/Mochido SDF.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte/Mochido.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte/Mochido.otf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte/Mochido.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte/Mochido.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte/TextMochido.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/fonte/TextMochido.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/Epic Toon FX/Prefabs/Interactive/Stars/StarExplosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/Epic Toon FX/Prefabs/Interactive/Stars/StarExplosion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/StarsManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/StarsManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Objects/Coin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Objects/Coin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Objects/Shuriken.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Objects/Shuriken.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Objects/Spike.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Objects/Spike.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Objects/SpikeWall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Objects/SpikeWall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerParent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerParent.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 4/Level_4-4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 4/Level_4-4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 5/Level_5-4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 5/Level_5-4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StarsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/StarsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +123,10 @@
       <workItem from="1702120111115" duration="1061000" />
       <workItem from="1702217274832" duration="812000" />
       <workItem from="1710563943942" duration="191000" />
-      <workItem from="1712019073348" duration="1721000" />
+      <workItem from="1712019073348" duration="2438000" />
+      <workItem from="1712247577058" duration="27000" />
+      <workItem from="1712248487914" duration="207000" />
+      <workItem from="1712264816048" duration="304000" />
     </task>
     <servers />
   </component>

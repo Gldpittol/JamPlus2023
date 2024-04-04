@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float cameraZoomOutDuration;
     [SerializeField] private float playerFlashDuration = 0.25f;
     [SerializeField] private float amountOfFlashes = 8f;
+    [SerializeField] private float invulnerabilityDuration = 1f;
     [SerializeField] private Color flashColor;
 
     [Header("Arrow New")] 
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 defaultPosition;
 
     private float initialDelay = 0.1f;
+    private float invulnerabilityRemaining;
 
     private float playerSpeed;
     private void Awake()
@@ -233,6 +235,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
+        if (isInvulnerable()) return;
+
         if (other.CompareTag("KillTrigger"))
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
@@ -251,6 +255,7 @@ public class PlayerMovement : MonoBehaviour
     public void UpdateTimers()
     {
         currentDashTimer -= Time.deltaTime;
+        invulnerabilityRemaining -= Time.deltaTime;
     }
 
     public void CalculateAngle()
@@ -347,6 +352,8 @@ public class PlayerMovement : MonoBehaviour
         SetCharacterOrientation();
         dustVFX.Stop();
         dustVFX.gameObject.SetActive(false);
+
+        invulnerabilityRemaining = 0;
     }
     
     public void SetCharacterOrientation()
@@ -444,7 +451,8 @@ public class PlayerMovement : MonoBehaviour
         Time.timeScale = 1;
 
         //Respawn Player
-        
+
+        invulnerabilityRemaining = GameManager.Instance.delayBeforeGoingToNextLevel + invulnerabilityDuration; 
         yield return new WaitForSeconds(GameManager.Instance.delayBeforeGoingToNextLevel);
         canSwapAnimation = true;
         animator.Play("IdleAnim");
@@ -531,5 +539,10 @@ public class PlayerMovement : MonoBehaviour
         //rb.velocity = rb.velocity.normalized * playerSpeed;
         animator.Play("JumpAnim");
         dustVFX.gameObject.SetActive(false);
+    }
+
+    public bool isInvulnerable()
+    {
+        return invulnerabilityRemaining > 0;
     }
 }
