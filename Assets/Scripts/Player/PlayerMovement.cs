@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float amountOfFlashes = 8f;
     [SerializeField] private float invulnerabilityDuration = 1f;
     [SerializeField] private Color flashColor;
+    [SerializeField] private int health = 3;
 
     [Header("Arrow New")] 
     public GameObject arrowMask;
@@ -240,6 +241,15 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("KillTrigger"))
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            
+            health--;
+            StarsManager.Instance.UpdateHealth(health);
+            if (health <= 0)
+            {
+                GameManager.Instance.FinishLevel(true);
+                return;
+            }
+            
             //GameManager.Instance.FinishLevel(true);
             
             GameManager.Instance.SpinPlayer();
@@ -449,6 +459,8 @@ public class PlayerMovement : MonoBehaviour
             Camera.main.transform.DOMove(new Vector3(0,0, -10), cameraZoomOutDuration));
         yield return new WaitForSecondsRealtime(timeOnSlowMotion);
         Time.timeScale = 1;
+
+        if (health <= 0) yield break;
 
         //Respawn Player
 

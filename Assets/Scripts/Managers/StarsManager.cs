@@ -19,6 +19,8 @@ public class StarsManager : MonoBehaviour
     [SerializeField] private float tweenDuration = 0.3f;
     [FormerlySerializedAs("minShake")] [SerializeField] private float shake = 1f;
 
+    [SerializeField] private  GameObject health1, health2, health3;
+
     [SerializeField] private GameObject starsVFX;
 
     private void Awake()
@@ -170,5 +172,21 @@ public class StarsManager : MonoBehaviour
         flagsParent.transform.localEulerAngles = new Vector3 (0,0, -shakeFactor/4);
         yield return new WaitForSeconds(0.03f);
         flagsParent.transform.localEulerAngles = Vector3.zero;
+    }
+
+    public void UpdateHealth(int amount)
+    {
+        if (amount == 2)
+        {
+            health3.SetActive(false);
+        }
+        if (amount == 1)
+        {
+            health2.SetActive(false);
+        }
+        if (amount == 0)
+        {
+            health1.SetActive(false);
+        }
     }
 }

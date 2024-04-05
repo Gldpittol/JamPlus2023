@@ -4003,7 +4003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3524913024584707449, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 58.799988
+      value: 58.80005
       objectReference: {fileID: 0}
     - target: {fileID: 4120585803948146385, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4055,7 +4055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232987450280765624, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -51.622986
+      value: -51.623047
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4255,6 +4255,22 @@ PrefabInstance:
     - target: {fileID: 2004705518329368350, guid: ebf245536ca0df44f9fe90afb68cd48c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155464915739688759, guid: ebf245536ca0df44f9fe90afb68cd48c, type: 3}
+      propertyPath: flashColor.a
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155464915739688759, guid: ebf245536ca0df44f9fe90afb68cd48c, type: 3}
+      propertyPath: flashColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155464915739688759, guid: ebf245536ca0df44f9fe90afb68cd48c, type: 3}
+      propertyPath: flashColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155464915739688759, guid: ebf245536ca0df44f9fe90afb68cd48c, type: 3}
+      propertyPath: flashColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

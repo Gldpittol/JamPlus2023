@@ -12,7 +12,7 @@ public class SpikesWall : MonoBehaviour
     [SerializeField] private GameObject warningObject ;
     [SerializeField] private GameObject killObject;
     [SerializeField] private Color invisibleColor ;
-    [SerializeField] private Color warningColor ;
+    [SerializeField] private Color defaultColor ;
     [SerializeField] private Color killColor ;
     [SerializeField] private Ease colorEase ;
     [SerializeField] private float spikesYMove ;
@@ -51,7 +51,7 @@ public class SpikesWall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerMovement.Instance.isInvulnerable())
         {
             StartCoroutine(ActivateSpikesCoroutine());
         }
@@ -59,7 +59,7 @@ public class SpikesWall : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !killObject.activeInHierarchy)
         {
             StopAllCoroutines();
             warningObjectSr.DOKill();
@@ -76,15 +76,34 @@ public class SpikesWall : MonoBehaviour
         pressurePlateDefault.transform.DOKill();
         pressurePlateDefault.transform.DOLocalMoveY(pressurePlateLowered.transform.localPosition.y, pressurePlateTweenDuration);
         warningObject.SetActive(true);
-        warningObjectSr.DOColor(warningColor, initialDelay - warningDuration).SetEase(colorEase);
-        yield return new WaitForSeconds(initialDelay - warningDuration);
-        warningObject.SetActive(true);
-        warningObjectSr.DOColor(killColor, warningDuration).SetEase(colorEase);
+        warningObjectSr.color = defaultColor;
+        StartCoroutine(DoWarningCoroutine());
         yield return new WaitForSeconds(warningDuration);
         warningObject.SetActive(false);
         killObject.SetActive(true);
         killObject.transform.DOLocalMoveY(spikesYMove, moveDuration);
         yield return new WaitForSeconds(1f);
         killObject.transform.DOLocalMoveY(originalKillY, moveDuration);
+        pressurePlateDefault.transform.DOLocalMoveY(originalPressureY, pressurePlateTweenDuration);
+    }
+
+    public IEnumerator DoWarningCoroutine()
+    {
+        warningObjectSr.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 4);
+        warningObjectSr.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 4);
+        warningObjectSr.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 8);
+        warningObjectSr.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 8);
+        warningObjectSr.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 16);
+        warningObjectSr.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 16);
+        warningObjectSr.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        warningObjectSr.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 32);
     }
 }

@@ -29,6 +29,7 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private GameObject collectVFX;
     [SerializeField] private GameObject permanentVFX;
+    [SerializeField] private GameObject previsionObject;
     [SerializeField] private ParticleSystem glowVFX;
 
     [Header("Constrains")] 
@@ -44,10 +45,14 @@ public class Coin : MonoBehaviour
     private float rotationSpeed;
     private int extraFactor = 1;
     private bool collected = false;
+    private Vector2 nextPos;
 
     private void Awake()
     {
         Instance = this;
+        GetNewPos(0);
+        previsionObject.transform.position = nextPos;
+        previsionObject.transform.parent = null;
         //SlowRotate();
     }
 
@@ -61,6 +66,7 @@ public class Coin : MonoBehaviour
     private void Update()
     {
         transform.eulerAngles += new Vector3(0, 0, rotationSpeed) * Time.deltaTime * extraFactor;
+        previsionObject.transform.eulerAngles += new Vector3(0, 0, rotationSpeed) * Time.deltaTime * extraFactor;
         
         if(enableAKeyDebug) if(Input.GetKeyDown(KeyCode.A)) Collect();
     }
@@ -86,7 +92,9 @@ public class Coin : MonoBehaviour
         ComboBar.Instance.ResetDelay();
         ComboBar.Instance.Increment();
         ComboBar.Instance.DoComboText();
-        GetNewPos(0); 
+        transform.position = nextPos;
+        GetNewPos(0);
+        previsionObject.transform.position = nextPos;
         scalePop.PopOutAnimation();
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Collect);
         PlayerMovement.Instance.IncreaseIncrement();
@@ -119,8 +127,8 @@ public class Coin : MonoBehaviour
                 return;
             }
         }
-        
-        transform.position = newPos;
+
+        nextPos = newPos;
     }
 
     public void RandomizeRotation()
