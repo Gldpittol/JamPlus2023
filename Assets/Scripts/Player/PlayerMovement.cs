@@ -236,6 +236,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
+        if (isDead) return;
         if (isInvulnerable()) return;
 
         if (other.CompareTag("KillTrigger"))
@@ -244,11 +245,6 @@ public class PlayerMovement : MonoBehaviour
             
             health--;
             StarsManager.Instance.UpdateHealth(health);
-            if (health <= 0)
-            {
-                GameManager.Instance.FinishLevel(true);
-                return;
-            }
             
             //GameManager.Instance.FinishLevel(true);
             
@@ -258,6 +254,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 animator.Play("Dead");
                 canSwapAnimation = false;
+            }
+            
+            if (health <= 0)
+            {
+                GameManager.Instance.FinishLevel(true);
             }
         }
     }

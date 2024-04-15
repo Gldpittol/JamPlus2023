@@ -44,7 +44,7 @@ public class LevelSelectManager : MonoBehaviour
         if (GameManager.cameFromLastLevel)
         {
             GameManager.cameFromLastLevel = false;
-            winScreen.SetActive(true);
+            if(winScreen) winScreen.SetActive(true);
         }
     }
 
@@ -80,7 +80,7 @@ public class LevelSelectManager : MonoBehaviour
 
     private void CheckInputs()
     {
-        if (winScreen.activeInHierarchy)
+        if (winScreen && winScreen.activeInHierarchy)
         {
             if(Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             {

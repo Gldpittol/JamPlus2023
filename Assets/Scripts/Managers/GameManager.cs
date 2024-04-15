@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float flashThreshold = 8f;
     [SerializeField] private float minShake = 1f;
     [SerializeField] private float maxShake = 3f;
+    [SerializeField] private bool returnToLevelSelect = false;
 
     [SerializeField] private List<string> sceneNames = new List<string>();
 
@@ -164,13 +165,11 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(delayBeforeGoingToNextLevel);
 
-        /*if (died)
+        if (died)
         {
-            print("Died,Retrying!");
-
             HUDManager.Instance.EnableFinalText(false, 0);
             yield break;
-        }*/
+        }
         
         if (score >= scoreRequiredGold)
         {
@@ -282,7 +281,7 @@ public class GameManager : MonoBehaviour
             nextSceneId = 1; //index of level select
             cameFromLastLevel = true;
         }
-        
+
         if (!next)
         {
             if(starsUnlocked > 0) PlayerDataManager.Instance.UnlockLevel(sceneNames[nextSceneId]);
@@ -293,6 +292,11 @@ public class GameManager : MonoBehaviour
         {
             PlayerDataManager.Instance.UnlockLevel(sceneNames[nextSceneId]);
             PlayerDataManager.Instance.ModifyLevel(SceneManager.GetActiveScene().name, score, starsUnlocked);
+            if (returnToLevelSelect)
+            {
+                nextSceneId = 1; //index of level select
+            
+            }
             LoadingCanvas.Instance.GoToScene(sceneNames[nextSceneId]);
         }
     }

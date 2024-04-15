@@ -83,7 +83,7 @@ public class SpikesWall : MonoBehaviour
         killObject.SetActive(true);
         killObject.transform.DOLocalMoveY(spikesYMove, moveDuration);
         yield return new WaitForSeconds(1f);
-        killObject.transform.DOLocalMoveY(originalKillY, moveDuration);
+        killObject.transform.DOLocalMoveY(originalKillY, moveDuration).OnComplete(()=>killObject.SetActive(false));
         pressurePlateDefault.transform.DOLocalMoveY(originalPressureY, pressurePlateTweenDuration);
     }
 
