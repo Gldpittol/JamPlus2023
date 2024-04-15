@@ -436,6 +436,7 @@ public class PlayerMovement : MonoBehaviour
     public void Die(float playerDeathAngle, float delayBeforeGoingToNextLevel)
     {
         isDead = true;
+        ComboBar.Instance.ResetCombo();
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Death);
         AudioManager.Instance.PlaySound(AudioManager.AudioType.CatDeath);
 

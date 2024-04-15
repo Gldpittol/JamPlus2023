@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 
 public class ComboBar : MonoBehaviour
@@ -25,6 +26,8 @@ public class ComboBar : MonoBehaviour
     [SerializeField] private List<Color> colorList = new List<Color>();
     [SerializeField] private Color defaultColor;
     [SerializeField] private GameObject comboTextPrefab;
+    [SerializeField] private Vector3 fxOffset;
+    [SerializeField] private bool fxFollowPlayer = true;
 
     
     [Header("VFX")]
@@ -62,6 +65,12 @@ public class ComboBar : MonoBehaviour
     public void ResetDelay()
     {
         currentDelay = delayBeforeDecreasing;
+    }
+
+    public void ResetCombo()
+    {
+        barFill.DOKill();
+        barFill.transform.localScale = new Vector3(barFill.transform.localScale.x,0,0);
     }
 
     public void Increment()
@@ -148,13 +157,14 @@ public class ComboBar : MonoBehaviour
             {
                 GameObject tempVFX = Instantiate(vfxList[i], Coin.Instance.transform.position, Quaternion.identity);
                 tempVFX.transform.eulerAngles = vfxList[i].transform.eulerAngles;
-                Destroy(tempVFX, 1f);
+                StartCoroutine(DoVfxBehaviourCoroutine(tempVFX)); 
                 return;
             }
         }        
         GameObject tempVFX2 = Instantiate(vfxDefault, Coin.Instance.transform.position, Quaternion.identity);
         tempVFX2.transform.eulerAngles = vfxDefault.transform.eulerAngles;
         Destroy(tempVFX2, 1f);
+        StartCoroutine(DoVfxBehaviourCoroutine(tempVFX2)); 
 
         /*TextMeshPro tempComboText = Instantiate(comboTextPrefab).GetComponent<TextMeshPro>();
         tempComboText.color = new Color(comboText.color.r, comboText.color.g, comboText.color.b, 1);
@@ -164,5 +174,20 @@ public class ComboBar : MonoBehaviour
 
         tempComboText.transform.position = Coin.Instance.transform.position;
         tempComboText.transform.DOMoveY(tempComboText.transform.position.y + comboTextYIncrease,comboTextTweenDuration);*/
+    }
+
+    public IEnumerator DoVfxBehaviourCoroutine(GameObject fx)
+    {
+        if (!fxFollowPlayer) yield break;
+        fx.AddComponent<SortingGroup>();
+        fx.GetComponent<SortingGroup>().sortingOrder = 101;
+        float i = 0;
+        while (i < 1)
+        {
+            fx.transform.position = PlayerMovement.Instance.transform.position + fxOffset;
+            i += Time.deltaTime;
+            yield return null;
+        }
+        Destroy(fx);
     }
 }
