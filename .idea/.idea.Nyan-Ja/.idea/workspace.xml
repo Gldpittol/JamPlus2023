@@ -6,15 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/pergaminho/carimbo feliz.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 2/Level_2-5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 4/Level_4-5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 4/Level_4-5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 5/Level_5-5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 5/Level_5-5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/bk-fase/B.spyke,apertado.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/bk-fase/B.spyke,apertado.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/bk-fase/B.spyke,espinho.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/bk-fase/B.spyke,espinho.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/bk-fase/B.spyke,normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/bk-fase/B.spyke,normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/pergaminho/bMenu.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/pergaminho/bMenu.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/vida1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/vida1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/vida2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/vida2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/vida3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/vida3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/HUD.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/StarsManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/StarsManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Objects/SpikeWall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Objects/SpikeWall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-1 Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-1 Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 3/Level_3-4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/LevelSelect.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/LevelSelect.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelSelectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelSelectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/HUDManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/HUDManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StarsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/StarsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/BouncyWall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/BouncyWall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/SpikesWall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/SpikesWall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/ZoneButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/ZoneButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
@@ -136,7 +150,7 @@
       <workItem from="1712248487914" duration="207000" />
       <workItem from="1712264816048" duration="507000" />
       <workItem from="1712350432751" duration="2312000" />
-      <workItem from="1713215914427" duration="693000" />
+      <workItem from="1713215914427" duration="6598000" />
     </task>
     <servers />
   </component>

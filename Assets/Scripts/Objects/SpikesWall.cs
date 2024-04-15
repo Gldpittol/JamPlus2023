@@ -20,6 +20,11 @@ public class SpikesWall : MonoBehaviour
     [SerializeField] private GameObject pressurePlateDefault ;
     [SerializeField] private GameObject pressurePlateLowered ;
     [SerializeField] private float pressurePlateTweenDuration = 0.15f;
+    [SerializeField] private Sprite activatedSprite;
+    [SerializeField] private Sprite defaultSprite;
+    [SerializeField] private SpriteRenderer killRenderer;
+    [SerializeField] private SpriteRenderer defaultRenderer;
+    [SerializeField] private Vector2 pressedOffset;
 
     private SpriteRenderer warningObjectSr;
     private float originalPressureY;
@@ -37,6 +42,8 @@ public class SpikesWall : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.onGameEnd += StopSpikes;
+        killRenderer.color = killColor;
+
     }
     
     private void OnDestroy()
@@ -63,47 +70,82 @@ public class SpikesWall : MonoBehaviour
         {
             StopAllCoroutines();
             warningObjectSr.DOKill();
-            warningObject.SetActive(false);
-            warningObjectSr.color = invisibleColor;
+            /*warningObject.SetActive(false);
+            warningObjectSr.color = invisibleColor;*/
             pressurePlateDefault.transform.DOKill();
-            pressurePlateDefault.transform.DOLocalMoveY(originalPressureY, pressurePlateTweenDuration);
+            pressurePlateDefault.transform.DOLocalMoveY(originalPressureY, pressurePlateTweenDuration).OnComplete(SetAsNotPressed);
         }
+    }
+
+    public void SetAsPressed()
+    {
+        pressurePlateDefault.GetComponent<SpriteRenderer>().sprite = activatedSprite;
+        pressurePlateDefault.GetComponent<SpriteRenderer>().sortingOrder = 45;
+
+        if (transform.localEulerAngles.z == 0 || transform.localEulerAngles.z == 180 ||
+            transform.localEulerAngles.z == -180)
+        {
+            pressurePlateDefault.transform.position += (Vector3)pressedOffset;
+        }
+        else if (transform.localEulerAngles.z == -90 || transform.localEulerAngles.z == 270 )
+        {
+            pressurePlateDefault.transform.position += new Vector3(pressedOffset.y, pressedOffset.x, 0);
+        }
+        else if (transform.localEulerAngles.z == 90 || transform.localEulerAngles.z == -270 )
+        {
+            pressurePlateDefault.transform.position += new Vector3(-pressedOffset.y, pressedOffset.x, 0);
+        }
+    }
+
+    public void SetAsNotPressed()
+    {
+        pressurePlateDefault.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+        pressurePlateDefault.GetComponent<SpriteRenderer>().sortingOrder = 35;
+        defaultRenderer.color = defaultColor;
     }
 
   
     public IEnumerator ActivateSpikesCoroutine()
     {
         pressurePlateDefault.transform.DOKill();
-        pressurePlateDefault.transform.DOLocalMoveY(pressurePlateLowered.transform.localPosition.y, pressurePlateTweenDuration);
-        warningObject.SetActive(true);
-        warningObjectSr.color = defaultColor;
+        pressurePlateDefault.transform.DOLocalMoveY(pressurePlateLowered.transform.localPosition.y, pressurePlateTweenDuration).OnComplete(SetAsPressed);
+        /*warningObject.SetActive(true);
+        warningObjectSr.color = defaultColor;*/
         StartCoroutine(DoWarningCoroutine());
         yield return new WaitForSeconds(warningDuration);
-        warningObject.SetActive(false);
+       // warningObject.SetActive(false);
         killObject.SetActive(true);
+        pressurePlateDefault.SetActive(false);
         killObject.transform.DOLocalMoveY(spikesYMove, moveDuration);
         yield return new WaitForSeconds(1f);
-        killObject.transform.DOLocalMoveY(originalKillY, moveDuration).OnComplete(()=>killObject.SetActive(false));
-        pressurePlateDefault.transform.DOLocalMoveY(originalPressureY, pressurePlateTweenDuration);
+        killObject.transform.DOLocalMoveY(originalKillY, moveDuration).OnComplete(DisableSpikes);
+        pressurePlateDefault.transform.DOLocalMoveY(originalPressureY, pressurePlateTweenDuration).OnComplete(SetAsNotPressed);
+    }
+
+    public void DisableSpikes()
+    {
+        killObject.SetActive(false);
+        pressurePlateDefault.SetActive(true);
+        defaultRenderer.color = defaultColor;
     }
 
     public IEnumerator DoWarningCoroutine()
     {
-        warningObjectSr.color = killColor;
+        defaultRenderer.color = killColor;
         yield return new WaitForSeconds(warningDuration / 4);
-        warningObjectSr.color = defaultColor;
+        defaultRenderer.color = defaultColor;
         yield return new WaitForSeconds(warningDuration / 4);
-        warningObjectSr.color = killColor;
+        defaultRenderer.color = killColor;
         yield return new WaitForSeconds(warningDuration / 8);
-        warningObjectSr.color = defaultColor;
+        defaultRenderer.color = defaultColor;
         yield return new WaitForSeconds(warningDuration / 8);
-        warningObjectSr.color = killColor;
+        defaultRenderer.color = killColor;
         yield return new WaitForSeconds(warningDuration / 16);
-        warningObjectSr.color = defaultColor;
+        defaultRenderer.color = defaultColor;
         yield return new WaitForSeconds(warningDuration / 16);
-        warningObjectSr.color = killColor;
+        defaultRenderer.color = killColor;
         yield return new WaitForSeconds(warningDuration / 32);
-        warningObjectSr.color = defaultColor;
+        defaultRenderer.color = defaultColor;
         yield return new WaitForSeconds(warningDuration / 32);
     }
 }

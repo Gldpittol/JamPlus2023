@@ -15,7 +15,8 @@ public class ZoneButton : MonoBehaviour
     [SerializeField] private bool alwaysUnlocked;
     [SerializeField] private TextMeshProUGUI zoneText;
     [SerializeField] private TextMeshProUGUI zoneText1;
-
+    [SerializeField] private Sprite lockedSprite;
+    
     private bool isUnlocked;
     private Button myButton;
 
@@ -41,6 +42,8 @@ public class ZoneButton : MonoBehaviour
         {
             zoneText.DOFade(0.5f, 0);
             zoneText1.DOFade(0.5f, 0);
+            GetComponent<Image>().sprite = lockedSprite;
+            GetComponent<Image>().SetNativeSize();
         }
     }
     

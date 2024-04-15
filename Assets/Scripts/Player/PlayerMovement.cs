@@ -141,24 +141,27 @@ public class PlayerMovement : MonoBehaviour
 
             ContactPoint2D contact = other.contacts[0];
             playerRenderer.flipX = false;
-                if (contact.normal.y > 0)
+            
+            if(!isInvulnerable()) EnableArrow();
+            
+            if (contact.normal.y > 0)
+            {
+                //   Debug.Log("Bottom hit");
+                if (lineObject.transform.right.x < 0)
                 {
-                    //   Debug.Log("Bottom hit");
-                    if (lineObject.transform.right.x < 0)
-                    {
-                        playerRenderer.flipX = true;
-                    }
-                    baseAngle = 90;
-                    playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
-                    if (followCoin)
-                    {
-                        float angleToCoin = Vector2.Angle(Vector2.right, Coin.Instance.transform.position - transform.position);
-                        if (angleToCoin > 90) isIncreasing = true;
-                        else isIncreasing = false;   
-                    }
-
-                    playerRenderer.gameObject.transform.localPosition = offsetBottom;
+                    playerRenderer.flipX = true;
                 }
+                baseAngle = 90;
+                playerRenderer.gameObject.transform.eulerAngles = new Vector3(0, 0, baseAngle-90);
+                if (followCoin)
+                {
+                    float angleToCoin = Vector2.Angle(Vector2.right, Coin.Instance.transform.position - transform.position);
+                    if (angleToCoin > 90) isIncreasing = true;
+                    else isIncreasing = false;   
+                }
+
+                playerRenderer.gameObject.transform.localPosition = offsetBottom;
+            }
                 else if (contact.normal.y < 0)
                 {
 //                    Debug.Log("Top hit");

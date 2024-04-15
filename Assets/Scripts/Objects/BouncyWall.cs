@@ -38,6 +38,7 @@ public class BouncyWall : MonoBehaviour
             //canCollide = false;
             //StartCoroutine(DisableColliderCoroutine());
             PlayerMovement.Instance.TouchedBouncer(relVel);
+            PlayerMovement.Instance.DisableArrow();
         }
     }
 

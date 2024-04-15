@@ -27,12 +27,17 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject starGold3;
     [SerializeField] private GameObject stampWin;
     [SerializeField] private GameObject stampLose;
+    [SerializeField] private Sprite stampWinSprite1,stampWinSprite2,stampWinSprite3;
+
     [SerializeField] private TextMeshProUGUI textWin;
     [SerializeField] private TextMeshProUGUI textLost;
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private GameObject pressSpaceTextLose;
     [SerializeField] private GameObject pressSpaceTextWin;
     [SerializeField] private GameObject pressSpaceTextMid;
+    [SerializeField] private GameObject levelSelectButtonWin;
+    [SerializeField] private GameObject levelSelectButtonLose;
+
     [SerializeField] private float delayBetweenStamps = 0.5f;
     [SerializeField] private GameObject blur;
 
@@ -185,9 +190,11 @@ public class HUDManager : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenStamps);
             canGoToNextLevel = true;
             pressSpaceTextMid.SetActive(true);
+            levelSelectButtonLose.SetActive(true);
 
             pressSpaceTextMid.transform.parent = touchPanel.transform;
-            
+            levelSelectButtonLose.transform.parent = touchPanel.transform;
+
             Time.timeScale = 1;
             yield break;
         }
@@ -197,6 +204,8 @@ public class HUDManager : MonoBehaviour
             if (stars >= 1)
             {
                 starGold1.SetActive(true);
+                stampWin.GetComponent<Image>().sprite = stampWinSprite1;
+
                 if (Time.timeScale == 1)
                 {
                     starGold1.GetComponent<ScalePop>().PopOutAnimation();
@@ -208,6 +217,8 @@ public class HUDManager : MonoBehaviour
             if (stars >= 2)
             {
                 starGold2.SetActive(true);
+                stampWin.GetComponent<Image>().sprite = stampWinSprite2;
+
                 if (Time.timeScale == 1)
                 {
                     starGold2.GetComponent<ScalePop>().PopOutAnimation();
@@ -218,6 +229,8 @@ public class HUDManager : MonoBehaviour
             if (stars == 3)
             {
                 starGold3.SetActive(true);
+                stampWin.GetComponent<Image>().sprite = stampWinSprite3;
+
                 if (Time.timeScale == 1)
                 {
                     starGold3.GetComponent<ScalePop>().PopOutAnimation();
@@ -226,6 +239,7 @@ public class HUDManager : MonoBehaviour
                 yield return new WaitForSeconds(delayBetweenStamps);
             }
             stampWin.SetActive(true);
+            GameManager.Instance.DoScreenShake();
             if (Time.timeScale == 1)
             {
                 stampWin.GetComponent<ScalePop>().PopOutAnimation();
@@ -237,9 +251,11 @@ public class HUDManager : MonoBehaviour
             canGoToNextLevel = true;
             pressSpaceTextWin.SetActive(true);
             pressSpaceTextLose.SetActive(true);
+            levelSelectButtonWin.SetActive(true);
 
             pressSpaceTextLose.transform.parent = touchPanel.transform;
             pressSpaceTextWin.transform.parent = touchPanel.transform;
+            levelSelectButtonWin.transform.parent = touchPanel.transform;
 
             Time.timeScale = 1;
         }

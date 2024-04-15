@@ -330,11 +330,11 @@ public class GameManager : MonoBehaviour
     {
         float shakeFactor = minShake + (ComboBar.Instance.GetPercentage() * (maxShake - minShake));
         Camera.main.transform.eulerAngles = new Vector3 (0,0, shakeFactor);
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForSecondsRealtime(0.02f);
         Camera.main.transform.eulerAngles = Vector3.zero;
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForSecondsRealtime(0.02f);
         Camera.main.transform.eulerAngles = new Vector3 (0,0, -shakeFactor);
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForSecondsRealtime(0.02f);
         Camera.main.transform.eulerAngles = Vector3.zero;
     }
 }

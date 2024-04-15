@@ -20,6 +20,7 @@ public class StarsManager : MonoBehaviour
     [FormerlySerializedAs("minShake")] [SerializeField] private float shake = 1f;
 
     [SerializeField] private  GameObject health1, health2, health3;
+    [SerializeField] private  Sprite healthSprite1, healthSprite2, healthSprite3;
 
     [SerializeField] private GameObject starsVFX;
 
@@ -179,10 +180,13 @@ public class StarsManager : MonoBehaviour
         if (amount == 2)
         {
             health3.SetActive(false);
+            health1.GetComponent<SpriteRenderer>().sprite = healthSprite2;
+            health2.GetComponent<SpriteRenderer>().sprite = healthSprite2;
         }
         if (amount == 1)
         {
             health2.SetActive(false);
+            health1.GetComponent<SpriteRenderer>().sprite = healthSprite1;
         }
         if (amount == 0)
         {
