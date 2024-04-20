@@ -2280,10 +2280,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1304402947993852916, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1491171771527561330, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3205621076950158709, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 3421231356518463536, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
