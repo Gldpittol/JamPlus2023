@@ -157,4 +157,21 @@ public class PlayerDataManager : MonoBehaviour
     {
         return playerData.seeenTutorialsList.Contains(hash);
     }
+
+    public float GetCompletionPercentage()
+    {
+        float totalStars = 0;
+        float receivedStars = 0;
+        
+        foreach (PlayerData.LevelData data in playerData.levelData)
+        {
+            if (data.levelName != "LevelSelect" && data.levelName != "MainMenu")
+            {
+                totalStars += 3;
+                receivedStars += data.starsAchieved;
+            }
+        }
+
+        return receivedStars / totalStars;
+    }
 }

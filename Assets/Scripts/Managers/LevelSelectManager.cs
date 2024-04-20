@@ -73,6 +73,11 @@ public class LevelSelectManager : MonoBehaviour
         }
     }
 
+    public void DisableWinScreen()
+    {
+        winScreen.SetActive(false);
+    }
+
     public void EnableInteract()
     {
         canInteract = true;

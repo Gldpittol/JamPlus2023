@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike_C
       objectReference: {fileID: 0}
+    - target: {fileID: 1385385489358055883, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -124992423, guid: 7e25a2f3fbaad254a85d0efc1299c937, type: 3}
     - target: {fileID: 2843152347888068920, guid: 1373035995e125e43aef71dcd37737bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1003.99
