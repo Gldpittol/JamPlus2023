@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: gameState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5721189813107923690, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -28,6 +28,11 @@ public class ScreenClickManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.gameState == GameManager.GameState.Gameplay && !HUDManager.Instance.IsPaused)
+        {
+            return;
+        }
+        
         if (Input.GetMouseButtonUp(0))
         {
             GetClickPosition();

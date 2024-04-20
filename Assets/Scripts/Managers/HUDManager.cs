@@ -180,6 +180,8 @@ public class HUDManager : MonoBehaviour
         if (!isWin)
         {
             stampLose.SetActive(true);
+            stampLose.transform.parent =  scrollParent.transform.parent;
+
             if (Time.timeScale == 1)
             {
                 stampLose.GetComponent<ScalePop>().PopOutAnimation();
@@ -204,7 +206,9 @@ public class HUDManager : MonoBehaviour
             if (stars >= 1)
             {
                 starGold1.SetActive(true);
+                starGold1.transform.parent.transform.parent = scrollParent.transform.parent;
                 stampWin.GetComponent<Image>().sprite = stampWinSprite1;
+                stampWin.transform.parent =  scrollParent.transform.parent;
 
                 if (Time.timeScale == 1)
                 {
@@ -217,7 +221,9 @@ public class HUDManager : MonoBehaviour
             if (stars >= 2)
             {
                 starGold2.SetActive(true);
+                starGold2.transform.parent.transform.parent = scrollParent.transform.parent;
                 stampWin.GetComponent<Image>().sprite = stampWinSprite2;
+                stampWin.transform.parent =  scrollParent.transform.parent;
 
                 if (Time.timeScale == 1)
                 {
@@ -229,8 +235,9 @@ public class HUDManager : MonoBehaviour
             if (stars == 3)
             {
                 starGold3.SetActive(true);
+                starGold3.transform.parent.transform.parent = scrollParent.transform.parent;
                 stampWin.GetComponent<Image>().sprite = stampWinSprite3;
-
+                stampWin.transform.parent =  scrollParent.transform.parent;
                 if (Time.timeScale == 1)
                 {
                     starGold3.GetComponent<ScalePop>().PopOutAnimation();
@@ -276,6 +283,12 @@ public class HUDManager : MonoBehaviour
         LoadingCanvas.Instance.GoToScene(SceneManager.GetActiveScene().name);
       //  retryButton.GetComponent<ScalePop>().PopOutAnimation();
     }
+    
+    public bool IsPaused
+    {
+        get => isPaused;
+        set => isPaused = value;
+    }
     public void Continue()
     {
         pauseMenu.SetActive(false);
@@ -293,6 +306,7 @@ public class HUDManager : MonoBehaviour
         isPaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+        
     }
 
     public string GetLevelName()
