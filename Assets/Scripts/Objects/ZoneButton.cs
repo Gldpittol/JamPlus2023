@@ -40,8 +40,8 @@ public class ZoneButton : MonoBehaviour
         myButton.interactable = isUnlocked;
         if (!isUnlocked)
         {
-            zoneText.DOFade(0.5f, 0);
-            zoneText1.DOFade(0.5f, 0);
+            zoneText.DOFade(0, 0);
+            zoneText1.DOFade(0, 0);
             GetComponent<Image>().sprite = lockedSprite;
             GetComponent<Image>().SetNativeSize();
         }
