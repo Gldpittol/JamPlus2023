@@ -8495,7 +8495,7 @@ PrefabInstance:
       objectReference: {fileID: 8659749777644691656}
     - target: {fileID: 4162815898874976881, guid: e0cd7552d6335f14c9400ff855c78979, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4631917240484862329, guid: e0cd7552d6335f14c9400ff855c78979, type: 3}
       propertyPath: alwaysUnlocked
@@ -8519,7 +8519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4917171147372813720, guid: e0cd7552d6335f14c9400ff855c78979, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5580967784832116017, guid: e0cd7552d6335f14c9400ff855c78979, type: 3}
       propertyPath: m_AnchoredPosition.y

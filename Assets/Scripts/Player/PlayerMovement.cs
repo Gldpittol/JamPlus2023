@@ -120,7 +120,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded)
             {
-                if(canSwapAnimation) animator.Play("IdleAnim");
+                if (!isDead && canSwapAnimation)
+                {
+                    animator.Play("IdleAnim");
+                }
+
+                if (isDead)
+                {
+                    animator.Play("Respawning");
+                }
                 isGrounded = true;
                 rb.velocity = Vector2.zero;
             }
@@ -222,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckIfSwapToIdle()
     {
-        if (isGrounded)
+        if (isGrounded && !isDead)
         {
             animator.Play("IdleAnim");
         }
@@ -472,7 +480,7 @@ public class PlayerMovement : MonoBehaviour
         invulnerabilityRemaining = GameManager.Instance.delayBeforeGoingToNextLevel + invulnerabilityDuration; 
         yield return new WaitForSeconds(GameManager.Instance.delayBeforeGoingToNextLevel);
         canSwapAnimation = true;
-        animator.Play("IdleAnim");
+        animator.Play("Respawning");
         
         transform.position = defaultPosition;
 
@@ -504,6 +512,7 @@ public class PlayerMovement : MonoBehaviour
         playerRenderer.color = Color.white;
         isDead = false;
         EnableArrow();  
+        animator.Play("IdleAnim");
     }
     
     public void SetArrowCountdown(Color startColor, Color endColor, float duration)

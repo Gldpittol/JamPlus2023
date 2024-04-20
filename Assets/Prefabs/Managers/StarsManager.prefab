@@ -1453,9 +1453,9 @@ MonoBehaviour:
   maskSize: 0.7
   tweenDuration: 0.33
   shake: 2.5
-  health1: {fileID: 7179743057232915790}
+  health1: {fileID: 4382164760343092298}
   health2: {fileID: 1294488692855718535}
-  health3: {fileID: 4382164760343092298}
+  health3: {fileID: 7179743057232915790}
   healthSprite1: {fileID: 21300000, guid: 96e6a6a02bde1384eb069e1660fbc012, type: 3}
   healthSprite2: {fileID: 21300000, guid: 3f8d87156df1c7c4abd009bbe38be052, type: 3}
   healthSprite3: {fileID: 21300000, guid: 2c0ce936eaf382b40a5266931fc6b83a, type: 3}

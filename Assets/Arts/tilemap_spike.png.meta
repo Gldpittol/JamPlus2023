@@ -139,12 +139,12 @@ TextureImporter:
       name: tilemap_spike_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 75
-        width: 146
-        height: 118
+        x: 15
+        y: 333
+        width: 115
+        height: 115
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,6 +152,216 @@ TextureImporter:
       bones: []
       spriteID: 883fd0346b08eb3429b4c52c57f7f9e4
       internalID: 776401969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 351
+        width: 114
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b070f7757cadf4ab5488f32aa53e2a
+      internalID: 1643911759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_2
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 353
+        width: 114
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7c26428d620e84459af25f97f3a517e
+      internalID: -304899847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_3
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 352
+        width: 114
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834a2936e9389f94bb7bdba98b68bb04
+      internalID: 1132533385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 214
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e439f4678a653f4c81dbe98d0690fdb
+      internalID: -1482536421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_5
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 215
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf61dbafaccc03c47866c5acc2429aa9
+      internalID: -524588334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_6
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 215
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb2199b5a4eba814a8b0e6a0f61c213f
+      internalID: -1897729008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_7
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 215
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a348f479be5f9d4eb83b078de89c3aa
+      internalID: -1854688285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 70
+        width: 125
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db47d3536a937294992a1849bfd3b8e7
+      internalID: -124992423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_9
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 68
+        width: 84
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f574968cd9c36cc48bf9a42f2896a3b8
+      internalID: 701535476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap_spike_10
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 78
+        width: 133
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19957a147ed0d1f43b18114b5c31e7d5
+      internalID: -1383360760
       vertices: []
       indices: 
       edges: []
@@ -168,6 +378,16 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       tilemap_spike_0: 776401969
+      tilemap_spike_1: 1643911759
+      tilemap_spike_10: -1383360760
+      tilemap_spike_2: -304899847
+      tilemap_spike_3: 1132533385
+      tilemap_spike_4: -1482536421
+      tilemap_spike_5: -524588334
+      tilemap_spike_6: -1897729008
+      tilemap_spike_7: -1854688285
+      tilemap_spike_8: -124992423
+      tilemap_spike_9: 701535476
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
