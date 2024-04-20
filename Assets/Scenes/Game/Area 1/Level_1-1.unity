@@ -2289,6 +2289,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 3205621076950158709, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9292453
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205621076950158709, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.935267
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205621076950158709, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205621076950158709, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4293783295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205621076950158709, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
       objectReference: {fileID: 0}
