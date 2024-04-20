@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/TutorialCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/TutorialCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/HUD.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/TutorialManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/TutorialManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
@@ -131,7 +129,7 @@
       <workItem from="1712264816048" duration="507000" />
       <workItem from="1712350432751" duration="2312000" />
       <workItem from="1713215914427" duration="8144000" />
-      <workItem from="1713641043199" duration="4088000" />
+      <workItem from="1713641043199" duration="4909000" />
     </task>
     <servers />
   </component>

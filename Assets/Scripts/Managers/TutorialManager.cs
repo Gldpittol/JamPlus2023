@@ -91,12 +91,10 @@ public class TutorialManager : MonoBehaviour
         firstDialogue.SetActive(false);*/
         /*firstBubble.SetActive(true);
         firstDialogue.SetActive(true);*/
-        print("Aqui1");
         firstBubble.GetComponent<Image>().DOFade(1, masterAppearanceDuration).SetUpdate(true);
         firstDialogue.GetComponent<TextMeshProUGUI>().DOFade(1, masterAppearanceDuration).SetUpdate(true);
 
         yield return new WaitForSecondsRealtime(masterAppearanceDuration);
-        print("Aqui2");
 
    //     masterObject.DOAnchorPos(masterFinalPosObject.anchoredPosition, masterAppearanceDuration).SetUpdate(true);
         
