@@ -18,6 +18,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private RectTransform masterFinalPosObject;
     [SerializeField] private GameObject firstBubble;
     [SerializeField] private GameObject firstDialogue;
+    [SerializeField] private GameObject finalBubble;
+    [SerializeField] private GameObject finalDialogue;
     [SerializeField] private GameObject smokeVFX;
     [SerializeField] private float smokeVFXDuration = 2f;
     [SerializeField] private float bubbleFadeOutDuration = 2f;
@@ -74,7 +76,7 @@ public class TutorialManager : MonoBehaviour
             return;
         }
         textList[i].gameObject.SetActive(true);
-        firstBubble.GetComponent<ScalePop>().PopOutAnimation(true);
+        //firstBubble.GetComponent<ScalePop>().PopOutAnimation(true);
         if(i >=1)textList[i-1].gameObject.SetActive(false);
     }
 
@@ -85,39 +87,47 @@ public class TutorialManager : MonoBehaviour
 
     public IEnumerator MasterAnimationCoroutine()
     {
-        firstBubble.SetActive(false);
-        firstDialogue.SetActive(false);
-        
-        masterObject.DOAnchorPos(masterFinalPosObject.anchoredPosition, masterAppearanceDuration).SetUpdate(true);
-        
+        /*firstBubble.SetActive(false);
+        firstDialogue.SetActive(false);*/
+        /*firstBubble.SetActive(true);
+        firstDialogue.SetActive(true);*/
+        print("Aqui1");
+        firstBubble.GetComponent<Image>().DOFade(1, masterAppearanceDuration).SetUpdate(true);
+        firstDialogue.GetComponent<TextMeshProUGUI>().DOFade(1, masterAppearanceDuration).SetUpdate(true);
+
         yield return new WaitForSecondsRealtime(masterAppearanceDuration);
+        print("Aqui2");
+
+   //     masterObject.DOAnchorPos(masterFinalPosObject.anchoredPosition, masterAppearanceDuration).SetUpdate(true);
+        
+    //    yield return new WaitForSecondsRealtime(masterAppearanceDuration);
 
         canGoNext = true;
-        firstBubble.SetActive(true);
-        firstDialogue.SetActive(true);
+      
         EnableText(currentTextID);
+        yield return null;
     }
 
     public IEnumerator MasterSmokeCoroutine()
     {
+
         canGoNext = false;
-        var mainModule = smokeVFX.GetComponent<ParticleSystem>().main;
-        mainModule.startLifetime = smokeVFXDuration;
-        smokeVFX.SetActive(true);
-        smokeVFX.GetComponent<ParticleSystem>().Play();
+        /*var mainModule = smokeVFX.GetComponent<ParticleSystem>().main;
+        mainModule.startLifetime = smokeVFXDuration;*/
+       // smokeVFX.SetActive(true);
+      //  smokeVFX.GetComponent<ParticleSystem>().Play();
         PlayerDataManager.Instance.AddSeenTutorial(tutorialID);
 
+        /*
         firstBubble.GetComponent<Image>().DOFade(0, bubbleFadeOutDuration).SetUpdate(true);
         textList[currentTextID - 1].transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, bubbleFadeOutDuration)
             .SetUpdate(true);
-
-        if(AudioManager.Instance) AudioManager.Instance.PlaySound(AudioManager.AudioType.Smoke);
-
-        yield return new WaitForSecondsRealtime(bubbleFadeOutDuration);
-
-        masterObject.GetComponent<Image>().DOFade(0, smokeVFXDuration/2).SetUpdate(true);
-
-        yield return new WaitForSecondsRealtime(smokeVFXDuration);
+            */
+        
+        finalBubble.GetComponent<Image>().DOFade(0, masterAppearanceDuration).SetUpdate(true);
+        finalDialogue.GetComponent<TextMeshProUGUI>().DOFade(0, masterAppearanceDuration).SetUpdate(true);
+        
+        yield return new WaitForSecondsRealtime(masterAppearanceDuration);
 
         Time.timeScale = 1;
         yield return new WaitForEndOfFrame();
