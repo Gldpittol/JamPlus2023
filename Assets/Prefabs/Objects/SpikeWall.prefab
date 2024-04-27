@@ -918,18 +918,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDelay: 5
-  warningDuration: 3
+  warningDuration: 2.6
   warningObject: {fileID: 7931563817015263722}
   killObject: {fileID: 4760400675290942948}
   invisibleColor: {r: 0, g: 0, b: 0, a: 0}
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  defaultColor: {r: 0.7647059, g: 0.7018226, b: 0.3411765, a: 1}
   killColor: {r: 0.8301887, g: 0.27020293, b: 0.27020293, a: 1}
   colorEase: 0
   spikesYMove: 1
-  moveDuration: 0.1
+  moveDuration: 0.07
   pressurePlateDefault: {fileID: 2413195930978582696}
   pressurePlateLowered: {fileID: 7998316816917452481}
-  pressurePlateTweenDuration: 0.1
+  pressurePlateTweenDuration: 0.05
   activatedSprite: {fileID: -579913923, guid: abe844693c1569c4e8174faac1c16940, type: 3}
   defaultSprite: {fileID: 1200447909, guid: 0b3cc25dc68187e4e84c727379a85b83, type: 3}
   killRenderer: {fileID: 2916862320748622668}

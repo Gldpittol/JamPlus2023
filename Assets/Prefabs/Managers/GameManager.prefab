@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinBaseScore: 500
-  countdownTime: 30
+  countdownTime: 20
   scoreRequiredPass: 1500
   scoreRequiredSilver: 3250
   scoreRequiredGold: 6000
@@ -58,6 +58,7 @@ MonoBehaviour:
   flashThreshold: 8
   minShake: 0.5
   maxShake: 0.7
+  returnToLevelSelect: 0
   sceneNames:
   - MainMenu
   - LevelSelect

@@ -1768,15 +1768,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: scoreRequiredGold
-      value: 7000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: scoreRequiredPass
-      value: 1500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2806000389448666600, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: scoreRequiredSilver
-      value: 3000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 7252512586678225693, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2288,6 +2288,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2065011047061412234, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      propertyPath: m_text
+      value: I'm master Min-Ao and I will be your guide in the journey to become
+        a true Nyan-ja!
+      objectReference: {fileID: 0}
     - target: {fileID: 3205621076950158709, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       propertyPath: m_fontColor.b
       value: 0.9292453

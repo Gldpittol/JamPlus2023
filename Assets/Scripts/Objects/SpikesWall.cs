@@ -37,6 +37,7 @@ public class SpikesWall : MonoBehaviour
         warningObjectSr = warningObject.GetComponent<SpriteRenderer>();
         warningObjectSr.color = invisibleColor;
         originalKillY = killObject.transform.localPosition.y;
+        defaultRenderer.color = defaultColor;
     }
 
     private void Start()
@@ -132,10 +133,6 @@ public class SpikesWall : MonoBehaviour
     public IEnumerator DoWarningCoroutine()
     {
         defaultRenderer.color = killColor;
-        yield return new WaitForSeconds(warningDuration / 4);
-        defaultRenderer.color = defaultColor;
-        yield return new WaitForSeconds(warningDuration / 4);
-        defaultRenderer.color = killColor;
         yield return new WaitForSeconds(warningDuration / 8);
         defaultRenderer.color = defaultColor;
         yield return new WaitForSeconds(warningDuration / 8);
@@ -144,8 +141,42 @@ public class SpikesWall : MonoBehaviour
         defaultRenderer.color = defaultColor;
         yield return new WaitForSeconds(warningDuration / 16);
         defaultRenderer.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 16);
+        defaultRenderer.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 16);
+        defaultRenderer.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 16);
+        defaultRenderer.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 24);
+        defaultRenderer.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 24);
+        defaultRenderer.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 24);
+        defaultRenderer.color = killColor;
         yield return new WaitForSeconds(warningDuration / 32);
         defaultRenderer.color = defaultColor;
         yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = killColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+        defaultRenderer.color = defaultColor;
+        yield return new WaitForSeconds(warningDuration / 32);
+
+
     }
 }
