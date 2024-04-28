@@ -164,6 +164,8 @@ MonoBehaviour:
   - {r: 0.9339623, g: 0.85737693, b: 0.022027409, a: 1}
   defaultColor: {r: 0, g: 0, b: 0, a: 1}
   comboTextPrefab: {fileID: 2059626091396744808, guid: 07675563db789574998df36e5c0aef25, type: 3}
+  fxOffset: {x: 0, y: 0, z: 0}
+  fxFollowPlayer: 0
   vfxList:
   - {fileID: 7256411017948896141, guid: b3b8f9b5600cc40418354354f2b8f177, type: 3}
   - {fileID: 1624119753830394, guid: b3317320a28a9414681715fe63910ece, type: 3}

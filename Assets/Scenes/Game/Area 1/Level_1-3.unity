@@ -1347,12 +1347,12 @@ PrefabInstance:
       objectReference: {fileID: 1981483892}
     - target: {fileID: 5490387009421391251, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       propertyPath: textList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5490387009421391251, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       propertyPath: textList.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 808437178}
     - target: {fileID: 5490387009421391251, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       propertyPath: textList.Array.data[5]
       value: 
@@ -1370,13 +1370,125 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7930869704768799338, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 808437179}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7556737683507500545, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713899769}
+    - targetCorrespondingSourceObject: {fileID: 9077673781546319670, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713899768}
+    - targetCorrespondingSourceObject: {fileID: 7757771198297545385, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713899767}
+    - targetCorrespondingSourceObject: {fileID: 5487945249123363739, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713899766}
   m_SourcePrefab: {fileID: 100100000, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+--- !u!1 &713899761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5487945249123363739, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+  m_PrefabInstance: {fileID: 713899760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &713899762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7757771198297545385, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+  m_PrefabInstance: {fileID: 713899760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &713899763 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7930869704768799338, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
   m_PrefabInstance: {fileID: 713899760}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &713899764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9077673781546319670, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+  m_PrefabInstance: {fileID: 713899760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &713899765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7556737683507500545, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+  m_PrefabInstance: {fileID: 713899760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &713899766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713899761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dceb07035388f5469843f2d832f4f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getTransform: 1
+  _transform: {fileID: 0}
+  popInDuration: 0.05
+  popOutDuration: 0.1
+  popOutScale: {x: 0.37, y: 0.37, z: 0.37}
+  inDuration: 0.14
+  outDuration: 0.6
+  elasticScale: {x: 1.1, y: 1.1, z: 1.1}
+--- !u!114 &713899767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713899762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dceb07035388f5469843f2d832f4f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getTransform: 1
+  _transform: {fileID: 0}
+  popInDuration: 0.05
+  popOutDuration: 0.1
+  popOutScale: {x: 0.37, y: 0.37, z: 0.37}
+  inDuration: 0.14
+  outDuration: 0.6
+  elasticScale: {x: 1.1, y: 1.1, z: 1.1}
+--- !u!114 &713899768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713899764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dceb07035388f5469843f2d832f4f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getTransform: 1
+  _transform: {fileID: 0}
+  popInDuration: 0.05
+  popOutDuration: 0.1
+  popOutScale: {x: 0.37, y: 0.37, z: 0.37}
+  inDuration: 0.14
+  outDuration: 0.6
+  elasticScale: {x: 1.1, y: 1.1, z: 1.1}
+--- !u!114 &713899769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713899765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dceb07035388f5469843f2d832f4f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getTransform: 1
+  _transform: {fileID: 0}
+  popInDuration: 0.05
+  popOutDuration: 0.1
+  popOutScale: {x: 0.37, y: 0.37, z: 0.37}
+  inDuration: 0.14
+  outDuration: 0.6
+  elasticScale: {x: 1.1, y: 1.1, z: 1.1}
 --- !u!1 &808437178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808437179}
   - component: {fileID: 808437180}
+  - component: {fileID: 808437181}
   m_Layer: 5
   m_Name: Dialogue5
   m_TagString: Untagged
@@ -1422,6 +1535,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808437178}
   m_CullTransparentMesh: 1
+--- !u!114 &808437181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808437178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dceb07035388f5469843f2d832f4f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getTransform: 1
+  _transform: {fileID: 0}
+  popInDuration: 0.05
+  popOutDuration: 0.1
+  popOutScale: {x: 0.37, y: 0.37, z: 0.37}
+  inDuration: 0.14
+  outDuration: 0.6
+  elasticScale: {x: 1.1, y: 1.1, z: 1.1}
 --- !u!1001 &1303798984
 PrefabInstance:
   m_ObjectHideFlags: 0

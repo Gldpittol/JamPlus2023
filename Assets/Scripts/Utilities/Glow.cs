@@ -11,8 +11,9 @@ public class Glow : MonoBehaviour
     [SerializeField] private float largeSize = 0.5f;
     [SerializeField] private float smallSize = 0.9f;
 
-    private void Start()
+    private void OnEnable()
     {
+        transform.DOKill();
         ContinuousPop();
         transform.localScale = new Vector3(trueSize, trueSize, trueSize);
     }

@@ -33,7 +33,7 @@ public class LevelSelectManager : MonoBehaviour
     private bool updatedSelection = false;
     private int oldId = -1;
 
-    
+    private bool canClickWinScreen = true;
     private void Awake()
     {
         Instance = this;
@@ -75,7 +75,11 @@ public class LevelSelectManager : MonoBehaviour
 
     public void DisableWinScreen()
     {
-        winScreen.SetActive(false);
+        if (!canClickWinScreen) return;
+        LoadingCanvas.Instance.GoToScene("MainMenu");
+
+        canClickWinScreen = false;
+        //winScreen.SetActive(false);
     }
 
     public void EnableInteract()

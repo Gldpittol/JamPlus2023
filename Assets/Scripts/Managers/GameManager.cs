@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector2 playerDeathAddPosition;
     [SerializeField] private Color arrowStartColor;
     [SerializeField] private Color arrowEndColor;
-    [SerializeField] private float flashThreshold = 8f;
+    [SerializeField] private float flashThresholdPercentage = 0.3f;
     [SerializeField] private float minShake = 1f;
     [SerializeField] private float maxShake = 3f;
     [SerializeField] private bool returnToLevelSelect = false;
@@ -64,9 +64,12 @@ public class GameManager : MonoBehaviour
 
     public bool playerDied = false;
     public float Score => score;
+    private float originalCountdown;
     
     private void Awake()
     {
+        originalCountdown = countdownTime;
+        
         Instance = this;
         
         InitializeObstacleList();
@@ -159,7 +162,7 @@ public class GameManager : MonoBehaviour
             FinishLevel(false);
         }
 
-        if (countdownTime < flashThreshold && !isFlashing)
+        if ((countdownTime / originalCountdown < flashThresholdPercentage) && !isFlashing)
         {
             isFlashing = true;
             PlayerMovement.Instance.SetArrowFlash();
@@ -317,6 +320,23 @@ public class GameManager : MonoBehaviour
             }
             LoadingCanvas.Instance.GoToScene(sceneNames[nextSceneId]);
         }
+    }
+
+    public void UnlockNext()
+    {
+        if (starsUnlocked == 0) return;
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int nextSceneId = -1;
+        nextSceneId = sceneNames.IndexOf(currentSceneName) + 1;
+        if (nextSceneId == sceneNames.Count)
+        {
+            nextSceneId = 1; //index of level select
+            cameFromLastLevel = true;
+        }
+
+        PlayerDataManager.Instance.UnlockLevel(sceneNames[nextSceneId]);
+        PlayerDataManager.Instance.ModifyLevel(SceneManager.GetActiveScene().name, score, starsUnlocked);
     }
 
     public void GoToMainMenu()

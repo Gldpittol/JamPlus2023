@@ -74,6 +74,7 @@ public class Coin : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (collected) return;
+        if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
         
         if (other.CompareTag("Player"))
         {

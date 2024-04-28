@@ -272,12 +272,15 @@ public class HUDManager : MonoBehaviour
     {
         isRetrying = true;
         Continue();
+        if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) GameManager.Instance.UnlockNext();
+        else GameManager.Instance.gameState = GameManager.GameState.GameEnded;
         LoadingCanvas.Instance.GoToScene("LevelSelect");
      //   levelSelectButton.GetComponent<ScalePop>().PopOutAnimation();
     }
 
     public void Retry()
     {
+        GameManager.Instance.gameState = GameManager.GameState.GameEnded;
         isRetrying = true;
         Continue();
         LoadingCanvas.Instance.GoToScene(SceneManager.GetActiveScene().name);

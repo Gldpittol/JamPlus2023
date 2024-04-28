@@ -76,6 +76,7 @@ public class TutorialManager : MonoBehaviour
             return;
         }
         textList[i].gameObject.SetActive(true);
+        if(i > 0)textList[i].GetComponent<ScalePop>().PopOutAnimation(true);
         //firstBubble.GetComponent<ScalePop>().PopOutAnimation(true);
         if(i >=1)textList[i-1].gameObject.SetActive(false);
     }
@@ -124,7 +125,8 @@ public class TutorialManager : MonoBehaviour
         
         finalBubble.GetComponent<Image>().DOFade(0, masterAppearanceDuration).SetUpdate(true);
         finalDialogue.GetComponent<TextMeshProUGUI>().DOFade(0, masterAppearanceDuration).SetUpdate(true);
-        
+        finalBubble.GetComponentInParent<ScalePop>().PopOutAnimation(true);
+
         yield return new WaitForSecondsRealtime(masterAppearanceDuration);
 
         Time.timeScale = 1;

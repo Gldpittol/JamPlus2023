@@ -116,6 +116,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
+        
         if (other.gameObject.CompareTag("Wall"))
         {
             if (!isGrounded)
@@ -540,17 +542,18 @@ public class PlayerMovement : MonoBehaviour
             sr.enabled = false;
         }
 
-        centerGlow.SetActive(false);
+       // centerGlow.SetActive(false);
     }
 
     public void EnableArrow()
     {
+        if(GameManager.Instance.GetTime() <= 0) return;
         foreach (SpriteRenderer sr in lineObject.GetComponentsInChildren<SpriteRenderer>(true))
         {
             sr.enabled = true;
         }
 
-        centerGlow.SetActive(true);
+        //centerGlow.SetActive(true);
     }
 
     public void TouchedBouncer(Vector2 relVel)

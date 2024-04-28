@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/HUD.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/StarsManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/StarsManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/ComboBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/ComboBar.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/HUDManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/HUDManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelSelectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelSelectManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/TutorialManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/TutorialManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Coin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/Glow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/Glow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/ScalePop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/ScalePop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +26,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5e6ebaa7d75c4d5399dc81ecead6b43f952600/f7/21ecea7f/EditorGUILayout.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/07/c7fd688d/WaitForSeconds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/ScreenClickManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -130,6 +142,9 @@
       <workItem from="1712350432751" duration="2312000" />
       <workItem from="1713215914427" duration="8144000" />
       <workItem from="1713641043199" duration="4909000" />
+      <workItem from="1714320860268" duration="2968000" />
+      <workItem from="1714324414594" duration="1354000" />
+      <workItem from="1714325847469" duration="343000" />
     </task>
     <servers />
   </component>
