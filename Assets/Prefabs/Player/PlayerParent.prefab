@@ -150,7 +150,7 @@ MonoBehaviour:
   amountOfFlashes: 12
   invulnerabilityDuration: 1
   flashColor: {r: 1, g: 1, b: 1, a: 0.34901962}
-  health: 3
+  health: 99
   arrowMask: {fileID: 3402765140205874038}
   centerGlow: {fileID: 7963155046448513120}
   maskMoveXAmount: 0

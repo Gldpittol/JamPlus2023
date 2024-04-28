@@ -364,6 +364,9 @@ public class PlayerMovement : MonoBehaviour
         
         yield return new WaitForEndOfFrame();
 
+        if (GameManager.Instance.hasStarted != true)
+            GameManager.Instance.StartGame();
+
         rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
 
 //        print("Aqui");

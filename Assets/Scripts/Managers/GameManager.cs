@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState = GameState.Gameplay;
 
     private bool isFlashing = false;
+    public bool hasStarted = false;
     private int starsUnlocked;
     private Coroutine screenShake;
 
@@ -73,14 +74,16 @@ public class GameManager : MonoBehaviour
         InstantiatePrefabs();
     }
 
-    private void Start()
+    public void StartGame()
     {
+        hasStarted = true;
         if(PlayerMovement.Instance) PlayerMovement.Instance.SetArrowCountdown(arrowStartColor, arrowEndColor, countdownTime);
     }
 
     private void Update()
     {
         if (gameState == GameState.GameEnded) return;
+        if (!hasStarted) return;
         countdownTime -= Time.deltaTime;
         
         UpdateHUD();
