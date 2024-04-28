@@ -52,6 +52,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private float thirdPartFadeOutDuration;
     [SerializeField] private List<TextMeshProUGUI> textFadeListThirdPart = new List<TextMeshProUGUI>();
     [SerializeField] private List<Image> imgFadeListThirdPart = new List<Image>();
+    [SerializeField] private TextMeshProUGUI colorblindButtonText;
 
     [Header("Credits Refs")] 
     [SerializeField] private float creditsFadeInDuration;
@@ -73,6 +74,7 @@ public class MainMenuManager : MonoBehaviour
     {
         currentButton = mainMenuButtonsList[0];
         currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
+        SetColorblindButtonText();
     }
 
     private void Update()
@@ -96,9 +98,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void ChangeLanguage()
     {
-        if (GameManager.Instance.language == Language.English) GameManager.Instance.language = Language.Portuguese;
-        else if (GameManager.Instance.language == Language.Portuguese) GameManager.Instance.language = Language.Spanish;
-        else if (GameManager.Instance.language == Language.Spanish) GameManager.Instance.language = Language.English;
+        if (GameManager.language == Language.English) GameManager.language = Language.Portuguese;
+        else if (GameManager.language == Language.Portuguese) GameManager.language = Language.Spanish;
+        else if (GameManager.language == Language.Spanish) GameManager.language = Language.English;
         
         GameManager.Instance.UpdateLanguage();
     }
@@ -520,5 +522,16 @@ public class MainMenuManager : MonoBehaviour
 
         UIClickBlocker.SetActive(false);
         isAnimating = false;
+    }
+
+    public void SetColorblindButtonText()
+    {
+        colorblindButtonText.GetComponent<TextLocalizerUI>().SetNewKey("colorblind_button_type" + GameManager.colorBlindID);
+    }
+
+    public void ChangeColorblindMode()
+    {
+        GameManager.Instance.NextColorblindMode();
+        SetColorblindButtonText();
     }
 }

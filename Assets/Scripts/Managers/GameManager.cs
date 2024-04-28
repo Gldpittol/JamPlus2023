@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Wilberforce;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<string> possibleObstacleTags = new List<string>();
     [SerializeField] private GameObject loadingCanvas;
     public event Action OnUpdateLanguage;
-    public Language language;
+    public static Language language = Language.English;
 
     private List<GameObject> obstaclesList = new List<GameObject>();
     private float score;
@@ -65,6 +67,8 @@ public class GameManager : MonoBehaviour
     public bool playerDied = false;
     public float Score => score;
     private float originalCountdown;
+
+    public static int colorBlindID = 0;
     
     private void Awake()
     {
@@ -82,6 +86,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateLanguage();
+        SetColorblindMode();
     }
 
     private void Update()
@@ -96,6 +101,19 @@ public class GameManager : MonoBehaviour
         {
             DoDebugs();   
         }
+    }
+
+    public void SetColorblindMode()
+    {
+        Camera.main.AddComponent<Colorblind>();
+        Camera.main.GetComponent<Colorblind>().Type = colorBlindID;
+    }
+
+    public void NextColorblindMode()
+    {
+        colorBlindID++;
+        if (colorBlindID == 4) colorBlindID = 0;
+        SetColorblindMode();
     }
     
     public void UpdateLanguage()

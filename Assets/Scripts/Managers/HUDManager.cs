@@ -113,7 +113,10 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateScoreText(float score)
     {
-        scoreText.text = "Score: " + score.ToString("F0");
+        var tempList = new List<object>();
+        tempList.Add(GetLevelName());
+        
+        scoreText.GetComponent<TextLocalizerUI>().UpdateParameters(tempList);
     }
     
     public void UpdateTimeText(float time)
@@ -147,14 +150,18 @@ public class HUDManager : MonoBehaviour
     public IEnumerator SummonScrollCoroutine(bool isWin, int stars)
     {
         score.text = "Final Score: " + GameManager.Instance.Score;
+        
+        var tempList = new List<object>();
+        tempList.Add(GetLevelName());
+        
         if (isWin)
         {
-            textWin.text = "Mission " + GetLevelName() + " Successful!";
+            textWin.GetComponent<TextLocalizerUI>().UpdateParameters(tempList); 
             textWin.gameObject.SetActive(true);
         }
         else
         {
-            textLost.text = "Mission " + GetLevelName() + " Failed!";
+            textLost.GetComponent<TextLocalizerUI>().UpdateParameters(tempList);
             textLost.gameObject.SetActive(true);
         }
         scrollParent.GetComponent<RectTransform>().DOLocalMoveY(68,upTweenDuration);
@@ -305,7 +312,10 @@ public class HUDManager : MonoBehaviour
         if (GameManager.Instance.gameState == GameManager.GameState.GameEnded) return;
         if (isRetrying) return;
 
-        pauseTextLevelName.text = "Mission " + GetLevelName();
+
+        var tempList = new List<object>();
+        tempList.Add(GetLevelName());
+        pauseTextLevelName.GetComponent<TextLocalizerUI>().UpdateParameters(tempList);
         isPaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0;

@@ -38,7 +38,9 @@ public class LevelButton : MonoBehaviour
     {
         int starsUnlocked = PlayerDataManager.Instance.GetStarsAmount(levelName);
         float highscore = PlayerDataManager.Instance.GetHighScore(levelName);
-        highScoreText.text = "Highscore: " + highscore.ToString("F0");
+        var tempList = new List<object>();
+        tempList.Add(highscore);
+        highScoreText.GetComponent<TextLocalizerUI>().UpdateParameters(tempList);
         if(starsUnlocked >= 3) star3Fill.gameObject.SetActive(true);
         if(starsUnlocked >= 2) star2Fill.gameObject.SetActive(true);
         if(starsUnlocked >= 1) star1Fill.gameObject.SetActive(true);

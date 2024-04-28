@@ -24,7 +24,11 @@ public class WinCanvas : MonoBehaviour
     public void GetStarsAmount()
     {
         float percentage = PlayerDataManager.Instance.GetCompletionPercentage();
-        achText.text = "Achieved: " + (percentage * 100).ToString("F0") + "% of all shurikens!";
+        
+        var tempList = new List<object>();
+        tempList.Add(percentage);
+        
+        achText.GetComponent<TextLocalizerUI>().UpdateParameters(tempList); 
 
         if (percentage >= goldThreshold)
         {
