@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject obstaclesParent;
     [SerializeField] private List<string> possibleObstacleTags = new List<string>();
     [SerializeField] private GameObject loadingCanvas;
+    public event Action OnUpdateLanguage;
+    public Language language;
 
     private List<GameObject> obstaclesList = new List<GameObject>();
     private float score;
@@ -74,10 +76,9 @@ public class GameManager : MonoBehaviour
         InstantiatePrefabs();
     }
 
-    public void StartGame()
+    private void Start()
     {
-        hasStarted = true;
-        if(PlayerMovement.Instance) PlayerMovement.Instance.SetArrowCountdown(arrowStartColor, arrowEndColor, countdownTime);
+        UpdateLanguage();
     }
 
     private void Update()
@@ -93,6 +94,20 @@ public class GameManager : MonoBehaviour
             DoDebugs();   
         }
     }
+    
+    public void UpdateLanguage()
+    {
+        LocalizationSystem.language = language;
+        OnUpdateLanguage?.Invoke();
+        PlayerPrefs.SetInt("Language", (int)language);
+    }
+    
+    public void StartGame()
+    {
+        hasStarted = true;
+        if(PlayerMovement.Instance) PlayerMovement.Instance.SetArrowCountdown(arrowStartColor, arrowEndColor, countdownTime);
+    }
+
 
     public void DoDebugs()
     {

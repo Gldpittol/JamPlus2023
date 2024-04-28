@@ -94,6 +94,15 @@ public class MainMenuManager : MonoBehaviour
         CheckInputs();
     }
 
+    public void ChangeLanguage()
+    {
+        if (GameManager.Instance.language == Language.English) GameManager.Instance.language = Language.Portuguese;
+        else if (GameManager.Instance.language == Language.Portuguese) GameManager.Instance.language = Language.Spanish;
+        else if (GameManager.Instance.language == Language.Spanish) GameManager.Instance.language = Language.English;
+        
+        GameManager.Instance.UpdateLanguage();
+    }
+
     public void CheckInputs()
     {
         if (isAnimating) return;

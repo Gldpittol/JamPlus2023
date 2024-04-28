@@ -1,0 +1,238 @@
+key,en,br
+ultra_foodmess,Ultra {0} Foodmess {1},Ultra Comida
+game,Game,Jogo
+new,New,Novo
+"start","Start","Começar"
+new2,New 222,Novo 2
+star2,Start Start Start,Começar
+new4,New 2,Novo 2
+start5,Start Start Start,Começar
+new6,New 2,Novo 2
+luciano,Luciano,Luciano
+play_20_rounds_achievement,Play 20 Rounds,Jogue 20 Rodadas
+winner_text,PLAYER {0} WINS!,JOGADOR {0} VENCE!
+winner_text_multiple,PLAYERS {0} TIE FOR THE WIN!,JOGADORES {0} EMPATARAM!
+walk_100_steps_achievement,Walk 100 Steps,Ande 100 Passos.
+tie_text,IT'S A TIE!,É UM EMPATE!
+countdown_text,GO!,VAI!
+modes_test,MODES TEST SCENE,CENA DE TESTES
+skip,SKIP,PULAR
+bumper_mode,BUMPER THUMPER,BUMPER THUMPER
+deadly_ball,DEADLY BALL,DEADLY BALL
+hot_potato,Lunch-a Libre,Lunch-a Libre
+mortal_dip,MORTAL DIP,MORTAL DIP
+tutorial_deadly1,Strike the ball with a <color=green>dash</color> to make it <color=red>deadly</color>,Strike the ball with a <color=green>dash</color> to make it <color=red>deadly</color>
+tutorial_bumper1,"<color=red>Push</color> other players off the raft!                                                                  Beware, the fences break!","<color=red>Empurre</color> outros jogadores para fora da jangada!                                                                  Cuidado, as cercas quebram!"
+tutorial_potato1,Pass the <color=#BEAE2E>belt</color> to others before the<color=red> Luchador strikes</color>!,Passe o <color=#BEAE2E>cinturão</color> para outros jogadores antes do<color=red> Luchador atacar</color>!
+tutorial_mortal1,Avoid the <color=red>beams</color>!,Desvie dos <color=red>lasers</color>!
+pause_menu1,Game Paused                                Press P to resume,Jogo Pausado                                      Pressione P para voltar
+tutorial_deadly2,You can <color=green>counter strike</color> <color=red>deadly balls</color>!,You can <color=green>counter strike</color> <color=red>deadly balls</color>!
+dash_skip,Dash to skip,Dash para Pular
+"controls","Controls","Controles"
+tutorial_areadom1,Stay on the Oasis to fill your <color=red>bar</color>. The first player to fill the <color=red>bar</color> wins.,Fique dentro dos Oasis para preencher a sua <color=red>barra</color>. O primeiro jogador que preencher a <color=red>barra</color> vence!
+tutorial_cof1,Collect the <color=red>Donut Bullet</color> and use your <color=green>dash</color> to shoot it at your opponents.,Colete a <color=red>Rosquinha</color> e em seguida use o <color=green>Dash</color> para atirar ela nos seus adversários.
+tutorial_foodball1,Score <color=red>goals</color> at your opponents to eliminate them!,Faça <color=red>gol</color> nos seus adversários para eliminar eles
+tutorial_foodball2,Defend the <color=red>goals</color> with your color to stay alive!,Defenda a <color=red>goleira</color> da sua cor para se manter vivo
+tutorial_marketgrab1,Collect the <color=red>flowers</color> and deliver them to the cows. The first player that delivers 10 flowers to the cows wins!,Colete as <color=red>flores</color> e leve até as vacas. O primeiro jogador que entregar 10 flores para as vacas ganha!
+tutorial_candysnake1,Collect the <color=green>yakisobas</color> to increase the size of your <color=red>dragon</color>. Use the <color=red>dragon's</color> body to eliminate the other players.,Colete os <color=green>yakisobas</color> para aumentar seu <color=red>dragão</color>. Use o corpo do <color=red>dragão</color> para eliminar os outros jogadores.
+press-any-button,Press any button,Aperte qualquer botão
+play,Play,Jogar
+options,Options,Opções
+credits,Credits,Créditos
+quit,Quit,Sair
+return,Return,Voltar
+quit-game,Quit Game,Sair do Jogo
+confirm-quit-game,Are you sure you want to quit the game?,Tem certeza de que deseja sair do jogo?
+credits-roll-categories,"Production
+
+
+
+
+
+
+
+Project Manager
+
+
+
+
+
+Game Design
+
+
+
+
+
+
+Tech Lead
+
+
+
+
+
+Programming
+
+
+
+
+
+
+UI Design
+
+
+
+
+
+Art
+
+
+
+
+
+Music
+
+
+
+
+
+
+Sound Design
+
+
+
+
+
+
+
+Playtest
+
+
+
+
+
+
+
+
+Special Thanks","Produção
+
+
+
+
+
+
+
+Gerente de Projetos
+
+
+
+
+
+Game Design
+
+
+
+
+
+
+Líder Técnico
+
+
+
+
+
+Programação
+
+
+
+
+
+
+Design de Interface
+
+
+
+
+
+Arte
+
+
+
+
+
+Música
+
+
+
+
+
+
+Design de Som
+
+
+
+
+
+
+
+Playtest
+
+
+
+
+
+
+
+
+Agradecimentos Especiais"
+"back","Back","Voltar"
+"language","Language","Linguagem"
+"audio","Audio","Áudio"
+"music-volume","Music Volume","Volume da Música"
+"sound-volume","Sound Volume","Volume do Som"
+"video","Video","Vídeo"
+"fullscreen","Fullscreen","Tela Cheia"
+"resolution","Resolution","Resolução"
+"keyboard-primary","Keyboard (Primary)","Teclado (Primário)"
+"action","Action","Ação"
+"movement","Movement","Movimento"
+"keyboard-secondary","Keyboard (Secondary)","Teclado (Secundário)"
+"gamepad","Gamepad","Controle"
+"settings","Settings","Configurações"
+"or","or","ou"
+"button","Button","Botão"
+"apply-video","Apply Video Changes","Aplicar Mudanças de Vídeo"
+"join","Join","Entrar"
+"ready_question","Ready?","Pronto?"
+"ready_exclamation","Ready!","Pronto!"
+"hard","Hard","Difícil"
+"continue","Continue","Continuar"
+"select","Select","Selecionar"
+"game-mode","Game Mode","Modo de Jogo"
+"all-modes","All Modes","Todos Modos"
+"resume","Resume","Voltar"
+"confirm-return-menu","Are you sure you want to exit to the menu?","Você realmente deseja sair para o menu?"
+"exit","Exit","Sair"
+"cancel","Cancel","Cancelar"
+"points","Points","Pontos"
+"quit_icon","<sprite name="xbox_a"> Quit","<sprite name="xbox_a"> Sair"
+"cancel_icon","<sprite name="xbox_b"> Cancel","<sprite name="xbox_b"> Cancelar"
+"back-icon","<sprite name="xbox_b"> Back","<sprite name="xbox_b"> Voltar"
+"text","text","texto"
+"localized-text","Localized text","Texto localizado"
+"on","On","Ligado"
+"off","Off","Desligado"
+"colorblind-mode","Colorblind Mode","Modo Daltônico"
+"unknown","???","???"
+"controller_move","<sprite name=xbox_dpad>/<sprite name=xbox_ls> Move","<sprite name=xbox_dpad>/<sprite name=xbox_ls> Mover"
+"controller_dash","<sprite name=xbox_a> Dash","<sprite name=xbox_a> Dash"
+"keyboard_move","<sprite name=keyboard_w><sprite name=keyboard_a><sprite name=keyboard_s><sprite name=keyboard_d>  Move","<sprite name=keyboard_w><sprite name=keyboard_a><sprite name=keyboard_s><sprite name=keyboard_d>  Mover"
+"keyboard_dash","<sprite name=keyboard_space> Dash","<sprite name=keyboard_space> Dash"
+"keyboard_move_p2","<sprite name=keyboard_arrow_up><sprite name=keyboard_arrow_left><sprite name=keyboard_arrow_down><sprite name=keyboard_arrow_right>  Move","<sprite name=keyboard_arrow_up><sprite name=keyboard_arrow_left><sprite name=keyboard_arrow_down><sprite name=keyboard_arrow_right>  Mover"
+"keyboard_dash_p2","<sprite name=keyboard_rshift> Dash","<sprite name=keyboard_rshift> Dash"
+"controller-back","<sprite name="xbox_b"> Back","<sprite name="xbox_b"> Voltar"
+"controller-continue","<sprite name="xbox_start"> Continue","<sprite name="xbox_start"> Continuar"
+"controller-join","<sprite name="xbox_a"> Join","<sprite name="xbox_a"> Entrar"
+"controller-ready-question","<sprite name="xbox_a"> Ready?","<sprite name="xbox_a"> Pronto?"
+"points-to-win","How many points to win?","Quantos pontos para ganhar?"
+"all_modes","All Modes","Todos"
+"controller-select","<sprite name="xbox_a"> Select","<sprite name="xbox_a"> Selecionar"
