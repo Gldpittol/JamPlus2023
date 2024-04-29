@@ -1,43 +1,43 @@
-key, en, br, es
-"press_any_key_to_start", "Click anywhere to start!","Clique em qualquer lugar para jogar!", "le clique"
-"language_button", "en-US","pt-BR", "es-ES"
-"colorblind_button_type0", "Colorblind Mode Off","Sem Daltonismo", "No Daltonitos"
-"colorblind_button_type1", "Protanopia","Protanopia", "Protanopia"
-"colorblind_button_type2", "Deuteranopia","Deuteranopia", "Deuteranopia"
-"colorblind_button_type3", "Tritanopia","Tritanopia", "Tritanopia"
-"reset_button_text", "Reset Data","Resetar Dados", "Resetar Dados"
-"back_button", "Back","Voltar", "Voltar"
-"music_volume", "Music Volume","Volume Musical", "Volume Musical"
-"audio_volume", "SFX Volume","Volume SFX", "Volume SFX"
-"play_button", "Play","Jogar", "Jogar"
-"options_button", "Options","Configurar", "Configurar"
-"credits_button", "Credits","Agradecimentos", "Agradecimentos"
-"quit_button", "Quit","Sair", "Sair"
-"programmer_text", "Programmer","Programador", "Programador"
-"artist_text", "Artist","Artista", "Artista"
-"producer_text", "Producer","Produtor", "Produtor"
-"disclaimer_text", "Musics from ''I Wanna be the Cat''","Melodias de ''I Wanna be the Cat''", "Melodias de ''I Wanna be the Cat''"
-"zone_text", "Zone","Zona", "Zona"
-"highscore_text", "HighScore: {0}","Placar: {0}", "Placar: {0}"
-"continue_button", "Continue","Continuar", "Continuar"
-"retry_button", "Retry","Reiniciar", "Reiniciar"
-"level_select_button", "Level Select","Fases", "Fases"
-"mission_text", "Mission {0}","Fase {0}", "Fase {0}"
-"win_text", "Mission {0} Successful","Fase {0} Sucedida!", "Fase {0} Sucedida!"
-"fail_text", "Mission {0} Failed!","Fase {0} falhada!", "Fase {0} falhada!"
-"score_text", "Final Score:","Placar Final:", "Placar Final:"
-"win_screen_text", "Achieved {0}% of all shurikens!","Adquiriu {0}% de todas shurikens!", "Adquiriu {0}% de todas shurikens!"
-"thanks_text", "Thanks for playing!","Obrigado por jogar!", "Obrigado por jogar!"
-"tutorial_1_1", "Welcome, young grasshopper!","Bem vindo, jovem gafanhoto!", "Bem vindo, jovem gafanhoto!"
-"tutorial_1_2", "I'm master Min-Ao and I will be your guide in the journey to become a true Nyan-ja!","Sou o mestre Min-Ao e serei seu guia na jorgana de virar um verdadeiro Nyan-ja!", "Sou o mestre Min-Ao e serei seu guia na jorgana de virar um verdadeiro Nyan-ja!"
-"tutorial_1_3", "Click anywhere to jump.","Clique em qualquer local para pular.", "Clique em qualquer local para pular."
-"tutorial_1_4", "Collect balls of wool to score.","Colete novelos para pontuar.", "Colete novelos para pontuar."
-"tutorial_1_5", "Hurry up! The pointer will turn 
-red as your time runs out.","Apresse-se! A seta vai ficar vermelha conforme o tempo passa.", "Apresse-se! A seta vai ficar vermelha conforme o tempo passa."
-"tutorial_1_6", "Good luck, young grasshopper!","Boa sorte, jovem gafanhoto!", "Boa sorte, jovem gafanhoto!"
-"tutorial_1_7", "Miau!","Miau!", "Miau!"
-"tutorial_2_1", "Well done, young grasshopper!","Muito bem, jovem gafanhoto!", "Muito bem, jovem gafanhoto!"
-"tutorial_2_2", "Now another tip: the secret to mastery is agility.","Uma nova dica: agilidade resulta em uma melhor maestria.", "Uma nova dica: agilidade resulta em uma melhor maestria."
-"tutorial_2_3", "Collecting balls of wool quicker will score you more points!","Coletar novelos mais rapidamente resulta em mais pontos!", "Coletar novelos mais rapidamente resulta em mais pontos!"
-"tutorial_2_4", "Now, back to your training!","Agora, de volta ao seu treino!", "Agora, de volta ao seu treino!"
-"tutorial_2_5", "Miau Miau!","Miau Miau!", "Miau Miau!"
+key,en,br,es
+press_any_key_to_start,Click anywhere to start!,Clique em qualquer lugar para jogar!,¡Haz clic en cualquier lugar para jugar!
+language_button,English,Português,Español
+colorblind_button_type0,Colorblind Mode,Modo Daltônico,Modo daltónico
+colorblind_button_type1,Protanopia,Protanopia,Protanopía
+colorblind_button_type2,Deuteranopia,Deuteranopia,Deuteranopía
+colorblind_button_type3,Tritanopia,Tritanopia,Tritanopía
+reset_button_text,Reset Data,Resetar Dados,Reiniciar datos
+back_button,Back,Voltar,Volver
+music_volume,Music Volume,Volume Musical,Volumen musical
+audio_volume,SFX Volume,Volume SFX,Volumen SFX
+play_button,Play,Jogar,Jugar
+options_button,Options,Configurar,Configurar
+credits_button,Credits,Créditos,Créditos
+quit_button,Quit,Sair,Salir
+programmer_text,Programmer,Programador,Programador
+artist_text,Artist,Artista,Artista
+producer_text,Producer,Produtor,Productor
+disclaimer_text,Musics from ''I Wanna be the Cat'',Músicas de ''I Wanna be the Cat'',Canciones de ''I Wanna be the Cat''
+zone_text,Zone,Zona,Zona
+highscore_text,HighScore: {0},Placar: {0},Puntuación: {0}
+continue_button,Continue,Continuar,Continuar
+retry_button,Retry,Reiniciar,Reinicie
+level_select_button,Level Select,Fases,Fases
+mission_text,Mission {0},Fase {0},Fase {0}
+win_text,Mission {0} Successful,Fase {0} Concluída!,¡Fase {0} Exitosa!
+fail_text,Mission {0} Failed!,Fase {0} Falhada!,¡Fase {0} falló!
+score_text,Final Score:,Placar Final:,Puntuación final:
+win_screen_text,Achieved {0}% of all shurikens!,Adquiriu {0}% de todas shurikens!,¡Has adquirido el {0} % de todos los shurikens!
+thanks_text,Thanks for playing!,Obrigado por jogar!,¡Gracias por jugar!
+tutorial_1_1,"Welcome, young grasshopper!","Bem vindo, jovem gafanhoto!","¡Bienvenido, joven saltamontes!"
+tutorial_1_2,I'm master Min-Ow and I will be your guide in the journey to become a true Nyan-ja!,Sou o mestre Min-Ao e serei seu guia na jorgana de virar um verdadeiro Nyan-ja!,¡Soy el maestro Min-Ao y seré tu guía en el camino para convertirte en un verdadero Nyan-ja!
+tutorial_1_3,Click anywhere to jump.,Clique em qualquer local para pular.,Haga clic en cualquier sítio para saltar.
+tutorial_1_4,Collect balls of wool to score.,Colete novelos para pontuar.,Recoge ovillos para anotar.
+tutorial_1_5,"Hurry up! The pointer will turn 
+red as your time runs out.",Apresse-se! A seta vai ficar vermelha conforme o tempo passa.,¡Apresúrate! La flecha se volverá roja a medida que pase el tiempo.
+tutorial_1_6,"Good luck, young grasshopper!","Boa sorte, jovem gafanhoto!","¡Buena suerte, joven saltamontes!"
+tutorial_1_7,Meow!,Miau!,¡Miau!
+tutorial_2_1,"Well done, young grasshopper!","Muito bem, jovem gafanhoto!","¡Bien hecho, joven saltamontes!"
+tutorial_2_2,Now another tip: the secret to mastery is agility.,Uma nova dica: o segredo para maestria é agilidade.,Un nuevo consejo: el secreto de la maestría es la agilidad.
+tutorial_2_3,Collecting balls of wool quicker will score you more points!,Coletar novelos mais rapidamente resulta em mais pontos!,¡Recoger ovillos más rápido da como resultado más puntos!
+tutorial_2_4,"Now, back to your training!","Agora, de volta ao seu treino!","Ahora, ¡vuelve a tu entrenamiento!"
+tutorial_2_5,Meow Meow!,Miau Miau!,¡Miau miau!

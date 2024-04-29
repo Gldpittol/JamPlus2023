@@ -114,11 +114,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseAngle: 0
   currentAngle: 0
-  incrementStrength: 140
+  incrementStrength: 120
   minValue: -60
   maxValue: 60
   increasePerCoin: 0
-  maxSpeed: 140
+  maxSpeed: 120
   radius: 0.45
   lineObject: {fileID: 4367150643026790012}
   raycastMask:
