@@ -114,7 +114,7 @@ public class HUDManager : MonoBehaviour
     public void UpdateScoreText(float score)
     {
         var tempList = new List<object>();
-        tempList.Add(GetLevelName());
+        tempList.Add(GameManager.Instance.Score);
         
         scoreText.GetComponent<TextLocalizerUI>().UpdateParameters(tempList);
     }
@@ -149,19 +149,21 @@ public class HUDManager : MonoBehaviour
 
     public IEnumerator SummonScrollCoroutine(bool isWin, int stars)
     {
-        score.text = "Final Score: " + GameManager.Instance.Score;
-        
         var tempList = new List<object>();
-        tempList.Add(GetLevelName());
+        tempList.Add(GameManager.Instance.Score);
+        score.GetComponent<TextLocalizerUI>().UpdateParameters(tempList);
+
+        var tempList2 = new List<object>();
+        tempList2.Add(GetLevelName());
         
         if (isWin)
         {
-            textWin.GetComponent<TextLocalizerUI>().UpdateParameters(tempList); 
+            textWin.GetComponent<TextLocalizerUI>().UpdateParameters(tempList2); 
             textWin.gameObject.SetActive(true);
         }
         else
         {
-            textLost.GetComponent<TextLocalizerUI>().UpdateParameters(tempList);
+            textLost.GetComponent<TextLocalizerUI>().UpdateParameters(tempList2);
             textLost.gameObject.SetActive(true);
         }
         scrollParent.GetComponent<RectTransform>().DOLocalMoveY(68,upTweenDuration);
