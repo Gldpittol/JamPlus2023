@@ -41,3 +41,4 @@ tutorial_2_2,Now another tip: the secret to mastery is agility.,Uma nova dica: o
 tutorial_2_3,Collecting balls of wool quicker will score you more points!,Coletar novelos mais rapidamente resulta em mais pontos!,¡Recoger ovillos más rápido da como resultado más puntos!
 tutorial_2_4,"Now, back to your training!","Agora, de volta ao seu treino!","Ahora, ¡vuelve a tu entrenamiento!"
 tutorial_2_5,Meow Meow!,Miau Miau!,¡Miau miau!
+"highscore_text", "Highscore: {0}","Placar: {0}", "Puntuación: {0}"

@@ -81,6 +81,14 @@ public class PlayerMovement : MonoBehaviour
     private float invulnerabilityRemaining;
 
     private float playerSpeed;
+
+    public enum Direction
+    {
+        North, South, East, West
+    }
+
+    private List<Direction> collidingDirectionsList = new List<Direction>();
+    private Direction currentDirection;
     private void Awake()
     {
         Instance = this;
@@ -113,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
         DrawRayCasts();
     }
-
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall"))
@@ -155,6 +163,8 @@ public class PlayerMovement : MonoBehaviour
             if (contact.normal.y > 0)
             {
                 //   Debug.Log("Bottom hit");
+                collidingDirectionsList.Add(Direction.South);
+                currentDirection = Direction.South;
                 if (lineObject.transform.right.x < 0)
                 {
                     playerRenderer.flipX = true;
@@ -173,6 +183,10 @@ public class PlayerMovement : MonoBehaviour
                 else if (contact.normal.y < 0)
                 {
 //                    Debug.Log("Top hit");
+                    currentDirection = Direction.North;
+
+                    collidingDirectionsList.Add(Direction.North);
+
                     if (lineObject.transform.right.x > 0)
                     {
                         playerRenderer.flipX = true;
@@ -191,6 +205,10 @@ public class PlayerMovement : MonoBehaviour
                 else if (contact.normal.x > 0)
                 {
                     //   Debug.Log("Left hit");
+                    collidingDirectionsList.Add(Direction.West);
+                    currentDirection = Direction.West;
+
+
                     if (lineObject.transform.right.y > 0)
                     {
                         playerRenderer.flipX = true;
@@ -209,6 +227,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (contact.normal.x < 0)
                 {
+                    collidingDirectionsList.Add(Direction.East);
+                    currentDirection = Direction.East;
+
                     //  Debug.Log("Right hit");
                     if (lineObject.transform.right.y < 0)
                     {
@@ -240,6 +261,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
+            collidingDirectionsList.Remove(currentDirection);
+
             isGrounded = false;
         }
     }
@@ -367,7 +390,38 @@ public class PlayerMovement : MonoBehaviour
         if (GameManager.Instance.hasStarted != true)
             GameManager.Instance.StartGame();
 
-        rb.AddForce(new Vector2(lineObject.transform.right.x, lineObject.transform.right.y) * dashStrength);
+        Vector2 forceVector = new Vector2(lineObject.transform.right.x, lineObject.transform.right.y);
+        if (currentDirection == Direction.South && collidingDirectionsList.Contains(Direction.West) && forceVector.x < 0) forceVector.x = 0;
+        if (currentDirection == Direction.North && collidingDirectionsList.Contains(Direction.West) && forceVector.x < 0) forceVector.x = 0;
+        
+        if (currentDirection == Direction.South && collidingDirectionsList.Contains(Direction.East) && forceVector.x > 0) forceVector.x = 0;
+        if (currentDirection == Direction.North && collidingDirectionsList.Contains(Direction.East) && forceVector.x > 0) forceVector.x = 0;
+        
+        if (currentDirection == Direction.East && collidingDirectionsList.Contains(Direction.North) && forceVector.y > 0) forceVector.y = 0;
+        if (currentDirection == Direction.West && collidingDirectionsList.Contains(Direction.South) && forceVector.y < 0) forceVector.y = 0;
+        
+        if (currentDirection == Direction.West && collidingDirectionsList.Contains(Direction.North) && forceVector.y > 0) forceVector.y = 0;
+        if (currentDirection == Direction.East && collidingDirectionsList.Contains(Direction.South) && forceVector.y < 0) forceVector.y = 0;
+        
+        
+        if (currentDirection == Direction.South && collidingDirectionsList.Contains(Direction.West) && forceVector.x > 0) collidingDirectionsList.Remove(Direction.West);
+        if (currentDirection == Direction.North && collidingDirectionsList.Contains(Direction.West) && forceVector.x > 0) collidingDirectionsList.Remove(Direction.West);
+        
+        if (currentDirection == Direction.South && collidingDirectionsList.Contains(Direction.East) && forceVector.x < 0) collidingDirectionsList.Remove(Direction.East);
+        if (currentDirection == Direction.North && collidingDirectionsList.Contains(Direction.East) && forceVector.x < 0) collidingDirectionsList.Remove(Direction.East);
+        
+        if (currentDirection == Direction.East && collidingDirectionsList.Contains(Direction.North) && forceVector.y < 0) collidingDirectionsList.Remove(Direction.North);
+        if (currentDirection == Direction.West && collidingDirectionsList.Contains(Direction.South) && forceVector.y > 0) collidingDirectionsList.Remove(Direction.South);
+        
+        if (currentDirection == Direction.West && collidingDirectionsList.Contains(Direction.North) && forceVector.y < 0) collidingDirectionsList.Remove(Direction.North);
+        if (currentDirection == Direction.East && collidingDirectionsList.Contains(Direction.South) && forceVector.y > 0) collidingDirectionsList.Remove(Direction.South);
+        
+        
+        
+
+        forceVector = forceVector.normalized;
+
+        rb.AddForce(forceVector * dashStrength);
 
 //        print("Aqui");
         if(canSwapAnimation)animator.Play("JumpAnim");
@@ -380,7 +434,7 @@ public class PlayerMovement : MonoBehaviour
 
         invulnerabilityRemaining = 0;
     }
-    
+
     public void SetCharacterOrientation()
     {
         playerRenderer.gameObject.transform.eulerAngles = Vector3.zero;
@@ -479,6 +533,7 @@ public class PlayerMovement : MonoBehaviour
         if (health <= 0) yield break;
 
         //Respawn Player
+        collidingDirectionsList.Clear();
 
         invulnerabilityRemaining = GameManager.Instance.delayBeforeGoingToNextLevel + invulnerabilityDuration; 
         yield return new WaitForSeconds(GameManager.Instance.delayBeforeGoingToNextLevel);

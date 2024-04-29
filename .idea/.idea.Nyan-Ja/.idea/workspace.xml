@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets/Scripts/Colorblind.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets/Scripts/Colorblind.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Localization.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Localization.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-7U.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-7U.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/HUDManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/HUDManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/WinCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/WinCanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +62,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/Área de Trabalho/BuildNyanJa/PC/Nyan-Ja.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\gabri\OneDrive\Área de Trabalho\BuildNyanJa\PC" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\gabri\UnityProjects\Nyan-Ja -debugCodeOptimization" />
@@ -138,7 +149,7 @@
       <workItem from="1714324414594" duration="1354000" />
       <workItem from="1714325847469" duration="792000" />
       <workItem from="1714326916761" duration="4331000" />
-      <workItem from="1714361913662" duration="1434000" />
+      <workItem from="1714361913662" duration="4817000" />
     </task>
     <servers />
   </component>

@@ -50,6 +50,7 @@ namespace Wilberforce
 
                 isSupported = false;
                 enabled = false;
+
                 return;
             }
 
@@ -62,6 +63,7 @@ namespace Wilberforce
                 ReportError("Could not create shader.");
                 isSupported = false;
                 enabled = false;
+
                 return;
             }
 
