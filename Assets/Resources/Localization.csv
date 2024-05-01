@@ -10,7 +10,7 @@ back_button,Back,Voltar,Volver
 music_volume,Music Volume,Volume Musical,Volumen musical
 audio_volume,SFX Volume,Volume SFX,Volumen SFX
 play_button,Play,Jogar,Jugar
-options_button,Options,Configurar,Configurar
+options_button,Options,Opções,Opciones
 credits_button,Credits,Créditos,Créditos
 quit_button,Quit,Sair,Salir
 programmer_text,Programmer,Programador,Programador
@@ -25,13 +25,13 @@ level_select_button,Level Select,Fases,Fases
 mission_text,Mission {0},Fase {0},Fase {0}
 win_text,Mission {0} Successful,Fase {0} Concluída!,¡Fase {0} Exitosa!
 fail_text,Mission {0} Failed!,Fase {0} Falhada!,¡Fase {0} falló!
-score_text,Final Score:,Placar Final:,Puntuación final:
+score_text,Final Score: {0},Pontuação: {0},Puntuación: {0}
 win_screen_text,Achieved {0}% of all shurikens!,Adquiriu {0}% de todas shurikens!,¡Has adquirido el {0} % de todos los shurikens!
 thanks_text,Thanks for playing!,Obrigado por jogar!,¡Gracias por jugar!
 tutorial_1_1,"Welcome, young grasshopper!","Bem vindo, jovem gafanhoto!","¡Bienvenido, joven saltamontes!"
-tutorial_1_2,I'm master Min-Ow and I will be your guide in the journey to become a true Nyan-ja!,Sou o mestre Min-Ao e serei seu guia na jorgana de virar um verdadeiro Nyan-ja!,¡Soy el maestro Min-Ao y seré tu guía en el camino para convertirte en un verdadero Nyan-ja!
+tutorial_1_2,I'm master Mee-Ow and I will be your guide in the journey to become a true Nyan-ja!,Sou o mestre Min-Ao e serei seu guia na jornada para virar um verdadeiro Nyan-ja!,¡Soy el maestro Min-Ao y seré tu guía en el camino para convertirte en un verdadero Nyan-ja!
 tutorial_1_3,Click anywhere to jump.,Clique em qualquer local para pular.,Haga clic en cualquier sítio para saltar.
-tutorial_1_4,Collect balls of wool to score.,Colete novelos para pontuar.,Recoge ovillos para anotar.
+tutorial_1_4,Collect balls of wool to score.,Colete novelos para pontuar.,Recoge ovillos para puntuar.
 tutorial_1_5,"Hurry up! The pointer will turn 
 red as your time runs out.",Apresse-se! A seta vai ficar vermelha conforme o tempo passa.,¡Apresúrate! La flecha se volverá roja a medida que pase el tiempo.
 tutorial_1_6,"Good luck, young grasshopper!","Boa sorte, jovem gafanhoto!","¡Buena suerte, joven saltamontes!"
