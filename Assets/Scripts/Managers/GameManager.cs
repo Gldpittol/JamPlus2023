@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float minShake = 1f;
     [SerializeField] private float maxShake = 3f;
     [SerializeField] private bool returnToLevelSelect = false;
+    [SerializeField] private TextMeshProUGUI tempText;
 
     [SerializeField] private List<string> sceneNames = new List<string>();
 
@@ -86,6 +88,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateLanguage();
+        Camera.main.AddComponent<Colorblind>();
         SetColorblindMode();
     }
 
@@ -105,7 +108,6 @@ public class GameManager : MonoBehaviour
 
     public void SetColorblindMode()
     {
-        Camera.main.AddComponent<Colorblind>();
         Camera.main.GetComponent<Colorblind>().Type = colorBlindID;
     }
 

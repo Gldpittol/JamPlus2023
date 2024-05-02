@@ -16,9 +16,9 @@ quit_button,Quit,Sair,Salir
 programmer_text,Programmer,Programador,Programador
 artist_text,Artist,Artista,Artista
 producer_text,Producer,Produtor,Productor
-disclaimer_text,Musics from ''I Wanna be the Cat'',Músicas de ''I Wanna be the Cat'',Canciones de ''I Wanna be the Cat''
+"disclaimer_text", "Musics from I Wanna be the Cat","Músicas de I Wanna be the Cat", "Canciones de I Wanna be the Cat"
 zone_text,Zone,Zona,Zona
-highscore_text,HighScore: {0},Placar: {0},Puntuación: {0}
+"score_text", "Final Score: {0}","Placar Final: {0}", "Puntuación final: {0}"
 continue_button,Continue,Continuar,Continuar
 retry_button,Retry,Reiniciar,Reinicie
 level_select_button,Level Select,Fases,Fases
@@ -41,3 +41,4 @@ tutorial_2_2,Now another tip: the secret to mastery is agility.,Uma nova dica: o
 tutorial_2_3,Collecting balls of wool quicker will score you more points!,Coletar novelos mais rapidamente resulta em mais pontos!,¡Recoger ovillos más rápido da como resultado más puntos!
 tutorial_2_4,"Now, back to your training!","Agora, de volta ao seu treino!","Ahora, ¡vuelve a tu entrenamiento!"
 tutorial_2_5,Meow Meow!,Miau Miau!,¡Miau miau!
+"highscore_text", "Highscore: {0}","Placar: {0}", "Puntuación: {0}"

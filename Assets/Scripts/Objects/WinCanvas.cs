@@ -26,7 +26,7 @@ public class WinCanvas : MonoBehaviour
         float percentage = PlayerDataManager.Instance.GetCompletionPercentage();
         
         var tempList = new List<object>();
-        tempList.Add(percentage);
+        tempList.Add((int)(percentage * 100));
         
         achText.GetComponent<TextLocalizerUI>().UpdateParameters(tempList); 
 
