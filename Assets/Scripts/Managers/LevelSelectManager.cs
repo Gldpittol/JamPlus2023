@@ -93,7 +93,7 @@ public class LevelSelectManager : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
-                winScreen.SetActive(false);
+                DisableWinScreen();
             }
             return;
         }
