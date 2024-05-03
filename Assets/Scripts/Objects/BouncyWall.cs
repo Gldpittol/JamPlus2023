@@ -33,12 +33,13 @@ public class BouncyWall : MonoBehaviour
             }
             
             scalePop.PopOutAnimation();
-            if(AudioManager.Instance) AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
+            //if(AudioManager.Instance) AudioManager.Instance.PlaySound(AudioManager.AudioType.Jump);
 
             //canCollide = false;
             //StartCoroutine(DisableColliderCoroutine());
             PlayerMovement.Instance.TouchedBouncer(relVel);
             PlayerMovement.Instance.DisableArrow();
+            AudioManager.Instance.PlaySound(AudioManager.AudioType.Bounce);
         }
     }
 

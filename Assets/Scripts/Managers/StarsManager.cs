@@ -54,6 +54,8 @@ public class StarsManager : MonoBehaviour
 
     public void UpdateFinished()
     {
+        AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
+        
         starMask1.SetActive(false);
         starMask2.SetActive(false);
         starMask3.SetActive(false);
@@ -88,7 +90,8 @@ public class StarsManager : MonoBehaviour
         }
     }
     public void UpdateGold(float scorePercentage)
-    {
+    {        AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
+
         starMask1.SetActive(false);
         starMask2.SetActive(false);
 
@@ -118,7 +121,8 @@ public class StarsManager : MonoBehaviour
         starMask3.transform.DOMoveY(starMask3.transform.position.y - (maskSize * scorePercentage), tweenDuration);
     }
     public void UpdateSilver(float scorePercentage)
-    {
+    {        AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
+
         starMask1.SetActive(false);
         
         if (!popped1)
@@ -137,7 +141,8 @@ public class StarsManager : MonoBehaviour
         starMask2.transform.DOMoveY(starMask2.transform.position.y - (maskSize * scorePercentage), tweenDuration);
     }
     public void UpdatePass(float scorePercentage)
-    {
+    {        AudioManager.Instance.PlaySound(AudioManager.AudioType.Star);
+
         starMask1.transform.DOKill();
         starMask1.transform.DOMoveY(starMask1.transform.position.y - (maskSize * scorePercentage), tweenDuration);
     }

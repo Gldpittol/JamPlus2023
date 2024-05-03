@@ -18,7 +18,8 @@ public class AudioManager : MonoBehaviour
         UISelect,
         UIConfirm,
         UIBack,
-        Smoke
+        Smoke,
+        Bounce
     }
     
     [System.Serializable]
