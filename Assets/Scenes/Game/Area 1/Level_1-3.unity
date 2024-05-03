@@ -1338,6 +1338,10 @@ PrefabInstance:
       value: NewTutorialCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 5490387009421391251, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
+      propertyPath: tutorialID
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490387009421391251, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}
       propertyPath: finalBubble
       value: 
       objectReference: {fileID: 1627565251}
