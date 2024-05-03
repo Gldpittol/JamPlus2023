@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
     private float originalCountdown;
 
     public static int colorBlindID = 0;
+    private bool hasColorblindAsset;
     
     private void Awake()
     {
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateLanguage();
-        Camera.main.AddComponent<Colorblind>();
+        
         SetColorblindMode();
     }
 
@@ -108,7 +109,28 @@ public class GameManager : MonoBehaviour
 
     public void SetColorblindMode()
     {
-        Camera.main.GetComponent<Colorblind>().Type = colorBlindID;
+        Colorblind cb = Camera.main.GetComponent<Colorblind>();
+
+        if (!cb && colorBlindID != 0)
+        {
+            Camera.main.AddComponent<Colorblind>();
+            Camera.main.GetComponent<Colorblind>().Type = colorBlindID;
+        }
+
+        else if (cb && colorBlindID == 0)
+        {
+            cb.enabled = false;
+        }
+        
+        else  if (cb && colorBlindID != 0)
+        {
+            cb.enabled = true;
+        }
+
+        if (cb != null && cb.enabled)
+        {
+            Camera.main.GetComponent<Colorblind>().Type = colorBlindID;
+        }
     }
 
     public void NextColorblindMode()
