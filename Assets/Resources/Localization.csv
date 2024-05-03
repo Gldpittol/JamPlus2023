@@ -16,9 +16,9 @@ quit_button,Quit,Sair,Salir
 programmer_text,Programmer,Programador,Programador
 artist_text,Artist,Artista,Artista
 producer_text,Producer,Produtor,Productor
-"disclaimer_text", "Musics from I Wanna be the Cat","Músicas de I Wanna be the Cat", "Canciones de I Wanna be the Cat"
+"disclaimer_text", "Musics from ''I Wanna be the Cat''","Músicas de ''I Wanna be the Cat''", "Canciones de ''I Wanna be the Cat''"
 zone_text,Zone,Zona,Zona
-"score_text", "Final Score: {0}","Placar Final: {0}", "Puntuación final: {0}"
+"score_text", "Final Score: {0}","Placar Final: {0}", "Puntuación: {0}"
 continue_button,Continue,Continuar,Continuar
 retry_button,Retry,Reiniciar,Reinicie
 level_select_button,Level Select,Fases,Fases
