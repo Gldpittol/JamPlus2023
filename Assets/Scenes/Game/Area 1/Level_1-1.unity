@@ -1166,7 +1166,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.3933784, g: 0.42383608, b: 0.4716981, a: 0.68235296}
+  m_BackGroundColor: {r: 0.1509434, g: 0.13456747, b: 0.13538626, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1238,6 +1238,7 @@ MonoBehaviour:
   maxY: 1.88
   minX: -3.54
   minY: -1.85
+  bgColor: {r: 0.14901961, g: 0.13333334, b: 0.13725491, a: 1}
 --- !u!1 &617112314 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1304402947993852916, guid: aa2a0db1bc36a5d429054d9fe3c3d8f3, type: 3}

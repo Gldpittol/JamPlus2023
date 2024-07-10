@@ -6,11 +6,13 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public float maxX, maxY, minX, minY;
+    public Color bgColor;
 
     private Camera cam;
     private void Awake()
     {
         cam = GetComponent<Camera>();
+        cam.backgroundColor = bgColor;
     }
 
     private void LateUpdate()

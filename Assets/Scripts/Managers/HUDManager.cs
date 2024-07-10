@@ -61,6 +61,11 @@ public class HUDManager : MonoBehaviour
         UpdateScoreText(0);
     }
 
+    private void Start()
+    {
+        pauseButton.transform.position = GameManager.Instance.pauseButtonPos.transform.position;
+    }
+
     private void Update()
     {
         if (!isAnimating) return;

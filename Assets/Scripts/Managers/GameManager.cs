@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject obstaclesParent;
     [SerializeField] private List<string> possibleObstacleTags = new List<string>();
     [SerializeField] private GameObject loadingCanvas;
+    [SerializeField] public GameObject pauseButtonPos;
+
     public event Action OnUpdateLanguage;
     public static Language language = Language.English;
 

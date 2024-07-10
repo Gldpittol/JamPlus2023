@@ -31,6 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8925595548171003831}
+  - {fileID: 6537052970911924499}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2806000389448666600
@@ -55,10 +56,11 @@ MonoBehaviour:
   playerDeathAddPosition: {x: 10, y: -5}
   arrowStartColor: {r: 0.0658597, g: 0.9433962, b: 0.15363523, a: 1}
   arrowEndColor: {r: 0.8867924, g: 0.06190812, b: 0.06190812, a: 1}
-  flashThreshold: 8
+  flashThresholdPercentage: 0.3
   minShake: 0.5
   maxShake: 0.7
   returnToLevelSelect: 0
+  tempText: {fileID: 0}
   sceneNames:
   - MainMenu
   - LevelSelect
@@ -92,13 +94,46 @@ MonoBehaviour:
   possibleObstacleTags:
   - KillTrigger
   loadingCanvas: {fileID: 7187226742752445299, guid: 20492e34c05cd3546841efe4e3b271dc, type: 3}
+  pauseButtonPos: {fileID: 6281078681262482486}
   playerDataManager: {fileID: 4398248174677757392, guid: eac186ee9cf73b6448f39f93483e46aa, type: 3}
   screenClickManager: {fileID: 5795540042509189084, guid: 446b1103a8d41b34883c0fb0212e0b52, type: 3}
   doDebugs: 1
   debugLevelSelectName: LevelSelect
   useObstacle: 0
   gameState: 0
+  hasStarted: 0
   playerDied: 0
+--- !u!1 &6281078681262482486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6537052970911924499}
+  m_Layer: 0
+  m_Name: PauseButtonPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6537052970911924499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281078681262482486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.22, y: 4.499, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7252512586678225693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9220050342441093698
 PrefabInstance:
   m_ObjectHideFlags: 0

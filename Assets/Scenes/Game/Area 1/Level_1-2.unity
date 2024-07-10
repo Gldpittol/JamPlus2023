@@ -1353,7 +1353,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.3933784, g: 0.42383608, b: 0.4716981, a: 0.68235296}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1425,6 +1425,7 @@ MonoBehaviour:
   maxY: 1.88
   minX: -3.54
   minY: -1.85
+  bgColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &699413734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2250,6 +2251,14 @@ PrefabInstance:
       propertyPath: scoreRequiredSilver
       value: 2000
       objectReference: {fileID: 0}
+    - target: {fileID: 6537052970911924499, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537052970911924499, guid: b9c00afff3848a045992f99961532b47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.555
+      objectReference: {fileID: 0}
     - target: {fileID: 7252512586678225693, guid: b9c00afff3848a045992f99961532b47, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6406958
@@ -2468,9 +2477,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3456783700558329427, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3524913024584707449, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 58.799988
+      value: 58.26
       objectReference: {fileID: 0}
     - target: {fileID: 3901823516994501872, guid: f6cb72d4472bcfa49996b19ec9f94702, type: 3}
       propertyPath: m_AnchoredPosition.x
