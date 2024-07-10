@@ -1,14 +1,14 @@
 key,en,br,es
 press_any_key_to_start,Click anywhere to start!,Clique em qualquer lugar para jogar!,¡Haz clic en cualquier lugar para jugar!
 language_button,English,Português,Español
-colorblind_button_type0,Colorblind Mode,Modo Daltônico,Modo daltónico
+colorblind_button_type0,Colorblind Mode,Modo Daltônico,Modo Daltónico
 colorblind_button_type1,Protanopia,Protanopia,Protanopía
 colorblind_button_type2,Deuteranopia,Deuteranopia,Deuteranopía
 colorblind_button_type3,Tritanopia,Tritanopia,Tritanopía
-reset_button_text,Reset Data,Resetar Dados,Reiniciar datos
+reset_button_text,Reset Data,Resetar Dados,Reiniciar Datos
 back_button,Back,Voltar,Volver
-music_volume,Music Volume,Volume Musical,Volumen musical
-audio_volume,SFX Volume,Volume SFX,Volumen SFX
+music_volume,Music,Música,Música
+audio_volume,SFX,SFX,SFX
 play_button,Play,Jogar,Jugar
 options_button,Options,Opções,Opciones
 credits_button,Credits,Créditos,Créditos
@@ -16,9 +16,9 @@ quit_button,Quit,Sair,Salir
 programmer_text,Programmer,Programador,Programador
 artist_text,Artist,Artista,Artista
 producer_text,Producer,Produtor,Productor
-"disclaimer_text", "Musics from I Wanna be the Cat","Músicas de I Wanna be the Cat", "Canciones de I Wanna be the Cat"
+"disclaimer_text", "Musics from ''I Wanna be the Cat''","Músicas de ''I Wanna be the Cat''", "Canciones de ''I Wanna be the Cat''"
 zone_text,Zone,Zona,Zona
-"score_text", "Final Score: {0}","Placar Final: {0}", "Puntuación final: {0}"
+"score_text", "Final Score: {0}","Placar Final: {0}", "Puntuación: {0}"
 continue_button,Continue,Continuar,Continuar
 retry_button,Retry,Reiniciar,Reinicie
 level_select_button,Level Select,Fases,Fases
