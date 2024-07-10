@@ -6,7 +6,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Wilberforce;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -92,7 +91,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateLanguage();
         
-        SetColorblindMode();
+        //SetColorblindMode();
     }
 
     private void Update()
@@ -109,7 +108,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetColorblindMode()
+    /*public void SetColorblindMode()
     {
         Colorblind cb = Camera.main.GetComponent<Colorblind>();
 
@@ -133,14 +132,16 @@ public class GameManager : MonoBehaviour
         {
             Camera.main.GetComponent<Colorblind>().Type = colorBlindID;
         }
-    }
+    }*/
 
+    /*
     public void NextColorblindMode()
     {
         colorBlindID++;
         if (colorBlindID == 4) colorBlindID = 0;
         SetColorblindMode();
     }
+    */
     
     public void UpdateLanguage()
     {

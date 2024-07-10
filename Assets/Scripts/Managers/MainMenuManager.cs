@@ -74,7 +74,7 @@ public class MainMenuManager : MonoBehaviour
     {
         currentButton = mainMenuButtonsList[0];
         currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
-        SetColorblindButtonText();
+        //SetColorblindButtonText();
     }
 
     private void Update()
@@ -524,14 +524,14 @@ public class MainMenuManager : MonoBehaviour
         isAnimating = false;
     }
 
-    public void SetColorblindButtonText()
+    /*public void SetColorblindButtonText()
     {
         colorblindButtonText.GetComponent<TextLocalizerUI>().SetNewKey("colorblind_button_type" + GameManager.colorBlindID);
     }
 
     public void ChangeColorblindMode()
     {
-        GameManager.Instance.NextColorblindMode();
+     //   GameManager.Instance.NextColorblindMode();
         SetColorblindButtonText();
-    }
+    }*/
 }

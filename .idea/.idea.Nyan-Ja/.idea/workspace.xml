@@ -5,15 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ef7da87-e271-4c63-95af-7d8e4dc11517" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nyan-Ja/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/GameManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/StarsManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/StarsManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Area 1/Level_1-2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/LevelSelect.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/LevelSelect.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets/Scripts/Colorblind.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets/Scripts/Colorblind.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets/Shaders/Colorblind.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Assets/Shaders/Colorblind.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Blue.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Blue.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Cyan.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Cyan.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Green.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Green.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Magenta.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Magenta.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Red.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Red.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/White.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/White.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Yellow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Materials/Yellow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Test Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Test Scene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Test SceneSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Demo/Test SceneSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Documentation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Documentation/Colorblind Manual.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Documentation/Colorblind Manual.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Documentation/ReadMe.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Colorblind Effect/Documentation/ReadMe.txt.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/CameraManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/MainMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MainMenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +181,7 @@
       <workItem from="1714361913662" duration="5376000" />
       <workItem from="1714426282303" duration="455000" />
       <workItem from="1714694109839" duration="937000" />
-      <workItem from="1720633401002" duration="409000" />
+      <workItem from="1720633401002" duration="1064000" />
     </task>
     <servers />
   </component>
