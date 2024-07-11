@@ -44,3 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a92ad2bd6c374438cc400b7f2ded1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData:
+    levelData: []
+    seenTutorialsList: 
+  path: /nyanjasave
+  saveName: /save
+  extensionType: .sav
+  debugMode: 1

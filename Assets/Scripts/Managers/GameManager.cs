@@ -82,7 +82,10 @@ public class GameManager : MonoBehaviour
         
         InitializeObstacleList();
 
-        QualitySettings.vSyncCount = 1;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 120;
+        
+        if(PlayerDataManager.Instance) PlayerDataManager.Instance.SaveGame();
 
         InstantiatePrefabs();
     }
