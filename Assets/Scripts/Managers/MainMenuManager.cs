@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] Canvas secondCanvas;
+
     [SerializeField] private GameObject firstPart;
     [SerializeField] private GameObject firstPart2;
 
@@ -59,7 +61,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private float creditsFadeOutDuration;
     [SerializeField] private List<TextMeshProUGUI> textFadeListcredits = new List<TextMeshProUGUI>();
     [SerializeField] private List<Image> imgFadeListcredits = new List<Image>();
-    
+
     private float currentDelayAutoMove;
     private Button currentButton;
     private GameObject currentOptionsSelection;
@@ -75,6 +77,7 @@ public class MainMenuManager : MonoBehaviour
         currentButton = mainMenuButtonsList[0];
         currentButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = highLightColor;
         //SetColorblindButtonText();
+        if(Screen.width / Screen.height < 1.8f) secondCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0;
     }
 
     private void Update()

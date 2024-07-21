@@ -7,23 +7,30 @@ public class CameraManager : MonoBehaviour
 {
     public float maxX, maxY, minX, minY;
     public Color bgColor;
-
+    public float ratio = 1.777f;
     private Camera cam;
+
+    private float ratioRatio;
+    private float currentRatio;
+    public float orthoSize;
+
     private void Awake()
     {
         cam = GetComponent<Camera>();
+        orthoSize = cam.orthographicSize;
         cam.backgroundColor = bgColor;
+        Rescale();
     }
 
     private void LateUpdate()
     {
-        if (cam.orthographicSize == 5)
+        if (cam.orthographicSize == orthoSize)
         {
             transform.position = new Vector3(0, 0, -10);
             return;
         }
 
-        float ratio = (5 - cam.orthographicSize) / 2;
+        float ratio = (orthoSize - cam.orthographicSize) / 2;
         
         if (transform.position.x > maxX * ratio)
         {
@@ -40,6 +47,24 @@ public class CameraManager : MonoBehaviour
         if (transform.position.y < minY  * ratio)
         {
             transform.position = new Vector3(transform.position.x, minY  * ratio, -10);
+        }
+    }
+
+    public void Rescale()
+    { 
+        currentRatio = (float)Screen.width / (float)Screen.height; 
+        ratioRatio = ratio / currentRatio;
+        ratioRatio += 0.09f;
+        if (currentRatio < ratio)
+        {
+            cam.orthographicSize *= ratioRatio;
+            maxX *= ratioRatio;
+            maxY *= ratioRatio;
+            orthoSize = cam.orthographicSize;
+            /*maxX *= ratioRatio;
+            minX *= ratioRatio;
+            maxY *= ratioRatio;
+            minY *= ratioRatio;*/
         }
     }
 }
