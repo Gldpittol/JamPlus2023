@@ -528,7 +528,7 @@ public class PlayerMovement : MonoBehaviour
         Camera.main.DOOrthoSize(maxCameraZoomIn, maxCameraZoomInDuration).OnComplete(()=>
             Camera.main.DOOrthoSize(Camera.main.GetComponent<CameraManager>().orthoSize, cameraZoomOutDuration));
         Camera.main.transform.DOMove(new Vector3(transform.position.x, transform.position.y, -10), maxCameraZoomInDuration).OnComplete(()=>
-            Camera.main.transform.DOMove(new Vector3(0,0, -10), cameraZoomOutDuration));
+            Camera.main.transform.DOMove(new Vector3(Camera.main.GetComponent<CameraManager>().camOffsetX,0, -10), cameraZoomOutDuration));
         yield return new WaitForSecondsRealtime(timeOnSlowMotion);
         Time.timeScale = 1;
 

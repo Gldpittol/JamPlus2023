@@ -23,6 +23,7 @@ public class StarsManager : MonoBehaviour
     [SerializeField] private  Sprite healthSprite1, healthSprite2, healthSprite3;
 
     [SerializeField] private GameObject starsVFX;
+    [SerializeField] private GameObject secondLeftPillar;
 
     private void Awake()
     {
@@ -197,5 +198,10 @@ public class StarsManager : MonoBehaviour
         {
             health1.SetActive(false);
         }
+    }
+
+    public void ChangePillar2()
+    {
+        secondLeftPillar.GetComponent<SpriteRenderer>().sortingOrder = -10000;
     }
 }

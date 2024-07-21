@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
     public Color bgColor;
     public float ratio = 1.777f;
     private Camera cam;
+    public float camOffsetX;
 
     private float ratioRatio;
     private float currentRatio;
@@ -16,17 +17,20 @@ public class CameraManager : MonoBehaviour
 
     private void Awake()
     {
+        maxX += camOffsetX;
+        minX += camOffsetX;
         cam = GetComponent<Camera>();
         orthoSize = cam.orthographicSize;
         cam.backgroundColor = bgColor;
         Rescale();
+        transform.position = new Vector3(camOffsetX, 0, -10);
     }
 
     private void LateUpdate()
     {
         if (cam.orthographicSize == orthoSize)
         {
-            transform.position = new Vector3(0, 0, -10);
+            transform.position = new Vector3(camOffsetX, 0, -10);
             return;
         }
 
@@ -65,6 +69,10 @@ public class CameraManager : MonoBehaviour
             minX *= ratioRatio;
             maxY *= ratioRatio;
             minY *= ratioRatio;*/
+            if (StarsManager.Instance)
+            {
+                StarsManager.Instance.ChangePillar2();
+            }
         }
     }
 }
