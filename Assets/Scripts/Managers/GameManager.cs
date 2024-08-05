@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameObject playerDataManager;
     [SerializeField] private GameObject screenClickManager;
+    [SerializeField] private GameObject analyticsManager;
 
     [Header("Debug")] 
     [SerializeField] private bool doDebugs;
@@ -193,6 +194,10 @@ public class GameManager : MonoBehaviour
         if (!ScreenClickManager.Instance)
         {
             if(screenClickManager) Instantiate(screenClickManager);
+        }
+        if (!AnalyticsManager.Instance)
+        {
+            if(analyticsManager) Instantiate(analyticsManager);
         }
         Instantiate(loadingCanvas, Vector3.zero, Quaternion.identity);
     }

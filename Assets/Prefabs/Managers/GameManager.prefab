@@ -97,6 +97,7 @@ MonoBehaviour:
   pauseButtonPos: {fileID: 6281078681262482486}
   playerDataManager: {fileID: 4398248174677757392, guid: eac186ee9cf73b6448f39f93483e46aa, type: 3}
   screenClickManager: {fileID: 5795540042509189084, guid: 446b1103a8d41b34883c0fb0212e0b52, type: 3}
+  analyticsManager: {fileID: 7427326920605563189, guid: c5bac4dd8ca8bd146b4748441a32c7fa, type: 3}
   doDebugs: 1
   debugLevelSelectName: LevelSelect
   useObstacle: 0

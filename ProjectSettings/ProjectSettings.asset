@@ -812,11 +812,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 4b23aa3e-4999-4a43-b46a-4ec1efd5f521
+  cloudProjectId: 204a3eac-92e4-4c67-b340-d6044c83ffae
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GameJamPlus2023
-  organizationId: darkmix1
+  projectName: Nyan-ja
+  organizationId: cat-dojo
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
