@@ -29,15 +29,62 @@ public class AnalyticsManager : MonoBehaviour
         await UnityServices.InitializeAsync();
         AnalyticsService.Instance.StartDataCollection();
     }
+    
 
-    public void SendAnalyticDeath()
+    public void SendAnalyticDeath(GameObject deathObject)
     {
-        
-        CustomEvent myEvent = new CustomEvent("Died")
+        string deathObjectString;
+        if(deathObject != null)
         {
-            { "playerDeath", SceneManager.GetActiveScene().name},
+            deathObjectString = deathObject.name + ": " + "X: " + deathObject.transform.position.x + " Y: " +
+                                    deathObject.transform.position.y;
+        }
+        else
+        {
+            deathObjectString = "Time Ended";
+        }
+
+        CustomEvent myEvent = new CustomEvent("playerDeath")
+        {
+            { "scene", SceneManager.GetActiveScene().name},
+            { "score", GameManager.Instance.Score},
+            { "deathObject", deathObjectString},
         };
         AnalyticsService.Instance.RecordEvent(myEvent);
+    }
+
+    public void SendAnalyticLevelClear(int starAmount)
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        float highScore = GameManager.Instance.Score;
+        if (PlayerDataManager.Instance.GetHighScore(sceneName) > highScore)
+        {
+            highScore = PlayerDataManager.Instance.GetHighScore(sceneName);
+        }
+        print(PlayerDataManager.Instance.GetTries(sceneName));
+        CustomEvent myEvent = new CustomEvent("levelClear")
+        {
+            { "scene", sceneName},
+            { "tries", PlayerDataManager.Instance.GetTries(sceneName)},
+            { "hasCleared", starAmount > 0},
+            { "score", GameManager.Instance.Score},
+            { "highScore", highScore},
+            { "starAmount", starAmount},
+            { "jumps", PlayerMovement.Instance.jumps},
+            { "jumps", starAmount > 0 && PlayerDataManager.Instance.GetTries(sceneName) < 2},
+        };
+        AnalyticsService.Instance.RecordEvent(myEvent);
+    }
+
+    public void SendAnalyticsFinishedGame(float completionPercentage)
+    {
+        CustomEvent myEvent = new CustomEvent("finishedGame")
+        {
+            { "completionRate", completionPercentage },
+            { "TotalPlaytime", PlayerDataManager.Instance.Playtime },
+            { "languageGame", LocalizationSystem.language.ToString()}
+        };
         
+        AnalyticsService.Instance.RecordEvent(myEvent);
     }
 }

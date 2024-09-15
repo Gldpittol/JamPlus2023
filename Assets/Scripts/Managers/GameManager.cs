@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour
 
     public static int colorBlindID = 0;
     private bool hasColorblindAsset;
-    
     private void Awake()
     {
         originalCountdown = countdownTime;
@@ -86,7 +85,6 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 120;
         
-        if(PlayerDataManager.Instance) PlayerDataManager.Instance.SaveGame();
 
         InstantiatePrefabs();
     }
@@ -94,7 +92,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateLanguage();
-        
+
+        if (PlayerDataManager.Instance)
+        {
+            PlayerDataManager.Instance.AddTry(SceneManager.GetActiveScene().name);
+            PlayerDataManager.Instance.SaveGame();
+        }
+
         //SetColorblindMode();
     }
 
@@ -235,7 +239,7 @@ public class GameManager : MonoBehaviour
         PlayerMovement.Instance.DisableArrow();
         if (died)
         {
-            SpinPlayer();
+            SpinPlayer(null);
         }
         yield return new WaitForSeconds(delayBeforeGoingToNextLevel);
 
@@ -273,16 +277,18 @@ public class GameManager : MonoBehaviour
 
             HUDManager.Instance.EnableFinalText(false, 0);
         }
+
+        AnalyticsManager.Instance.SendAnalyticLevelClear(starsUnlocked);
     }
 
-    public void SpinPlayer()
+    public void SpinPlayer(GameObject killObject)
     {
-        StartCoroutine(SpinPlayerCoroutine());
+        StartCoroutine(SpinPlayerCoroutine(killObject));
     }
 
-    public IEnumerator SpinPlayerCoroutine()
+    public IEnumerator SpinPlayerCoroutine(GameObject killObject)
     {
-        PlayerMovement.Instance.Die(playerDeathAngle, delayBeforeGoingToNextLevel);
+        PlayerMovement.Instance.Die(playerDeathAngle, delayBeforeGoingToNextLevel, killObject);
         float i = 0;
 
         while (i < 1)
@@ -369,7 +375,6 @@ public class GameManager : MonoBehaviour
             if (returnToLevelSelect)
             {
                 nextSceneId = 1; //index of level select
-            
             }
             LoadingCanvas.Instance.GoToScene(sceneNames[nextSceneId]);
         }

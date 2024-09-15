@@ -17,28 +17,33 @@ public class PlayerDataManager : MonoBehaviour
             public string levelName;
             public float highScore;
             public int starsAchieved;
+            public int tries = 0;
 
             public LevelData()
             {
                 levelName = "";
                 highScore = 0;
                 starsAchieved = 0;
+                tries = 0;
             }
         }
 
         public List<LevelData> levelData = new List<LevelData>();
         public List<int> seenTutorialsList = new List<int>();
+        public float playTime;
 
         public PlayerData()
         {
             levelData = new List<LevelData>();
             seenTutorialsList = new List<int>();
+            playTime = 0;
         }
 
         public PlayerData(PlayerData data)
         {
             levelData = data.levelData;
             seenTutorialsList = data.seenTutorialsList;
+            playTime = data.playTime;
         }
     }
     
@@ -54,6 +59,7 @@ public class PlayerDataManager : MonoBehaviour
 
     private BinaryFormatter formatter;
     private string currentPath;
+    public float Playtime => playerData.playTime;
     
     private void Awake()
     {
@@ -71,6 +77,8 @@ public class PlayerDataManager : MonoBehaviour
     
     private void Update()
     {
+        playerData.playTime += Time.deltaTime;
+        
         if (!debugMode) return;
         
         if (Input.GetKeyDown(KeyCode.L))
@@ -117,6 +125,35 @@ public class PlayerDataManager : MonoBehaviour
         return false;
     }
 
+    public void AddTry(string levelName)
+    {
+        if (!CheckIfLevelIsAlreadyUnlocked(levelName))
+        {
+            UnlockLevel(levelName);
+        }
+        
+        foreach (PlayerData.LevelData data in playerData.levelData)
+        {
+            if (data.levelName == levelName)
+            {
+                data.tries++;
+            }
+        }
+    }
+
+    public int GetTries(string levelName)
+    {
+        foreach (PlayerData.LevelData data in playerData.levelData)
+        {
+            if (data.levelName == levelName)
+            {
+                return data.tries;
+            }
+        }
+
+        return 0;
+    }
+    
     public void ModifyLevel(string levelName, float highScore, int stars)
     {
         if (!CheckIfLevelIsAlreadyUnlocked(levelName))

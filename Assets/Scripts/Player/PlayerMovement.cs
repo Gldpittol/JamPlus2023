@@ -283,8 +283,9 @@ public class PlayerMovement : MonoBehaviour
             StarsManager.Instance.UpdateHealth(health);
             
             //GameManager.Instance.FinishLevel(true);
-            
-            GameManager.Instance.SpinPlayer();
+
+            GameObject killObject = other.gameObject;
+            GameManager.Instance.SpinPlayer(killObject);
             
             if (canSwapAnimation)
             {
@@ -500,10 +501,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Die(float playerDeathAngle, float delayBeforeGoingToNextLevel)
+    public void Die(float playerDeathAngle, float delayBeforeGoingToNextLevel, GameObject killObject)
     {
         isDead = true;
-        AnalyticsManager.Instance.SendAnalyticDeath();
+        AnalyticsManager.Instance.SendAnalyticDeath(killObject);
         ComboBar.Instance.ResetCombo();
         AudioManager.Instance.PlaySound(AudioManager.AudioType.Death);
         AudioManager.Instance.PlaySound(AudioManager.AudioType.CatDeath);
@@ -617,6 +618,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(TouchedBouncerCoroutine(relVel));
     }
 
+    public int jumps;
     public IEnumerator TouchedBouncerCoroutine(Vector2 relVel)
     {
         yield return new WaitForFixedUpdate();
@@ -626,6 +628,7 @@ public class PlayerMovement : MonoBehaviour
         playerRenderer.flipY = false;
         //rb.velocity = rb.velocity.normalized * playerSpeed;
         animator.Play("JumpAnim");
+        jumps++;
         dustVFX.gameObject.SetActive(false);
     }
 

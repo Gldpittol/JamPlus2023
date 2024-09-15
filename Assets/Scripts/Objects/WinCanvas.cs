@@ -47,6 +47,8 @@ public class WinCanvas : MonoBehaviour
             img.sprite = spriteBronze;
             return;
         }
+        
+        AnalyticsManager.Instance.SendAnalyticsFinishedGame(percentage);
     }
 
 }
