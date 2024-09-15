@@ -61,7 +61,6 @@ public class AnalyticsManager : MonoBehaviour
         {
             highScore = PlayerDataManager.Instance.GetHighScore(sceneName);
         }
-        print(PlayerDataManager.Instance.GetTries(sceneName));
         CustomEvent myEvent = new CustomEvent("levelClear")
         {
             { "scene", sceneName},
