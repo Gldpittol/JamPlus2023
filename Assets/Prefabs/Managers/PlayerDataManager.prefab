@@ -47,7 +47,8 @@ MonoBehaviour:
   playerData:
     levelData: []
     seenTutorialsList: 
+    playTime: 0
   path: /nyanjasave
   saveName: /save
   extensionType: .sav
-  debugMode: 1
+  debugMode: 0

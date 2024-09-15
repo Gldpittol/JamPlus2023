@@ -24,11 +24,13 @@ public class WinCanvas : MonoBehaviour
     public void GetStarsAmount()
     {
         float percentage = PlayerDataManager.Instance.GetCompletionPercentage();
-        
+        int stars = PlayerDataManager.Instance.GetTotalStars();
         var tempList = new List<object>();
         tempList.Add((int)(percentage * 100));
         
         achText.GetComponent<TextLocalizerUI>().UpdateParameters(tempList); 
+
+        AnalyticsManager.Instance.SendAnalyticsFinishedGame(percentage, stars);
 
         if (percentage >= goldThreshold)
         {
@@ -47,8 +49,6 @@ public class WinCanvas : MonoBehaviour
             img.sprite = spriteBronze;
             return;
         }
-        
-        AnalyticsManager.Instance.SendAnalyticsFinishedGame(percentage);
     }
 
 }

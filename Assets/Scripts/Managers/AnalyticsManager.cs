@@ -76,11 +76,12 @@ public class AnalyticsManager : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(myEvent);
     }
 
-    public void SendAnalyticsFinishedGame(float completionPercentage)
+    public void SendAnalyticsFinishedGame(float completionPercentage, int totalStars)
     {
-        CustomEvent myEvent = new CustomEvent("finishedCampaign")
+        CustomEvent myEvent = new CustomEvent("finishedGame")
         {
             { "completionRate", completionPercentage },
+            { "totalStars", totalStars},
             { "TotalPlaytime", PlayerDataManager.Instance.Playtime },
             { "languageGame", LocalizationSystem.language.ToString()}
         };

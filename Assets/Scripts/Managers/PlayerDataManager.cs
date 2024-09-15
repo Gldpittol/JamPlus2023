@@ -254,6 +254,21 @@ public class PlayerDataManager : MonoBehaviour
 
         return receivedStars / totalStars;
     }
+
+    public int GetTotalStars()
+    {
+        int totalStars = 0;
+        
+        foreach (PlayerData.LevelData data in playerData.levelData)
+        {
+            if (data.levelName != "LevelSelect" && data.levelName != "MainMenu")
+            {
+                totalStars += data.starsAchieved;
+            }
+        }
+
+        return totalStars;
+    }
     
     public void LoadGame()
     {
