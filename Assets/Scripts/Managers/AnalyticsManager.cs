@@ -71,14 +71,14 @@ public class AnalyticsManager : MonoBehaviour
             { "highScore", highScore},
             { "starAmount", starAmount},
             { "jumps", PlayerMovement.Instance.jumps},
-            { "jumps", starAmount > 0 && PlayerDataManager.Instance.GetTries(sceneName) < 2},
+            { "firstTry", starAmount > 0 && PlayerDataManager.Instance.GetTries(sceneName) < 2},
         };
         AnalyticsService.Instance.RecordEvent(myEvent);
     }
 
     public void SendAnalyticsFinishedGame(float completionPercentage)
     {
-        CustomEvent myEvent = new CustomEvent("finishedGame")
+        CustomEvent myEvent = new CustomEvent("finishedCampaign")
         {
             { "completionRate", completionPercentage },
             { "TotalPlaytime", PlayerDataManager.Instance.Playtime },
